@@ -82,9 +82,9 @@ function createCard(item) {
   const li = document.createElement("li");
   li.className = "card";
   li.innerHTML = `
-        <time datetime="20${item.year}-${item.month}-${item.day}${item.time}">${item.time ? ` ${item.time}` : ""}</time>
+    <time datetime="20${item.year}-${item.month}-${item.day}${item.time}">${item.time ? ` ${item.time}` : ""}</time>
     <article class="entry${item.category ? ` ${item.category}` : ""}">
-      <span class="icon"></span>
+        <span class="icon"></span>
         <h5>${item.description}</h5>
         ${item.title ? `<p>${item.title}</p>` : ""}
         ${item.link ? `<a class="link" href="${item.link}"></a>` : ""}
