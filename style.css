@@ -51,6 +51,7 @@ header{
     height: 100%;
     width: 100%;
     box-shadow: 1.5px 1.5px 3px 0 hsla(256, 32%, 62%,0.3), 3px 3px 12px 0 hsla(256, 32%, 62%,0.3);
+    position: relative;
   }
   article:hover{
     background-color: white;
@@ -67,22 +68,21 @@ max-height: 300px; /* large enough for full content }*/
 
 
 h5{
-    color: blue;
-    font-weight: 900;
-    font-size: 15px;
+    font-size: 12px;
+    font-weight: 800;
+    color: hsl(255, 19%, 36%);
 }
 
 p{
-    color: white;
     font-size: 12px;
-    font-weight: 400;
+    font-weight: 300;
+    color: hsl(257, 16%, 56%);
 }
 
 time{
-    width: 50px;
-    height: 10px;
-    background-color: pink;
-    color: coral;
-    font-size: 24px;
+    width: 30px;
+    height: 18px;
+    font-size: 15px;
     position: absolute;
+    left: -30px;
 }
