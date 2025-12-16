@@ -112,7 +112,6 @@ searchInput.addEventListener("input", e => {
  * EVENTS
  ********************/
 viewport.addEventListener("scroll", render);
-
 /********************
  * INIT
  ********************/
