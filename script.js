@@ -73,15 +73,15 @@ function render() {
 }
 
 function createCard(item) {
-  const div = document.createElement("div");
-  div.className = "card";
-  div.innerHTML = `
+  const li = document.createElement("li");
+  li.className = "card";
+  li.innerHTML = `
     <div class="card-content">
       ${item.description ? `<h5>${item.description}</h5>` : ""}
       ${item.title ? `<p>${item.title}</p>` : ""}
     </div>
   `;
-  return div;
+  return li;
 }
 
 /********************
