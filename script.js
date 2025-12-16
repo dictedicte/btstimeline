@@ -32,10 +32,6 @@ async function loadData() {
   const [, ...body] = rows; // skip header row
 
   data = body.map(row => ({
-    year: row[0] || "",
-    month: row[1] || "",
-    day: row[2] || "",
-    time: row[4] || "",
     description: row[6] || "",
     title: row[7]?.trim() || "",
     searchText: (row[6] + " " + row[7]).toLowerCase()
