@@ -6,7 +6,6 @@
 body{
     background-color: hsl(256, 31%, 90%);
     cursor: default;
-
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -20,9 +19,8 @@ header{
 }
 
 #viewport {
-    height: 500px;
+    height: calc(100% - 51px);
     overflow-y: auto;
-    border: 1px solid #ccc;
     position: relative;
   }
 
@@ -40,7 +38,7 @@ header{
     right: 0;
   }
   .card {
-    height: 80px; /* MUST be fixed for this simple version */
+    height: 60px; /* MUST be fixed for this simple version */
     box-sizing: border-box;
     padding: 4.5px 30px 4.5px 60px;
   }
@@ -56,15 +54,6 @@ header{
   article:hover{
     background-color: white;
   }
-/*
-  .card-content{
-      max-height: 80px;
-      overflow: hidden;
-      transition: max-height 0.25s ease;
-      background-color: yellow;
-  }
-.card:hover .card-content {
-max-height: 300px; /* large enough for full content }*/
 
 
 h5{
