@@ -80,11 +80,11 @@ function createCard(item) {
   const li = document.createElement("li");
   li.className = "card";
   li.innerHTML = `
-    <div class="card-content">
+    <article>
         <time datetime="20${item.year}-${item.month}-${item.day} ${item.time}">${item.title ? `${item.time}` : ""}</time>
         <h5>${item.description}</h5>
         ${item.title ? `<p>${item.title}</p>` : ""}
-    </div>
+    </article>
   `;
   return li;
 }
