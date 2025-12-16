@@ -4,9 +4,20 @@
 }
 
 body{
-    background-color: purple;
-}
+    background-color: hsl(256, 31%, 90%);
+    cursor: default;
 
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+header{
+    height: 51px;
+    background-color: hsl(256, 42%, 51%);
+    flex-shrink: 0;
+    overflow: hidden;
+    width: 100%;
+}
 
 #viewport {
     height: 500px;
@@ -31,14 +42,13 @@ body{
   .card {
     height: 80px; /* MUST be fixed for this simple version */
     box-sizing: border-box;
-    border-bottom: 1px solid #eee;
-    padding: 10px;
-    background-color: red;
-  }
-  .card:hover{
-      background-color: white;
   }
 
+  article{
+    background-color: orange;
+    margin: 12px;
+  }
+/*
   .card-content{
       max-height: 80px;
       overflow: hidden;
@@ -46,8 +56,8 @@ body{
       background-color: yellow;
   }
 .card:hover .card-content {
-max-height: 300px; /* large enough for full content */
-}
+max-height: 300px; /* large enough for full content }*/
+
 
 h5{
     color: blue;
