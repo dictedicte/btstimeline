@@ -39,13 +39,12 @@ header{
   }
   .card {
     height: 60px; /* MUST be fixed for this simple version */
-    box-sizing: border-box;
-    padding: 4.5px 30px 4.5px 60px;
+    box-sizing: border-box
     max-width: 700px;
       position: relative;
   }
 
-  article{
+  .entry{
     background-color: hsla(0, 0%, 100%, 0.75);
     border-radius: 15px;
     height: 100%;
@@ -57,18 +56,18 @@ header{
       justify-content: center;
       overflow: hidden;
   }
-  article:hover{
+  .entry:hover{
     background-color: white;
   }
 
 
-h5{
+.entry h5{
     font-size: 12px;
     font-weight: 800;
     color: hsl(255, 19%, 36%);
 }
 
-p{
+.entry p{
     font-size: 12px;
     font-weight: 300;
     color: hsl(257, 16%, 56%);
@@ -80,4 +79,17 @@ time{
     font-size: 12px;
     position: absolute;
     left: -30px;
+}
+
+.icon{
+    position: absolute;
+    width: 51px;
+    width: 51px;
+    left: 0;
+    top: 0;
+    background-color: red;
+}
+
+.entry a{
+    position: absolute;
 }
