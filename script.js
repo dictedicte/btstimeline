@@ -39,6 +39,7 @@ async function loadData() {
     category: row[5] || "",
     description: row[6] || "",
     title: row[7]?.trim() || "",
+    link: row[9]?.trim() || "",
     searchText: (row[6] + " " + row[7]).toLowerCase()
   }));
 
@@ -83,8 +84,10 @@ function createCard(item) {
   li.innerHTML = `
         <time datetime="20${item.year}-${item.month}-${item.day}${item.time}">${item.time ? ` ${item.time}` : ""}</time>
     <article class="entry${item.category ? ` ${item.category}` : ""}">
+      <span class="icon"></span>
         <h5>${item.description}</h5>
         ${item.title ? `<p>${item.title}</p>` : ""}
+        ${item.link ? `<a class="link" href="${item.link}"></a>` : ""}
     </article>
   `;
   return li;
