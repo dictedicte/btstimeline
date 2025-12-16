@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    border: 0;
 }
 
 body{
@@ -54,6 +55,7 @@ header{
       display: flex;
       flex-direction: column;
       justify-content: center;
+      margin: 6px 30px 6px 30px;
   }
   .entry:hover{
     background-color: white;
@@ -81,14 +83,13 @@ time{
 }
 
 .icon{
-    position: absolute;
     width: 51px;
     width: 51px;
-    left: 0;
-    top: 0;
     background-color: red;
 }
 
 .entry a{
-    position: absolute;
+    width: 51px;
+    width: 51px;
+    background-color: blue;
 }
