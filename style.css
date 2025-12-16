@@ -1,0 +1,249 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: btsFont;
+    src: url(fonnts.com-SolanoGothicMVB-Bd.ttf);
+}
+
+li{list-style: none;}
+a{cursor: pointer;}
+
+body{
+    background-color: hsl(256, 31%, 90%);
+    cursor: default;
+
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header{
+    height: 51px;
+    background-color: hsl(256, 42%, 51%);
+    flex-shrink: 0;
+    overflow: hidden;
+}
+header.search{
+    height: 102px;
+}
+header.adjustments{
+    height: 102px;
+}
+header.date-finder{
+    height: 102px;
+}
+#menu{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 51px;
+    margin-left: 7.5px;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: hsl(256, 52%, 60%);
+    box-shadow: 1px 2px 0 0 hsl(256, 50%, 58%), 1.5px 1.5px 3px 0 hsla(256, 47%, 34%, 0.3), 3px 3px 12px 0 hsla(256, 47%, 34%, 0.12);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-image: url(images/menu_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg);
+}
+header h1{
+    height: fit-content;
+    margin: 6px 0;
+    margin-left: 51px;
+    color: white;
+    font-family: btsFont;
+    font-size: 30px;
+    background-color: hsl(256, 48%, 49%);
+    width: fit-content;
+    padding: 3px 9px;
+    border-radius: 12px;
+    box-shadow: inset 0.5px 1px 6px 0 hsl(256, 52%, 45%);
+    height: 39px;
+    box-sizing: border-box;
+    
+}
+.header-buttons{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 51px;
+    margin-right: 7.5px;
+}
+header button{
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    border: 0;
+    border-radius: 50%;
+    background-color: hsl(256, 52%, 60%);
+    box-shadow: 1px 2px 0 0 hsl(256, 50%, 58%), 1.5px 1.5px 3px 0 hsla(256, 47%, 34%, 0.3), 3px 3px 12px 0 hsla(256, 47%, 34%, 0.12);
+    margin: 0 4.5px 0 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 60%;
+}
+header button.active{
+    background-color: hsl(256, 48%, 49%);
+    box-shadow: none;
+    transform: translateX(1px) translateY(2px);
+    box-shadow: inset 0.5px 1px 6px 0 hsl(256, 52%, 45%);
+}
+
+#btn-search{
+    background-image: url(images/search_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg);
+}
+#btn-adjustments{
+    background-image: url(images/discover_tune_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg);
+}
+#btn-date-finder{
+    background-image: url(images/calendar_today_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg);
+}
+
+#search,#adjustments,#datefinder{
+    /* background-color: hsl(256, 48%, 49%); */
+    height: 51px;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(200px);
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+#search.search{
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0px);
+}
+    #search input{
+        width: 90%;
+        border: 0;
+        outline: 0;
+        padding: 6px 9px;
+        border-radius: 9px;
+        overflow: visible;
+        font-size: 15px;
+        color: hsl(256, 48%, 49%);
+    }
+#adjustments.adjustments{
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0px);
+}
+#datefinder.date-finder{
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+
+main{
+    /* height: calc(100vh - 42px); */
+    overflow: scroll;
+}
+
+.header-overlay,.main-overlay{
+    width: 100%;
+    max-width: 810px;
+    margin: auto;
+    position: relative;
+}
+
+.year,.month{
+    position: sticky;
+    top: 0;
+    color: hsl(256, 52%, 69%);
+    height: 42px;
+    line-height: 42px;
+    padding: 0 12px;
+}
+.year{
+    float: right;
+    z-index: 500;
+}
+.month{
+    background-color: hsl(256, 31%, 90%);
+    z-index: 400;
+    width: 100%;
+}
+
+.day{
+    position: sticky;
+    top: 42px;
+    z-index: 300;
+    height: 0;
+}
+
+
+.entry-overlay{
+    padding: 4.5px 0;
+    position: relative;
+}
+
+time{
+    position: absolute;
+    display: none;
+}
+.entry{
+    background-color: hsla(0, 0%, 100%, 0.75);
+    border-radius: 15px;
+    min-height: 51px;
+    height: 51px;
+    margin: 0 30px 0 60px;
+    box-shadow: 1.5px 1.5px 3px 0 hsla(256, 32%, 62%,0.3), 3px 3px 12px 0 hsla(256, 32%, 62%,0.3);
+}
+.entry[hidden]{
+    display: none;
+}
+.entry:hover{
+    height: fit-content;
+    background-color: white;
+}
+.entry-main{
+    min-height: 51px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+    .entry-main h5{
+        font-size: 12px;
+        font-weight: 800;
+    }
+    .entry-main p{
+        font-size: 12px;
+        font-weight: 300;
+    }
+
+.entry-album,.entry-details{
+    display: none;
+}
+.entry:hover .entry-album,
+.entry:hover .entry-details{
+    display: flex;
+}
+
+.entry-icon{
+    height: 51px;
+    width: 51px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 75%;
+}
+
+.music .entry-icon{
+    background-image: url(images/icons/music.png);
+}
