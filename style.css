@@ -51,6 +51,9 @@ header{
     width: 100%;
     box-shadow: 1.5px 1.5px 3px 0 hsla(256, 32%, 62%,0.3), 3px 3px 12px 0 hsla(256, 32%, 62%,0.3);
     position: relative;
+      display: flex;
+      justify-content: center;
+      align-center: center;
   }
   article:hover{
     background-color: white;
