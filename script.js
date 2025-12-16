@@ -4,7 +4,7 @@
 const SHEET_URL =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vTS6wfn1OoHNUypQssK_Rxb6H-hFn6sCySRCRUxfQknwlfLnjchcL-8SNFTBpGPjv_CAthaNavJCVTs/pub?gid=1105312639&single=true&output=csv";
 
-const CARD_HEIGHT = 80;
+const CARD_HEIGHT = 60;
 const BUFFER = 5;
 
 /********************
