@@ -32,9 +32,9 @@ async function loadData() {
   const [, ...body] = rows; // skip header row
 
   data = body.map(row => ({
-    description: row[7]?.trim() || "",
-    title: row[8]?.trim() || "",
-    searchText: (row[7] + " " + row[8]).toLowerCase()
+    description: row[6]?.trim() || "",
+    title: row[7]?.trim() || "",
+    searchText: (row[6] + " " + row[7]).toLowerCase()
   }));
 
   filtered = data;
