@@ -81,7 +81,6 @@ function createCard(item) {
   li.className = "card";
   li.innerHTML = `
     <article>
-        <time datetime="20${item.year}-${item.month}-${item.day} ${item.time}">${item.time ? `${item.time}` : ""}</time>
         <h5>${item.description}</h5>
         ${item.title ? `<p>${item.title}</p>` : ""}
     </article>
