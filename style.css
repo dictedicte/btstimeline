@@ -43,3 +43,14 @@ body{
 .card:hover .card-content {
 max-height: 300px; /* large enough for full content */
 }
+h5{
+    color: blue;
+    font-weight: 900;
+    font-size: 15px;
+}
+
+p{
+    color: white;
+    font-size: 12px;
+    font-weight: 400;
+}
