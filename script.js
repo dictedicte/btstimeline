@@ -32,7 +32,11 @@ async function loadData() {
   const [, ...body] = rows; // skip header row
 
   data = body.map(row => ({
-    description: row[6]?.trim() || "",
+    year: row[0] || "",
+    month: row[1] || "",
+    day: row[2] || "",
+    time: row[4] || "",
+    description: row[6] || "",
     title: row[7]?.trim() || "",
     searchText: (row[6] + " " + row[7]).toLowerCase()
   }));
@@ -77,8 +81,9 @@ function createCard(item) {
   li.className = "card";
   li.innerHTML = `
     <div class="card-content">
-      ${item.description ? `<h5>${item.description}</h5>` : ""}
-      ${item.title ? `<p>${item.title}</p>` : ""}
+        <time datetime="20${item.year}-${item.month}-${item.day} ${item.time}">${item.title ? `${item.time}` : ""}</time>
+        <h5>${item.description}</h5>
+        ${item.title ? `<p>${item.title}</p>` : ""}
     </div>
   `;
   return li;
