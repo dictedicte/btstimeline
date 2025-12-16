@@ -75,8 +75,8 @@ p{
 }
 
 time{
-    width: 30px;
-    height: 18px;
+    width: 0px;
+    height: 0px;
     font-size: 12px;
     position: absolute;
     left: -30px;
