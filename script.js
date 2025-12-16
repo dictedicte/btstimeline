@@ -74,7 +74,7 @@ function render() {
 
 function createCard(item) {
   const div = document.createElement("div");
-  div.className = "entry";
+  div.className = "card";
   div.innerHTML = `
     <div class="card-content">
       <h5>${item.description}</h5>
