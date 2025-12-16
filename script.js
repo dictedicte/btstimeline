@@ -32,8 +32,8 @@ async function loadData() {
   const [, ...body] = rows; // skip header row
 
   data = body.map(row => ({
-    description: row[7] || "",
-    text: row[8]?.trim() || "",
+    description: row[7]?.trim() || "",
+    title: row[8]?.trim() || "",
     searchText: (row[7] + " " + row[8]).toLowerCase()
   }));
 
@@ -77,8 +77,8 @@ function createCard(item) {
   div.className = "card";
   div.innerHTML = `
     <div class="card-content">
-      <h5>${item.description}</h5>
-      ${item.text ? `<p>${item.text}</p>` : ""}
+      ${item.description ? `<h5>${item.description}</h5>` : ""}
+      ${item.title ? `<p>${item.title}</p>` : ""}
     </div>
   `;
   return div;
