@@ -42,7 +42,8 @@ header{
   .card {
     height: 80px; /* MUST be fixed for this simple version */
     box-sizing: border-box;
-    border: 1px green solid;
+    border: 1px red solid;
+    background-color: green;
   }
 
   article{
