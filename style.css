@@ -43,6 +43,7 @@ header{
     box-sizing: border-box
     max-width: 700px;
       position: relative;
+      padding: 4.5px 30px;
   }
 
   .entry{
@@ -66,12 +67,16 @@ header{
     font-size: 12px;
     font-weight: 800;
     color: hsl(255, 19%, 36%);
+    height: 15px;
+    overflow: hidden;
 }
 
 .entry p{
     font-size: 12px;
     font-weight: 300;
     color: hsl(257, 16%, 56%);
+    height: 12px;
+    overflow: hidden;
 }
 
 time{
@@ -80,16 +85,19 @@ time{
     font-size: 12px;
     position: absolute;
     left: -30px;
+    display: none;
 }
 
 .icon{
-    width: 51px;
-    width: 51px;
+    width: 30px;
+    width: 30px;
     background-color: red;
+    display: block;
 }
 
 .entry a{
-    width: 51px;
-    width: 51px;
+    width: 30px;
+    width: 30px;
     background-color: blue;
+    display: block;
 }
