@@ -79,9 +79,9 @@ function render() {
 }
 
 function createCard(item) {
-  const li = document.createElement("li");
-  li.className = "card";
-  li.innerHTML = `
+  const div = document.createElement("div");
+  div.className = "card";
+  div.innerHTML = `
     <time datetime="20${item.year}-${item.month}-${item.day}${item.time}">${item.time ? ` ${item.time}` : ""}</time>
     <article class="entry${item.category ? ` ${item.category}` : ""}">
         <span class="icon"></span>
@@ -90,7 +90,7 @@ function createCard(item) {
         ${item.link ? `<a class="link" href="${item.link}"></a>` : ""}
     </article>
   `;
-  return li;
+  return div;
 }
 
 /********************
