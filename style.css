@@ -9,7 +9,6 @@ body{
 
     display: flex;
     flex-direction: column;
-    height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
 }
 header{
@@ -19,26 +18,26 @@ header{
     width: 100%;
 }
 
-#viewport {
-    overflow-y: auto;
-    max-height: calc(100% - 51px);
-    position: absolute;
-    bottom: 0;
-  }
+    #viewport {
+      height: 500px;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      position: relative;
+    }
 
-  #spacer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-  }
+    #spacer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
 
-  #items {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-  }
+    #items {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
   .card {
     height: 60px; /* MUST be fixed for this simple version */
     box-sizing: border-box;
