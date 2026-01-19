@@ -116,5 +116,6 @@ viewport.addEventListener("scroll", render);
 
 /********************
  * INIT
- ********************/
+ *******************/
 loadData();
+
