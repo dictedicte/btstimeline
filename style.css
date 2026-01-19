@@ -43,7 +43,6 @@ header{
   .card {
     height: 60px; /* MUST be fixed for this simple version */
     box-sizing: border-box;
-    padding: 4.5px 30px 4.5px 60px;
   }
 
   article{
