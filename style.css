@@ -1,15 +1,17 @@
 *{
     margin: 0;
     padding: 0;
+    transition-property: all;
+    transition-duration: 0.3s;
 }
 
 @font-face {
-  font-family: btsfont1;
+  font-family: SolanoGothic;
   src: url(fonnts.com-SolanoGothicMVB-Bd.ttf);
 }
 @font-face {
-  font-family: btsfont2;
-  src: url(fonnts.com-SolanoGothicMVB-Rg.ttf);
+  font-family: Teko;
+  src: url(Teko-VariableFont_wght.ttf);
 }
 
 body{
@@ -19,7 +21,8 @@ body{
     display: flex;
     flex-direction: column;
     height: 100vh;
-    font-family: btsfont2;
+    font-family: Teko;
+    letter-spacing: 0.6px;
 }
 header{
     height: 51px;
@@ -27,6 +30,10 @@ header{
     flex-shrink: 0;
     overflow: hidden;
     width: 100%;
+}
+h1{
+  font-family: SolanoGothic;
+  font-weight: 1000;
 }
 
 
@@ -52,7 +59,7 @@ header{
     }
 
   .card {
-    height: 60px; /* MUST be fixed for this simple version */
+    height: 66px; /* MUST be fixed for this simple version */
     box-sizing: border-box;
     padding: 0 30px 0 60px;
     max-width: 700px;
@@ -61,7 +68,7 @@ header{
   article{
     background-color: hsla(0, 0%, 100%, 0.75);
     border-radius: 15px;
-    height: 51px;
+    height: 57px;
     width: 100%;
     box-shadow: 1.5px 1.5px 3px 0 hsla(256, 32%, 62%,0.3), 3px 3px 12px 0 hsla(256, 32%, 62%,0.3);
     position: relative;
@@ -87,24 +94,24 @@ max-height: 300px; /* large enough for full content }*/
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: calc(100% - 102px);
+  width: calc(100% - 114px);
+  min-height: 57px;
 }
 
 h5{
-    font-size: 14px;
-    font-weight: 1000;
+    font-size: 17px;
+    font-weight: 550;
     color: hsl(255, 19%, 36%);
-    margin-top: 9px;
-    letter-spacing: 1.5px;
+    line-height: 20px;
+    margin-top: 3px;
+    letter-spacing: 0.9px;
 }
 
 p{
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 15px;
+    font-weight: 450;
     color: hsl(257, 16%, 56%);
-    margin-top: 3px;
-    letter-spacing: 0.6px;
-    font-family: btsfont1;
+    line-height: 20px;
 }
 
 time{
@@ -123,15 +130,15 @@ time{
   background-size: 51%;
   position: absolute;
   right: 0;
-  height: 33px;
-  width: 33px;
+  height: 39px;
+  width: 39px;
   margin: 9px;
-  background-color: hsl(256, 43%, 55%);
-  border-radius: 50%;
+  background-color: #d0c4f4;
+  border-radius: 9px;
   cursor: pointer;
 }
 .link:hover{
-  background-color: hsl(256, 57%, 64%);
+  background-color: #8c70d9;
 }
 
 .icon{
@@ -141,8 +148,8 @@ time{
   background-size: 51%;
   position: absolute;
   left: 0;
-  height: 51px;
-  width: 51px;
+  height: 57px;
+  width: 57px;
 }
 
 
@@ -171,4 +178,5 @@ time{
 
 .package .icon{ background-image: url(images/icons/physical.png); }
 .dvd .icon{ background-image: url(images/icons/dvd.png); }
+.filmography .icon{ background-image: url(images/icons/tv.png); }
 
