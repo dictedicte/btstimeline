@@ -21,7 +21,7 @@ header{
 
 #viewport {
     overflow-y: auto;
-    height: calc(100% - 51px);
+    max-height: calc(100% - 51px);
     position: absolute;
     bottom: 0;
   }
