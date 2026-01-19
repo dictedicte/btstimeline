@@ -96,29 +96,16 @@ time{
 
 .icon{
   display: block;
-  height: 51px;
-  width: 51px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: 51%;
   position: absolute;
   left: 0;
+  height: 51px;
+  width: 51px;
 }
 
 
-
-.icon::after{ 
-    content: "";
-    position: absolute;
-    left: 30px;
-    bottom: 10px;
-    width: 12px;
-    height: 12px;
-
-    background-size: 90%;
-    background-position: center;
-    background-repeat: no-repeat;
-}
 .music .icon{background-image: url(images/icons/music.png);}
 
 .event .icon{ background-image: url(images/icons/ticket.png); }
@@ -145,12 +132,4 @@ time{
 .package .icon{ background-image: url(images/icons/physical.png); }
 .dvd .icon{ background-image: url(images/icons/dvd.png); }
 
-
-
-.live .icon::after{ background-image: url(images/icons/live.png); }
-.music .icon::after{ background-image: url(images/icons/music.png); }
-.notice .icon::after{ 
-    background-image: url(images/icons/loudspeaker.png); 
-    background-size: 100%;
-}
 
