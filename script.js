@@ -35,11 +35,11 @@ async function loadData() {
     year: row[0] || "",
     month: row[1] || "",
     day: row[2] || "",
-    time: row[4]?.trim() || "",
-    category: row[5] || "",
-    description: row[6] || "",
-    title: row[7]?.trim() || "",
-    searchText: (row[6] + " " + row[7]).toLowerCase()
+    time: row[3]?.trim() || "",
+    category: row[4] || "",
+    description: row[5] || "",
+    title: row[6]?.trim() || "",
+    searchText: (row[5] + " " + row[6]).toLowerCase()
   }));
 
   filtered = data;
@@ -116,6 +116,5 @@ viewport.addEventListener("scroll", render);
 
 /********************
  * INIT
- *******************/
+ ********************/
 loadData();
-
