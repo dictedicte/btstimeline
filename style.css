@@ -3,20 +3,28 @@
     padding: 0;
 }
 
+@font-face {
+  font-family: btsfont;
+  src: url(fonnts.com-SolanoGothicMVB-Bd.ttf);
+}
+
 body{
     background-color: hsl(256, 31%, 90%);
     cursor: default;
 
     display: flex;
     flex-direction: column;
-    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    font-family: btsfont;
 }
 header{
     height: 51px;
     background-color: hsl(256, 42%, 51%);
     flex-shrink: 0;
+    overflow: hidden;
     width: 100%;
 }
+
 
     #viewport {
       height: 500px;
@@ -38,10 +46,12 @@ header{
       left: 0;
       right: 0;
     }
+
   .card {
     height: 60px; /* MUST be fixed for this simple version */
     box-sizing: border-box;
-    padding: 4.5px 30px 4.5px 60px;
+    padding: 0 30px 0 60px;
+    max-width: 700px;
   }
 
   article{
@@ -68,21 +78,27 @@ header{
 .card:hover .card-content {
 max-height: 300px; /* large enough for full content }*/
 
+.main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: calc(100% - 102px);
+}
 
 h5{
-    font-size: 12px;
-    font-weight: 800;
+    font-size: 14px;
+    font-weight: 1000;
     color: hsl(255, 19%, 36%);
-    width: calc(100% - 102px);
-    margin-top: 6px;
+    margin-top: 9px;
+    letter-spacing: 1.5px;
 }
 
 p{
-    font-size: 12px;
-    font-weight: 300;
+    font-size: 14px;
+    font-weight: 500;
     color: hsl(257, 16%, 56%);
-    width: calc(100% - 102px);
     margin-top: 3px;
+    letter-spacing: 0.6px;
 }
 
 time{
@@ -92,6 +108,21 @@ time{
   position: absolute;
   left: -42px;
   text-align: center;
+}
+
+.link{
+  display: block;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 51%;
+  position: absolute;
+  right: 0;
+  height: 33px;
+  width: 33px;
+  margin: 9px;
+  background-color: hsl(256, 42%, 51%);
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 .icon{
