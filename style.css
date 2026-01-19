@@ -21,7 +21,9 @@ header{
 
 #viewport {
     overflow-y: auto;
-    position: relative;
+    height: calc(100% - 51px);
+    position: absolute;
+    bottom: 0;
   }
 
   #spacer {
