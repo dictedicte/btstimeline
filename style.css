@@ -4,7 +4,11 @@
 }
 
 @font-face {
-  font-family: btsfont;
+  font-family: btsfont1;
+  src: url(fonnts.com-SolanoGothicMVB-Bd.ttf);
+}
+@font-face {
+  font-family: btsfont2;
   src: url(fonnts.com-SolanoGothicMVB-Rg.ttf);
 }
 
@@ -15,7 +19,7 @@ body{
     display: flex;
     flex-direction: column;
     height: 100vh;
-    font-family: btsfont;
+    font-family: btsfont2;
 }
 header{
     height: 51px;
@@ -100,6 +104,7 @@ p{
     color: hsl(257, 16%, 56%);
     margin-top: 3px;
     letter-spacing: 0.6px;
+    font-family: btsfont1;
 }
 
 time{
@@ -121,9 +126,12 @@ time{
   height: 33px;
   width: 33px;
   margin: 9px;
-  background-color: hsl(256, 42%, 51%);
+  background-color: hsl(256, 43%, 55%);
   border-radius: 50%;
   cursor: pointer;
+}
+.link:hover{
+  background-color: hsl(256, 57%, 64%);
 }
 
 .icon{
