@@ -19,11 +19,7 @@ header{
     width: 100%;
 }
 
-#viewport {
-    height: calc(100% - 51px);
-    overflow-y: auto;
-    position: absolute;
-  }
+
 
   #spacer {
     position: absolute;
