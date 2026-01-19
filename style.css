@@ -16,7 +16,6 @@ header{
     height: 51px;
     background-color: hsl(256, 42%, 51%);
     flex-shrink: 0;
-    overflow: hidden;
     width: 100%;
 }
 
