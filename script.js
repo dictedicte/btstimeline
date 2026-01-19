@@ -35,12 +35,11 @@ async function loadData() {
     year: row[0] || "",
     month: row[1] || "",
     day: row[2] || "",
-    time: row[3]?.trim() || "",
-    category: row[4] || "",
-    description: row[5] || "",
-    title: row[6]?.trim() || "",
-    link: row[7]?.trim() || "",
-    searchText: (row[5] + " " + row[6]).toLowerCase()
+    time: row[4]?.trim() || "",
+    category: row[5] || "",
+    description: row[6] || "",
+    title: row[7]?.trim() || "",
+    searchText: (row[6] + " " + row[7]).toLowerCase()
   }));
 
   filtered = data;
@@ -79,18 +78,16 @@ function render() {
 }
 
 function createCard(item) {
-  const div = document.createElement("div");
-  div.className = "card";
-  div.innerHTML = `
-    <time datetime="20${item.year}-${item.month}-${item.day}${item.time}">${item.time ? ` ${item.time}` : ""}</time>
-    <article class="entry${item.category ? ` ${item.category}` : ""}">
-        <span class="icon"></span>
+  const li = document.createElement("li");
+  li.className = "card";
+  li.innerHTML = `
+    <article class="${item.category}">
+        <time datetime="20${item.year}-${item.month}-${item.day} ${item.time}">${item.time ? `${item.time}` : ""}</time>
         <h5>${item.description}</h5>
         ${item.title ? `<p>${item.title}</p>` : ""}
-        ${item.link ? `<a class="link" href="${item.link}"></a>` : ""}
     </article>
   `;
-  return div;
+  return li;
 }
 
 /********************
@@ -116,8 +113,8 @@ searchInput.addEventListener("input", e => {
  * EVENTS
  ********************/
 viewport.addEventListener("scroll", render);
+
 /********************
  * INIT
  ********************/
 loadData();
-
