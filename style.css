@@ -21,7 +21,7 @@ header{
 }
 
 #viewport {
-    height: calc(100% - 51px);
+    max-height: calc(100% - 51px);
     overflow-y: auto;
     border: 1px solid #ccc;
     position: relative;
@@ -43,6 +43,7 @@ header{
   .card {
     height: 60px; /* MUST be fixed for this simple version */
     box-sizing: border-box;
+    padding: 4.5px 30px 4.5px 60px;
   }
 
   article{
@@ -106,4 +107,52 @@ time{
   left: 0;
 }
 
+
+
+.icon::after{ 
+    content: "";
+    position: absolute;
+    left: 30px;
+    bottom: 10px;
+    width: 12px;
+    height: 12px;
+
+    background-size: 90%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 .music .icon{background-image: url(images/icons/music.png);}
+
+.event .icon{ background-image: url(images/icons/ticket.png); }
+
+.youtube .icon{ background-image: url(images/icons/social-media/youtube.png); }
+.daumcafe .icon{ background-image: url(images/icons/social-media/daumcafe.svg); }
+.facebook .icon{ background-image: url(images/icons/social-media/facebook.png); }
+.instagram .icon{ background-image: url(images/icons/social-media/instagram.svg); }
+.japanfanclub .icon{ background-image: url(images/icons/social-media/japanfanclub.png); }
+.naverblog .icon{ background-image: url(images/icons/social-media/naverblog.png); }
+.soundcloud .icon{ background-image: url(images/icons/social-media/soundcloud.png); }
+.stationhead .icon{ background-image: url(images/icons/social-media/stationhead.jpg); }
+.tiktok .icon{ background-image: url(images/icons/social-media/tiktok.png); }
+.bangtanblog .icon{ background-image: url(images/icons/social-media/tistory.png); }
+.twitter .icon{ background-image: url(images/icons/social-media/twitter.png); }
+.x .icon{ background-image: url(images/icons/social-media/x.png); }
+.weibo .icon{ background-image: url(images/icons/social-media/weibo.svg); }
+.weverse .icon{ background-image: url(images/icons/social-media/weverse.svg); }
+
+.birthday .icon{ background-image: url(images/icons/birthday.png); }
+.anniversary .icon{ background-image: url(images/icons/anniversary.png); }
+.military .icon{ background-image: url(images/icons/military.png); }
+
+.package .icon{ background-image: url(images/icons/physical.png); }
+.dvd .icon{ background-image: url(images/icons/dvd.png); }
+
+
+
+.live .icon::after{ background-image: url(images/icons/live.png); }
+.music .icon::after{ background-image: url(images/icons/music.png); }
+.notice .icon::after{ 
+    background-image: url(images/icons/loudspeaker.png); 
+    background-size: 100%;
+}
+
