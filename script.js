@@ -81,65 +81,6 @@ document.querySelectorAll(".icon").forEach(el => {
 
 
 
-// Get all containers
-const containers = document.querySelectorAll('.timeline, .month-overlay, .day-overlay');
-
-// Store original order indices for restoring
-containers.forEach(container => {
-  Array.from(container.children).forEach((child, i) => {
-    child.dataset.index = i;
-    child.classList.add('visible'); // ensures starting visibility
-  });
-});
-
-// Function to update order
-function updateOrder(reverse, animate = true) {
-  containers.forEach(container => {
-    const children = Array.from(container.children);
-    const first = children.shift();
-    let rest = reverse
-      ? children.reverse()
-      : children.sort((a, b) => a.dataset.index - b.dataset.index);
-
-    if (animate) {
-      // Animate fade-out → reorder → fade-in
-      container.classList.add('flipping');
-      children.forEach(child => child.classList.remove('visible'));
-
-      setTimeout(() => {
-        container.innerHTML = '';
-        container.appendChild(first);
-        rest.forEach(el => container.appendChild(el));
-
-        requestAnimationFrame(() => {
-          container.classList.remove('flipping');
-          Array.from(container.children).forEach(el => el.classList.add('visible'));
-        });
-      }, 1);
-    } else {
-      // No animation (used for initial page load)
-      container.innerHTML = '';
-      container.appendChild(first);
-      rest.forEach(el => container.appendChild(el));
-    }
-  });
-}
-
-// Radio listeners
-document.getElementById('oldestfirst').addEventListener('change', e => {
-  if (e.target.checked) updateOrder(false);
-});
-document.getElementById('newestfirst').addEventListener('change', e => {
-  if (e.target.checked) updateOrder(true);
-});
-
-// ✅ On page load: detect which radio is selected, apply order (no animation)
-window.addEventListener('DOMContentLoaded', () => {
-  const newestfirstChecked = document.getElementById('newestfirst').checked;
-  updateOrder(newestfirstChecked, false); // no animation on first render
-});
-
-
 
 /*SEARCH */
 function filterItems() {
@@ -273,3 +214,121 @@ function filterItems() {
 //     visibleElements[1].classList.add('second-visible');
 //   }
 // });
+
+
+
+
+
+/*SAVE CHECKBOXES STATE*/
+// Get all checkboxes
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+// Load saved states on page load
+window.addEventListener('DOMContentLoaded', () => {
+  checkboxes.forEach(checkbox => {
+    const saved = localStorage.getItem(checkbox.id);
+    if (saved !== null) {
+      checkbox.checked = saved === 'true';
+    }
+  });
+});
+
+// Save state when changed
+checkboxes.forEach(checkbox => {
+  checkbox.addEventListener('change', () => {
+    localStorage.setItem(checkbox.id, checkbox.checked);
+  });
+});
+
+
+
+
+
+// Get all radios
+const radios = document.querySelectorAll('input[type="radio"]');
+
+// Restore on load
+window.addEventListener('DOMContentLoaded', () => {
+  const groups = [...new Set([...radios].map(r => r.name))];
+
+  groups.forEach(name => {
+    const savedId = localStorage.getItem(name);
+    if (savedId) {
+      const radio = document.getElementById(savedId);
+      if (radio) {
+        radio.checked = true;
+      }
+    }
+  });
+});
+
+// Save on change
+radios.forEach(radio => {
+  radio.addEventListener('change', () => {
+    if (radio.checked) {
+      localStorage.setItem(radio.name, radio.id);
+    }
+  });
+});
+
+
+
+
+/*ORDER*/
+// Get all containers
+const containers = document.querySelectorAll('.timeline, .month-overlay, .day-overlay');
+
+// Store original order indices for restoring
+containers.forEach(container => {
+  Array.from(container.children).forEach((child, i) => {
+    child.dataset.index = i;
+    child.classList.add('visible'); // ensures starting visibility
+  });
+});
+
+// Function to update order
+function updateOrder(reverse, animate = true) {
+  containers.forEach(container => {
+    const children = Array.from(container.children);
+    const first = children.shift();
+    let rest = reverse
+      ? children.reverse()
+      : children.sort((a, b) => a.dataset.index - b.dataset.index);
+
+    if (animate) {
+      // Animate fade-out → reorder → fade-in
+      container.classList.add('flipping');
+      children.forEach(child => child.classList.remove('visible'));
+
+      setTimeout(() => {
+        container.innerHTML = '';
+        container.appendChild(first);
+        rest.forEach(el => container.appendChild(el));
+
+        requestAnimationFrame(() => {
+          container.classList.remove('flipping');
+          Array.from(container.children).forEach(el => el.classList.add('visible'));
+        });
+      }, 1);
+    } else {
+      // No animation (used for initial page load)
+      container.innerHTML = '';
+      container.appendChild(first);
+      rest.forEach(el => container.appendChild(el));
+    }
+  });
+}
+
+// Radio listeners
+document.getElementById('oldestfirst').addEventListener('change', e => {
+  if (e.target.checked) updateOrder(false);
+});
+document.getElementById('newestfirst').addEventListener('change', e => {
+  if (e.target.checked) updateOrder(true);
+});
+
+// ✅ On page load: detect which radio is selected, apply order (no animation)
+window.addEventListener('DOMContentLoaded', () => {
+  const newestfirstChecked = document.getElementById('newestfirst').checked;
+  updateOrder(newestfirstChecked, false); // no animation on first render
+});
