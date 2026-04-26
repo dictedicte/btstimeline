@@ -1063,6 +1063,10 @@
             width: 100%;
             text-align: right;
             /* padding-right: 18px; */
+            font-size: 17px;
+            white-space: nowrap;
+            
+            
         }
         /* .link-list ul li a::after{
             content: "";
@@ -1110,6 +1114,20 @@
             position: absolute;
             right: 4.5px;
             bottom: 4.5px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 63%;
+    /* background-color: #dad5e3; */
+    display: none;
+        }
+        .icon::before{
+            content: "";
+            position: absolute;
+            left: 4.5px;
+            top: 4.5px;
             width: 18px;
             height: 18px;
             border-radius: 50%;
@@ -1187,6 +1205,11 @@ background-color: #ece8f3;
 .s-youtube .icon.loaded::after{
     display: block;
     background-image: url(images/icons/social-media/youtube.png); 
+    background-size: 81%;
+}
+.bu .icon.loaded::before{
+    display: block;
+    background-image: url(images/icons/bu.png); 
     background-size: 81%;
 }
 
