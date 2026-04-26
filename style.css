@@ -385,7 +385,7 @@
         .search-filter-order .filter .overlay,
         .search-filter-order .order .overlay{
             max-height: 300px;
-            width: 150px;
+            width: 181px;
             position: absolute;
             top: 30px;
             display: none;
@@ -447,13 +447,18 @@
 
         .search-filter-order .box li{
             margin: 6px;
-            border-radius: 6px;
+            /* border-radius: 6px; */
             text-align: left;
             display: flex;
             justify-content: start;
             position: relative;
             padding-left: 36px;
             cursor: pointer;
+            color: var(--entry-description);
+            border-bottom: 1px solid var(--detail);
+        }
+        .search-filter-order .box li:last-child{
+            border-bottom: 0;
         }
         .search-filter-order .box li label{
             cursor: pointer;
@@ -493,9 +498,13 @@
         .search-filter-order .box li #twitter::after{background-image: url(images/icons/social-media/twitter.png);}
         .search-filter-order .box li #tiktok::after{background-image: url(images/icons/social-media/tiktok.png);}
         .search-filter-order .box li #socialmedia::after{background-image: url(images/icons/socialmedia.png);}
+        .search-filter-order .box li #stationhead::after{background-image: url(images/icons/social-media/stationhead.jpg);}
+
+        .search-filter-order .box li #bu::after{background-image: url(images/icons/bu.png);}
         
         .search-filter-order .box li:hover{
-            background-color: #5e34a62b;
+            /* background-color: #5e34a62b; */
+            color: var(--entry-description-hvr);
         }
 
 
@@ -914,14 +923,19 @@
         .timeline .entry-overlay{
             display: flex;
             width: 100%;
-            animation-name: entryfadein;
-            animation-duration: 0.5s;
-            animation-timing-function: ease;
                 height: fit-content;
                 display: none;
                 padding: 4.5px 24px 4.5px 48px;
                 box-sizing: border-box;
                 position: relative;
+                visibility: hidden;
+
+        }
+        .timeline .entry-overlay.loaded{
+                visibility: visible;
+            animation-name: entryfadein;
+            animation-duration: 0.5s;
+            animation-timing-function: ease;
 
         }
 /*         
@@ -988,6 +1002,8 @@
             /* background-color: #866bb6;
             background-color: #b19bd7; */
             background-color: var(--detail);
+        }
+        .entry .link.loaded{
             background-image: var(--img-open-in-new);
         }
         .entry .link:hover{
@@ -1022,6 +1038,9 @@
             background-color: var(--detail);
             background-image: var(--img-open-in-new);
             position: relative;
+        }
+        .entry .links.loaded{
+            background-image: var(--img-open-in-new);
         }
         .entry .links:hover{
             background-color: var(--openinnew-hvr);
@@ -1275,12 +1294,12 @@ background-color: #ece8f3;
             background-repeat: no-repeat;
             margin-right: 3px;
         }
-        .entry-details .detail.image::before{
+        /* .entry-details .detail.image::before{
             background-image: url(images/icons/photo.png);
         }
         .entry-details .detail.video::before{
             background-image: url(images/icons/video.png);
-        }
+        } */
 
         
         :root:has(#showdetails:checked) .entry-details{
@@ -1340,6 +1359,9 @@ min-width: 0;
     font-size: 14px;
     font-weight: 600;
     letter-spacing: 0px;
+
+animation-name: fadein;
+animation-duration: 1s;
         }
         article:hover h5{
     color: var(--header-bg);
@@ -1371,7 +1393,7 @@ width: 100%;
 min-width: 0;
 transform: translateY(-3px);
 animation-name: fadein;
-animation-duration: 0.6s;
+animation-duration: 1s;
 transition-duration: 0.3s;
         }
         article:hover p{
@@ -1380,7 +1402,8 @@ color: var(--entry-text-hvr);
         }
         @keyframes fadein {
             0%{
-                opacity: 0.5;
+                /* opacity: 0.5; */
+                opacity: 0;
             }
             100%{
                 opacity: 1;
@@ -1472,7 +1495,8 @@ color: var(--entry-text-hvr);
     body:has(#weverse:checked) .weverse,
     body:has(#twitter:checked) .twitter,
     body:has(#tiktok:checked) .tiktok,
-    body:has(#stationhead:checked) .stationhead
+    body:has(#stationhead:checked) .stationhead,
+    body:has(#bu:checked) .bu
 { display: flex; }
 
 

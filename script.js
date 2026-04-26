@@ -64,7 +64,7 @@ window.addEventListener('load', () => {
 
 
 
-/*lazy load*/
+/*lazy load icon*/
 const observer = new IntersectionObserver((entries, obs) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -75,6 +75,65 @@ const observer = new IntersectionObserver((entries, obs) => {
 });
 
 document.querySelectorAll(".icon").forEach(el => {
+  observer.observe(el);
+});
+
+/*lazy load link*/
+const observer2 = new IntersectionObserver((entries, obs) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("loaded");
+      obs.unobserve(entry.target);
+    }
+  });
+});
+
+document.querySelectorAll(".link").forEach(el => {
+  observer.observe(el);
+});
+
+/*lazy load links*/
+const observer3 = new IntersectionObserver((entries, obs) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("loaded");
+      obs.unobserve(entry.target);
+    }
+  });
+});
+
+document.querySelectorAll(".links").forEach(el => {
+  observer.observe(el);
+});
+
+/*lazy load entry*/
+// const observer4 = new IntersectionObserver((entries, obs) => {
+//   entries.forEach(entry => {
+//     if (entry.isIntersecting) {
+//       entry.target.classList.add("loaded");
+//       obs.unobserve(entry.target);
+//     }
+//   });
+// });
+
+// document.querySelectorAll(".entry-overlay").forEach(el => {
+//   observer.observe(el);
+// });
+
+
+
+const observer4 = new IntersectionObserver((entries, obs) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("loaded");
+      obs.unobserve(entry.target);
+    }
+  });
+}, {
+  rootMargin: "900px 0px" // 👈 preload 200px before entering view
+});
+
+document.querySelectorAll(".entry-overlay").forEach(el => {
   observer.observe(el);
 });
 
