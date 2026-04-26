@@ -26,6 +26,7 @@
             --shadow-on-bg: 2px 2px 12px -4px #73678a58;
             --date-shadow:2px 2px 2px -2px #41365484, 2px 2px 8px -4px #41365487;
             --filter-shadow-on-header: 1.5px 1.5px 3px #33136a;
+            --img-links: url(images/arrow_drop_down_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg);
             --img-open-in-new: url(images/open_in_new_24dp_443B56_FILL0_wght400_GRAD0_opsz24.svg);
             --openinnew-hvr: #ad8de6;
         }
@@ -310,7 +311,7 @@
             border-radius: 30px;
             max-width: 330px;
             width: calc(100% - 202px);
-            min-width: 180px;
+            min-width: 160px;
             z-index: 999;
             height: 30px;
             box-shadow: var(--shadow-on-bg);
@@ -970,7 +971,7 @@
         }
         
 
-        .entry a{
+        .entry .link{
             width: 31.5px;
             height: 31.5px;
             margin: 7.5px;
@@ -988,9 +989,52 @@
             background-color: var(--detail);
             background-image: var(--img-open-in-new);
         }
-        .entry a:hover{
+        .entry .link:hover{
             background-color: var(--header-bg);
             background-color: var(--openinnew-hvr);
+        }
+
+        .entry .links{
+            width: 31.5px;
+            height: 31.5px;
+            margin: 7.5px;
+            margin-right: 0;
+            border-radius: 50%;
+            /* position: absolute;
+            right: 0;
+            top: 0; */
+            flex-shrink: 0;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 75%;
+            /* background-color: #866bb6;
+            background-color: #b19bd7; */
+            background-color: var(--detail);
+            background-image: var(--img-links);
+            position: relative;
+        }
+        .entry .links:hover{
+            background-color: var(--header-bg);
+            background-color: var(--openinnew-hvr);
+        }
+        .links .link-list{
+            display: none;
+            position: absolute;
+            top: 0;
+            padding-top: 30px;
+            height: fit-content;
+            z-index: 999;
+
+        }
+        .link-list ul{
+            background-color: white;
+            box-shadow: var(--shadow-on-bg);
+            border-radius: 6px;
+            height: fit-content;
+
+        }
+        .links:hover .link-list{
+            display: block;
         }
 
 
