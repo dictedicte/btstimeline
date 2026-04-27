@@ -138,10 +138,7 @@
             margin-left: 9px;
         }
 
-        h1:hover{
-            
-            text-shadow: var(--filter-shadow-on-header);
-        }
+ 
         main{
             overflow-y: auto;
             height: calc(100vh - 45px);
@@ -199,10 +196,6 @@
             background-image: url(images/info_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg);
 
         }
-        /* .settings-btn:hover, .info-btn:hover{
-            filter: drop-shadow( var(--filter-shadow-on-header));
-            
-        } */
         .settings{
             background-color: white;
             height: 300px;
@@ -1033,11 +1026,14 @@
             display: flex;
             padding-right: 9px;
         }
-        article:hover{
+        .entry:hover, .entry.active{
             background-color: var(--entry-hvr-bg);
             /* scale: 1.005; */
             /* box-shadow:0 0 12px 0 rgba(255, 255, 255, 0.303), 2px 2px 8px -4px #73678a; */
         }
+        /* .entry.active{
+            background-color: red;
+        } */
         
 
         .entry .link{
@@ -1060,7 +1056,7 @@
         .entry .link.loaded{
             background-image: var(--img-open-in-new);
         }
-        .entry .link:hover{
+        .entry .link:hover, .entry .link.active{
             background-color: var(--header-bg);
             background-color: var(--openinnew-hvr);
         }
@@ -1096,7 +1092,7 @@
         .entry .links.loaded{
             background-image: var(--img-open-in-new);
         }
-        .entry .links:hover{
+        .entry .links:hover, .entry .links.active{
             background-color: var(--openinnew-hvr);
         }
         .links .link-list{
@@ -1324,7 +1320,7 @@ background-color: #ece8f3;
             box-sizing: border-box;
             margin-bottom: 3px;
         }
-        .entry:hover .entry-details{
+        .entry:hover .entry-details, .entry.active .entry-details{
             display: flex;
         }
         .entry-details::before{
@@ -1383,7 +1379,8 @@ background-color: #ece8f3;
         overflow: hidden;
     }
 
-    article:hover .entry-main .entry-text{
+    .entry:hover .entry-main .entry-text,
+    .entry.active .entry-main .entry-text{
         max-height: fit-content;
     }
         article h5{
@@ -1424,7 +1421,7 @@ min-width: 0;
 animation-name: fadein;
 animation-duration: 1s;
         }
-        article:hover h5{
+        .entry:hover h5, .entry.active h5{
     color: var(--header-bg);
     color: var(--entry-description-hvr);
         }
@@ -1457,7 +1454,7 @@ animation-name: fadein;
 animation-duration: 1s;
 transition-duration: 0.3s;
         }
-        article:hover p{
+        .entry:hover p, .entry.active p{
     color: #302741;
 color: var(--entry-text-hvr);
         }
@@ -1524,8 +1521,10 @@ color: var(--entry-text-hvr);
         }
         
 
-        article:hover .entry-main h5,
-        article:hover .entry-main p,
+        .entry:hover .entry-main h5,
+        .entry:hover .entry-main p,
+        .entry.active .entry-main h5,
+        .entry.active .entry-main p,
         :root:has(#showfulltext:checked) .entry h5,
         :root:has(#showfulltext:checked) .entry p{
     overflow: visible;
@@ -1586,4 +1585,11 @@ color: var(--entry-text-hvr);
             width: 510px;
             max-width: 510px;
             }
+} */
+/* 
+@media (max-width: 500px){
+        .settings-btn:focus-within .settings{
+            display: block;
+        }
+
 } */
