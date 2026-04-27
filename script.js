@@ -478,24 +478,75 @@ window.addEventListener('load', () => {
 //   });
 // }
 
+
+
+  // const items = document.querySelectorAll('.entry');
+
+  // // Toggle clicked item
+  // items.forEach(item => {
+  //   item.addEventListener('click', function(e) {
+  //     e.stopPropagation(); // prevent document click from firing
+
+  //     // Close all others
+  //     items.forEach(i => {
+  //       if (i !== this) i.classList.remove('active');
+  //     });
+
+  //     // Toggle this one
+  //     this.classList.toggle('active');
+  //   });
+  // });
+
+  // // Click outside → close everything
+  // document.addEventListener('click', () => {
+  //   items.forEach(item => item.classList.remove('active'));
+  // });
+
+  
+
   const items = document.querySelectorAll('.entry');
 
-  // Toggle clicked item
-  items.forEach(item => {
-    item.addEventListener('click', function(e) {
-      e.stopPropagation(); // prevent document click from firing
+// CLICK behavior (persistent)
+items.forEach(item => {
+  item.addEventListener('click', function(e) {
+    e.stopPropagation();
 
-      // Close all others
+    // Remove active + clicked from others
+    items.forEach(i => {
+      if (i !== this) {
+        i.classList.remove('active', 'clicked');
+      }
+    });
+
+    // Mark this as clicked
+    this.classList.add('active', 'clicked');
+  });
+
+  // HOVER IN (temporary)
+  item.addEventListener('mouseenter', function() {
+    // Only apply hover if it's not already clicked
+    if (!this.classList.contains('clicked')) {
       items.forEach(i => {
-        if (i !== this) i.classList.remove('active');
+        if (!i.classList.contains('clicked')) {
+          i.classList.remove('active');
+        }
       });
 
-      // Toggle this one
-      this.classList.toggle('active');
-    });
+      this.classList.add('active');
+    }
   });
 
-  // Click outside → close everything
-  document.addEventListener('click', () => {
-    items.forEach(item => item.classList.remove('active'));
+  // HOVER OUT (remove if not clicked)
+  item.addEventListener('mouseleave', function() {
+    if (!this.classList.contains('clicked')) {
+      this.classList.remove('active');
+    }
   });
+});
+
+// Click outside → reset everything
+document.addEventListener('click', () => {
+  items.forEach(item => {
+    item.classList.remove('active', 'clicked');
+  });
+});
