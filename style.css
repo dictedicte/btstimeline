@@ -1026,14 +1026,14 @@
             display: flex;
             padding-right: 9px;
         }
-        .entry:hover, .entry.active{
-            background-color: var(--entry-hvr-bg);
+        /* .entry:hover, .entry.active{
+            background-color: var(--entry-hvr-bg); */
             /* scale: 1.005; */
             /* box-shadow:0 0 12px 0 rgba(255, 255, 255, 0.303), 2px 2px 8px -4px #73678a; */
-        }
-        /* .entry.active{
+        /* } */
+        .entry.active{
             background-color: red;
-        } */
+        }
         
 
         .entry .link{
