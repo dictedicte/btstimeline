@@ -438,3 +438,64 @@ window.addEventListener('load', () => {
   requestAnimationFrame(updateMonthOverlay);
 });
 
+
+
+
+// document.querySelectorAll('.entry').forEach(item => {
+//   item.addEventListener('click', function(e) {
+//     // prevent link navigation if needed
+//     e.preventDefault();
+
+//     // toggle active state
+//     this.classList.toggle('active');
+//   });
+// });
+
+
+
+if (window.matchMedia('(hover: none)').matches) {
+  // run the code here
+  const items = document.querySelectorAll('.entry');
+
+  // Toggle clicked item
+  items.forEach(item => {
+    item.addEventListener('click', function(e) {
+      e.stopPropagation(); // prevent document click from firing
+
+      // Close all others
+      items.forEach(i => {
+        if (i !== this) i.classList.remove('active');
+      });
+
+      // Toggle this one
+      this.classList.toggle('active');
+    });
+  });
+
+  // Click outside → close everything
+  document.addEventListener('click', () => {
+    items.forEach(item => item.classList.remove('active'));
+  });
+}
+
+  // const items = document.querySelectorAll('.entry');
+
+  // // Toggle clicked item
+  // items.forEach(item => {
+  //   item.addEventListener('click', function(e) {
+  //     e.stopPropagation(); // prevent document click from firing
+
+  //     // Close all others
+  //     items.forEach(i => {
+  //       if (i !== this) i.classList.remove('active');
+  //     });
+
+  //     // Toggle this one
+  //     this.classList.toggle('active');
+  //   });
+  // });
+
+  // // Click outside → close everything
+  // document.addEventListener('click', () => {
+  //   items.forEach(item => item.classList.remove('active'));
+  // });
