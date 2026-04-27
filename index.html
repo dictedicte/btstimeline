@@ -16,26 +16,28 @@
         <div class="search-filter-order">
             <span class="search"></span>
             <input type="text" id="search" placeholder="Search..." oninput="filterItems()">
-            <span class="filter">
+                        <span class="filter">
                 <div class="overlay">
                     <div class="box">
                         <h2>FILTER</h2>
+                        <button id="checkall" onclick="checkAll()">ALL</button>
                         <ul>
-                            <li><label for="music"><input type="checkbox" checked="" id="music" name="music">Discography</label></li>
-                            <li><label for="filmography"><input type="checkbox" checked="" id="filmography" name="filmography">Filmography</label></li>
-                            <li><label for="videos"><input type="checkbox" checked="" id="videos">Videos</label></li>
-                            <li><label for="photos"><input type="checkbox" checked="" id="photos">Photos</label></li>
-                            <li><label for="dvd"><input type="checkbox" checked="" id="dvd">DVD / blu-ray / digital code</label></li>
-                            <li><label for="live"><input type="checkbox" checked="" id="live">Livestreams</label></li>
+                            <li><span class="solo-check" data-for="music">Discography</span><input type="checkbox" checked="" id="music" name="music"></li>
+                            <li><span class="solo-check" data-for="events">Concerts & Live Events</span><input type="checkbox" checked="" id="events" name="events"></li>
+                            <li><span class="solo-check" data-for="filmography">Filmography</span><input type="checkbox" checked="" id="filmography" name="filmography"></li>
+                            <li><span class="solo-check" data-for="videos">Videos</span><input type="checkbox" checked="" id="videos"></li>
+                            <li><span class="solo-check" data-for="photos">Photos</span><input type="checkbox" checked="" id="photos"></li>
+                            <li><span class="solo-check" data-for="dvd">DVD/blu-ray/digital code</span><input type="checkbox" checked="" id="dvd"></li>
+                            <li><span class="solo-check" data-for="live">Livestreams</span><input type="checkbox" checked="" id="live"></li>
                             
-                            <li><label for="socialmedia"><input type="checkbox" checked="" id="socialmedia">Social Media</label></li>
-                                <li><label for="youtube"><input type="checkbox" checked="" id="youtube">YouTube</label></li>
-                                <li><label for="weverse"><input type="checkbox" checked="" id="weverse">Weverse</label></li>
-                                <li><label for="twitter"><input type="checkbox" checked="" id="twitter">Twitter</label></li>
-                                <li><label for="tiktok"><input type="checkbox" checked="" id="tiktok">TikTok</label></li>
-                                <li><label for="stationhead"><input type="checkbox" checked="" id="stationhead">Stationhead</label></li>
+                            <li><span class="solo-check" data-for="socialmedia">Social Media</span><input type="checkbox" checked="" id="socialmedia"></li>
+                                <li><span class="solo-check" data-for="youtube">YouTube</span><input type="checkbox" checked="" id="youtube"></li>
+                                <li><span class="solo-check" data-for="weverse">Weverse</span><input type="checkbox" checked="" id="weverse"></li>
+                                <li><span class="solo-check" data-for="twitter">Twitter</span><input type="checkbox" checked="" id="twitter"></li>
+                                <li><span class="solo-check" data-for="tiktok">TikTok</span><input type="checkbox" checked="" id="tiktok"></li>
+                                <li><span class="solo-check" data-for="stationhead">Stationhead</span><input type="checkbox" checked="" id="stationhead"></li>
 
-                            <li><label for="bu"><input type="checkbox" checked="" id="bu">Bangtan Universe (BU)</label></li>
+                            <li><span class="solo-check" data-for="bu">Bangtan Universe (BU)</span><input type="checkbox" checked="" id="bu"></li>
                         </ul>
                     </div>
                 </div>
@@ -133,7 +135,9 @@
             </div>
     </div>
 
-    <div class="month-overlay"><h3 class="month">January</h3>
+
+    
+<div class="month-overlay"><h3 class="month">January</h3>
 <div class="day-overlay"><h4 class="day">5<span class="weekday">MONDAY</span></h4>
 <div class="entry-overlay weverse notice">
 <time datetime="2026-01-05"></time>
@@ -1107,7 +1111,7 @@ Just keep going. No feeling is final.</p>
 </div>
 <span class="links">
 <div class="link-list"><ul>
-<li><a href="https://www.youtube.com/watch?v=Exukk6JO9i0">YouTube BANGTANTV</a></li>
+<li><a href="https://www.youtube.com/watch?v=Exukk6JO9i0">YouTube [BANGTANTV]</a></li>
 </ul>
 </div>
 </span>
@@ -1241,7 +1245,7 @@ Just keep going. No feeling is final.</p>
 </div>
 <span class="links">
 <div class="link-list"><ul>
-<li><a href="https://www.youtube.com/watch?v=GuPhSLBYOeg">YouTube HYBE LABELS</a></li>
+<li><a href="https://www.youtube.com/watch?v=GuPhSLBYOeg">YouTube [HYBE LABELS]</a></li>
 </ul>
 </div>
 </span>
@@ -1346,7 +1350,7 @@ Just keep going. No feeling is final.</p>
 </div>
 <span class="links">
 <div class="link-list"><ul>
-<li><a href="https://www.youtube.com/watch?v=fQbEuS9GO3E">YouTube HYBE LABELS</a></li>
+<li><a href="https://www.youtube.com/watch?v=fQbEuS9GO3E">YouTube [HYBE LABELS]</a></li>
 </ul>
 </div>
 </span>
@@ -1471,7 +1475,7 @@ Just keep going. No feeling is final.</p>
 <div class="entry-main">
 <span class="icon"></span>
 <div class="entry-text">
-<h5>5TH FULL-LENGHT ALBUM "ARIRANG"</h5>
+<h5>5TH FULL-LENGHT ALBUM</h5>
 <p>ARIRANG</p>
 </div>
 <span class="links">
@@ -1498,7 +1502,7 @@ Just keep going. No feeling is final.</p>
 </div>
 <span class="links">
 <div class="link-list"><ul>
-<li><a href="https://www.youtube.com/watch?v=b4iVv91Z6lY">YouTube HYBE LABELS</a></li>
+<li><a href="https://www.youtube.com/watch?v=b4iVv91Z6lY">YouTube [HYBE LABELS]</a></li>
 </ul>
 </div>
 </span>
@@ -2019,7 +2023,7 @@ Just keep going. No feeling is final.</p>
 <div class="entry-main">
 <span class="icon"></span>
 <div class="entry-text">
-<h5>INSTRUMENTAL VERSION "SWIM (INSTRUMENTAL)"</h5>
+<h5>INSTRUMENTAL VERSION</h5>
 <p>SWIM (Instrumental)</p>
 </div>
 <span class="links">
@@ -2069,7 +2073,7 @@ Just keep going. No feeling is final.</p>
 <div class="link-list"><ul>
 <li><a href="https://open.spotify.com/track/6tMMQtrhJijTnPvmeLBNAn?pi=kIXUo_saRlCMx&flow_ctx=87d93286-4006-427b-8b59-85a0e2942007%3A1774300454">Spotify</a></li>
 <li><a href="https://music.apple.com/us/music-video/swim-performance-video/1887157387">Apple Music</a></li>
-<li><a href="https://www.youtube.com/watch?v=h-Y97xErGL8">YouTube HYBE LABELS</a></li>
+<li><a href="https://www.youtube.com/watch?v=h-Y97xErGL8">YouTube [HYBE LABELS]</a></li>
 </ul>
 </div>
 </span>
@@ -2470,7 +2474,7 @@ Just keep going. No feeling is final.</p>
 <div class="entry-main">
 <span class="icon"></span>
 <div class="entry-text">
-<h5>REMIX ALBUM "KEEP SWIMMING"</h5>
+<h5>REMIX ALBUM</h5>
 <p>KEEP SWIMMING</p>
 </div>
 <span class="links">
@@ -2869,7 +2873,7 @@ Just keep going. No feeling is final.</p>
 </div>
 <span class="links">
 <div class="link-list"><ul>
-<li><a href="https://www.youtube.com/watch?v=Ztbv7ChTQRM">YouTube BANGTANTV</a></li>
+<li><a href="https://www.youtube.com/watch?v=Ztbv7ChTQRM">YouTube [BANGTANTV]</a></li>
 </ul>
 </div>
 </span>
@@ -2917,7 +2921,7 @@ Just keep going. No feeling is final.</p>
 </div>
 <span class="links">
 <div class="link-list"><ul>
-<li><a href="https://www.youtube.com/watch?v=YIy-WsouXec">YouTube BANGTANTV</a></li>
+<li><a href="https://www.youtube.com/watch?v=YIy-WsouXec">YouTube [BANGTANTV]</a></li>
 </ul>
 </div>
 </span>
@@ -2940,7 +2944,7 @@ Just keep going. No feeling is final.</p>
 </div>
 <span class="links">
 <div class="link-list"><ul>
-<li><a href="https://www.youtube.com/watch?v=o7V0iD8cAaI">YouTube BANGTANTV</a></li>
+<li><a href="https://www.youtube.com/watch?v=o7V0iD8cAaI">YouTube [BANGTANTV]</a></li>
 </ul>
 </div>
 </span>
@@ -2963,7 +2967,7 @@ Just keep going. No feeling is final.</p>
 </div>
 <span class="links">
 <div class="link-list"><ul>
-<li><a href="https://www.youtube.com/watch?v=LQn62T4FNOU">YouTube BANGTANTV</a></li>
+<li><a href="https://www.youtube.com/watch?v=LQn62T4FNOU">YouTube [BANGTANTV]</a></li>
 </ul>
 </div>
 </span>
@@ -2986,7 +2990,7 @@ Just keep going. No feeling is final.</p>
 </div>
 <span class="links">
 <div class="link-list"><ul>
-<li><a href="https://www.youtube.com/watch?v=OzMc0PAA5HQ">YouTube BANGTANTV</a></li>
+<li><a href="https://www.youtube.com/watch?v=OzMc0PAA5HQ">YouTube [BANGTANTV]</a></li>
 </ul>
 </div>
 </span>
@@ -3009,7 +3013,7 @@ Just keep going. No feeling is final.</p>
 </div>
 <span class="links">
 <div class="link-list"><ul>
-<li><a href="https://www.youtube.com/watch?v=DfnDEzl2APE">YouTube BANGTANTV</a></li>
+<li><a href="https://www.youtube.com/watch?v=DfnDEzl2APE">YouTube [BANGTANTV]</a></li>
 </ul>
 </div>
 </span>
@@ -3032,7 +3036,7 @@ Just keep going. No feeling is final.</p>
 </div>
 <span class="links">
 <div class="link-list"><ul>
-<li><a href="https://www.youtube.com/watch?v=41nkpICiPn4">YouTube BANGTANTV</a></li>
+<li><a href="https://www.youtube.com/watch?v=41nkpICiPn4">YouTube [BANGTANTV]</a></li>
 </ul>
 </div>
 </span>
@@ -3055,7 +3059,7 @@ Just keep going. No feeling is final.</p>
 </div>
 <span class="links">
 <div class="link-list"><ul>
-<li><a href="https://www.youtube.com/watch?v=0Wd0na159-M">YouTube BANGTANTV</a></li>
+<li><a href="https://www.youtube.com/watch?v=0Wd0na159-M">YouTube [BANGTANTV]</a></li>
 </ul>
 </div>
 </span>
@@ -3126,7 +3130,7 @@ Just keep going. No feeling is final.</p>
 </div>
 <span class="links">
 <div class="link-list"><ul>
-<li><a href="https://www.youtube.com/watch?v=om6HdemgTKQ">YouTube BANGTANTV</a></li>
+<li><a href="https://www.youtube.com/watch?v=om6HdemgTKQ">YouTube [BANGTANTV]</a></li>
 </ul>
 </div>
 </span>
@@ -3151,7 +3155,7 @@ Just keep going. No feeling is final.</p>
 </div>
 <span class="links">
 <div class="link-list"><ul>
-<li><a href="https://www.youtube.com/watch?v=O_UAV5Ckr-g">YouTube HYBE LABELS</a></li>
+<li><a href="https://www.youtube.com/watch?v=O_UAV5Ckr-g">YouTube [HYBE LABELS]</a></li>
 </ul>
 </div>
 </span>
@@ -3211,7 +3215,7 @@ Just keep going. No feeling is final.</p>
 </div>
 <span class="links">
 <div class="link-list"><ul>
-<li><a href="https://www.youtube.com/watch?v=_gyultVTesk">YouTube HYBE LABELS</a></li>
+<li><a href="https://www.youtube.com/watch?v=_gyultVTesk">YouTube [HYBE LABELS]</a></li>
 </ul>
 </div>
 </span>
@@ -3643,7 +3647,7 @@ Just keep going. No feeling is final.</p>
 <div class="entry-main">
 <span class="icon"></span>
 <div class="entry-text">
-<h5>DELUXE VINYL EDITION OF 5TH FULL-LENGHT ALBUM [INCLUDING HIDDEN TRACK] "ARIRANG"</h5>
+<h5>DELUXE VINYL EDITION OF 5TH FULL-LENGHT ALBUM [INCLUDING HIDDEN TRACK]</h5>
 <p>ARIRANG</p>
 </div>
 <span class="links">
@@ -4041,7 +4045,7 @@ Just keep going. No feeling is final.</p>
 </div>
 <span class="links">
 <div class="link-list"><ul>
-<li><a href="https://www.youtube.com/watch?v=diBO0gMuTXo">YouTube HYBE LABELS</a></li>
+<li><a href="https://www.youtube.com/watch?v=diBO0gMuTXo">YouTube [HYBE LABELS]</a></li>
 </ul>
 </div>
 </span>
@@ -4254,6 +4258,18 @@ and have the best time. I’m counting on you🔥🔥
 </div>
 </article>
 </div>
+<div class="entry-overlay event concert">
+<time datetime="2026-04-09"></time>
+<article class="entry">
+<div class="entry-main">
+<span class="icon"></span>
+<div class="entry-text">
+<h5>WORLD TOUR 'ARIRANG'</h5>
+<p>Goyang Day 1</p>
+</div>
+</div>
+</article>
+</div>
 <div class="entry-overlay video">
 <time datetime="2026-04-09"></time>
 <article class="entry">
@@ -4266,7 +4282,7 @@ and have the best time. I’m counting on you🔥🔥
 </div>
 <span class="links">
 <div class="link-list"><ul>
-<li><a href="https://www.youtube.com/watch?v=Hlp3Vn4TCnk">YouTube BANGTANTV</a></li>
+<li><a href="https://www.youtube.com/watch?v=Hlp3Vn4TCnk">YouTube [BANGTANTV]</a></li>
 </ul>
 </div>
 </span>
@@ -4370,7 +4386,7 @@ and have the best time. I’m counting on you🔥🔥
 <div class="entry-main">
 <span class="icon"></span>
 <div class="entry-text">
-<h5>REMIX "SWIM (UNDERWATER REMIX)"</h5>
+<h5>REMIX</h5>
 <p>SWIM (Underwater Remix)</p>
 </div>
 <span class="links">
@@ -4459,6 +4475,19 @@ and have the best time. I’m counting on you🔥🔥
 </div>
 </article>
 </div>
+</div><div class="day-overlay"><h4 class="day">11<span class="weekday">SATURDAY</span></h4>
+<div class="entry-overlay event concert">
+<time datetime="2026-04-11"></time>
+<article class="entry">
+<div class="entry-main">
+<span class="icon"></span>
+<div class="entry-text">
+<h5>WORLD TOUR 'ARIRANG'</h5>
+<p>Goyang Day 2</p>
+</div>
+</div>
+</article>
+</div>
 </div><div class="day-overlay"><h4 class="day">12<span class="weekday">SUNDAY</span></h4>
 <div class="entry-overlay weverse">
 <time datetime="2026-04-12 01:10">01:10</time>
@@ -4471,6 +4500,18 @@ and have the best time. I’m counting on you🔥🔥
 와주신 아미 여러분들께 감서드리며 내일은 더 좋은 무대를 선보일 수 있게 노력하겠습니더 감사허고 사랑합니다 😍</p>
 </div>
 <a class="link" href="https://weverse.io/bts/artist/4-226450807"></a>
+</div>
+</article>
+</div>
+<div class="entry-overlay event concert">
+<time datetime="2026-04-12"></time>
+<article class="entry">
+<div class="entry-main">
+<span class="icon"></span>
+<div class="entry-text">
+<h5>WORLD TOUR 'ARIRANG'</h5>
+<p>Goyang Day 3</p>
+</div>
 </div>
 </article>
 </div>
@@ -4531,7 +4572,7 @@ and have the best time. I’m counting on you🔥🔥
 </div>
 <span class="links">
 <div class="link-list"><ul>
-<li><a href="https://www.youtube.com/watch?v=y5QbMgbsEWI">YouTube BANGTANTV</a></li>
+<li><a href="https://www.youtube.com/watch?v=y5QbMgbsEWI">YouTube [BANGTANTV]</a></li>
 </ul>
 </div>
 </span>
@@ -4824,7 +4865,7 @@ and have the best time. I’m counting on you🔥🔥
 <div class="entry-main">
 <span class="icon"></span>
 <div class="entry-text">
-<h5>REMIX "SWIM (SPRING WAVES REMIX)"</h5>
+<h5>REMIX</h5>
 <p>SWIM (Spring Waves Remix)</p>
 </div>
 <span class="links">
@@ -4849,6 +4890,18 @@ and have the best time. I’m counting on you🔥🔥
 </div>
 <div class="entry-details">
 <span class="detail video">1</span>
+</div>
+</article>
+</div>
+<div class="entry-overlay event concert">
+<time datetime="2026-04-17"></time>
+<article class="entry">
+<div class="entry-main">
+<span class="icon"></span>
+<div class="entry-text">
+<h5>WORLD TOUR 'ARIRANG'</h5>
+<p>Tokyo Day 1</p>
+</div>
 </div>
 </article>
 </div>
@@ -4930,6 +4983,18 @@ and have the best time. I’m counting on you🔥🔥
 </article>
 </div>
 </div><div class="day-overlay"><h4 class="day">18<span class="weekday">SATURDAY</span></h4>
+<div class="entry-overlay event concert">
+<time datetime="2026-04-18"></time>
+<article class="entry">
+<div class="entry-main">
+<span class="icon"></span>
+<div class="entry-text">
+<h5>WORLD TOUR 'ARIRANG'</h5>
+<p>Tokyo Day 2</p>
+</div>
+</div>
+</article>
+</div>
 <div class="entry-overlay filmography guest">
 <time datetime="2026-04-18"></time>
 <article class="entry">
@@ -5093,8 +5158,32 @@ and have the best time. I’m counting on you🔥🔥
 </div>
 </article>
 </div>
-
-    
+</div><div class="day-overlay"><h4 class="day">25<span class="weekday">SATURDAY</span></h4>
+<div class="entry-overlay event concert">
+<time datetime="2026-04-25"></time>
+<article class="entry">
+<div class="entry-main">
+<span class="icon"></span>
+<div class="entry-text">
+<h5>WORLD TOUR 'ARIRANG'</h5>
+<p>Tampa Day 1</p>
+</div>
+</div>
+</article>
+</div>
+</div><div class="day-overlay"><h4 class="day">26<span class="weekday">SUNDAY</span></h4>
+<div class="entry-overlay event concert">
+<time datetime="2026-04-26"></time>
+<article class="entry">
+<div class="entry-main">
+<span class="icon"></span>
+<div class="entry-text">
+<h5>WORLD TOUR 'ARIRANG'</h5>
+<p>Tampa Day 2</p>
+</div>
+</div>
+</article>
+</div>
 
 
 </div></div>

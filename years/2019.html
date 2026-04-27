@@ -16,24 +16,27 @@
         <div class="search-filter-order">
             <span class="search"></span>
             <input type="text" id="search" placeholder="Search..." oninput="filterItems()">
-            <span class="filter">
+                        <span class="filter">
                 <div class="overlay">
                     <div class="box">
                         <h2>FILTER</h2>
+                        <button id="checkall" onclick="checkAll()">RESET</button>
                         <ul>
-                            <li><label for="music"><input type="checkbox" checked="" id="music">Discography</label></li>
-                            <li><label for="filmography"><input type="checkbox" checked="" id="filmography">Filmography</label></li>
-                            <li><label for="videos"><input type="checkbox" checked="" id="videos">Videos</label></li>
-                            <li><label for="photos"><input type="checkbox" checked="" id="photos">Photos</label></li>
-                            <li><label for="dvd"><input type="checkbox" checked="" id="dvd">DVD / blu-ray / digital code</label></li>
-                            <li><label for="live"><input type="checkbox" checked="" id="live">Livestreams</label></li>
+                            <li><input type="checkbox" checked="" id="music" name="music"><span class="solo-check" data-for="music">Discography</span></li>
+                            <li><input type="checkbox" checked="" id="filmography" name="filmography"><span class="solo-check" data-for="filmography">Filmography</span></li>
+                            <li><input type="checkbox" checked="" id="videos"><span class="solo-check" data-for="videos">Videos</span></li>
+                            <li><input type="checkbox" checked="" id="photos"><span class="solo-check" data-for="photos">Photos</span></li>
+                            <li><input type="checkbox" checked="" id="dvd"><span class="solo-check" data-for="dvd">DVD / blu-ray / digital code</span></li>
+                            <li><input type="checkbox" checked="" id="live"><span class="solo-check" data-for="live">Livestreams</span></li>
                             
-                            <li><label for="socialmedia"><input type="checkbox" checked="" id="socialmedia">Social Media</label></li>
-                                <li><label for="youtube"><input type="checkbox" checked="" id="youtube">YouTube</label></li>
-                                <li><label for="weverse"><input type="checkbox" checked="" id="weverse">Weverse</label></li>
-                                <li><label for="twitter"><input type="checkbox" checked="" id="twitter">Twitter</label></li>
-                                <li><label for="tiktok"><input type="checkbox" checked="" id="tiktok">TikTok</label></li>
-                                <li><label for="stationhead"><input type="checkbox" checked="" id="stationhead">Stationhead</label></li>
+                            <li><input type="checkbox" checked="" id="socialmedia"><span class="solo-check" data-for="socialmedia">Social Media</span></li>
+                                <li><input type="checkbox" checked="" id="youtube"><span class="solo-check" data-for="youtube">YouTube</span></li>
+                                <li><input type="checkbox" checked="" id="weverse"><span class="solo-check" data-for="weverse">Weverse</span></li>
+                                <li><input type="checkbox" checked="" id="twitter"><span class="solo-check" data-for="twitter">Twitter</span></li>
+                                <li><input type="checkbox" checked="" id="tiktok"><span class="solo-check" data-for="tiktok">TikTok</span></li>
+                                <li><input type="checkbox" checked="" id="stationhead"><span class="solo-check" data-for="stationhead">Stationhead</span></li>
+
+                            <li><input type="checkbox" checked="" id="bu"><span class="solo-check" data-for="bu">Bangtan Universe (BU)</span></li>
                         </ul>
                     </div>
                 </div>
@@ -62,9 +65,19 @@
                 <br>
 
                 <h2>SHOW/HIDE</h2>
+                <p>BOTTOM TEXT</p>
+                <label for="hidetext"><input name="text" type="radio" id="hidetext">HIDE</label>
+                <label for="showtext"><input name="text" type="radio" id="showtext" checked="">SHOW</label>
+                <label for="showfulltext"><input name="text" type="radio" id="showfulltext">SHOW FULL</label>
+                <p>DETAILS</p>
+                <label for="showdetails"><input name="details" type="radio" id="showdetails">SHOW</label>
+                <label for="hidedetails"><input name="details" type="radio" id="hidedetails" checked="">HIDE</label>
+                <p>ALBUM TRACKS</p>
+                <label for="showalbum"><input name="album" type="radio" id="showalbum">SHOW</label>
+                <label for="hidealbum"><input name="album" type="radio" id="hidealbum" checked="">HIDE</label>
                 <p>TIME</p>
-                <label for="showtime"><input name="time" type="radio" id="showtime">SHOW</label>
-                <label for="hidetime"><input name="time" type="radio" checked="" id="hidetime">HIDE</label>
+                <label for="showtime"><input name="time" type="radio" id="showtime" checked="">SHOW</label>
+                <label for="hidetime"><input name="time" type="radio" id="hidetime">HIDE</label>
                 <p>WEEKDAY</p>
                 <label for="showweekday"><input name="weekday" type="radio" checked="" id="showweekday">SHOW</label>
                 <label for="hideweekday"><input name="weekday" type="radio" id="hideweekday">HIDE</label>

@@ -385,7 +385,7 @@
         .search-filter-order .filter .overlay,
         .search-filter-order .order .overlay{
             max-height: 300px;
-            width: 181px;
+            width: 190px;
             position: absolute;
             top: 30px;
             display: none;
@@ -440,41 +440,53 @@
         .search-filter-order .order .box h2{
             color: var(--header-bg);
             width: 100%;
-            text-align: center;
-            font-size: 12px;
+            /* text-align: center; */
+            font-size: 15px;
             margin: 6px 0 3px 0;
+            margin-left: 9px;
         }
 
         .search-filter-order .box li{
-            margin: 6px;
+            margin: 4.5px;
             /* border-radius: 6px; */
             text-align: left;
             display: flex;
             justify-content: start;
             position: relative;
-            padding-left: 36px;
-            cursor: pointer;
+            padding-left: 24px;
             color: var(--entry-description);
             border-bottom: 1px solid var(--detail);
+            font-size: 17px;
         }
         .search-filter-order .box li:last-child{
             border-bottom: 0;
         }
-        .search-filter-order .box li label{
+        .search-filter-order .box li span{
+            display: block;
+            width: calc(100% - 21px);
             cursor: pointer;
+            transition-duration: 0.3s;
+            transition-property: all;
+            cursor: pointer;
+            /* padding-right: 21px; */
+            box-sizing: border-box;
+        }
+        .search-filter-order .box li span:hover{
+            text-decoration: underline;
         }
         
-        .search-filter-order .box li input{
-            position: absolute;
+        .search-filter-order .box input{
+            position: relative;
             width: 15px;
             height: 15px;
             top: 0;
-            left: 0;
+            right: 6px;
             margin: 4.5px;
             cursor: pointer;
+            flex-shrink: 0;
         }
         
-        .search-filter-order .box li input::after{
+        /* .search-filter-order .box li input::after{
             content: "";
             width: 15px;
             height: 15px;
@@ -483,6 +495,18 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: 90%;
+        } */
+        .search-filter-order .box li input::after{
+            content: "";
+            width: 18px;
+            height: 18px;
+            position: absolute;
+            left: -160px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 90%;
+            cursor: default;
+            pointer-events: none;
         }
 
         .search-filter-order .box li #music::after{background-image: url(images/icons/music.png);}
@@ -495,6 +519,7 @@
         
         .search-filter-order .box li #youtube::after{background-image: url(images/icons/social-media/youtube.png);}
         .search-filter-order .box li #weverse::after{background-image: url(images/icons/social-media/weverse.svg);}
+        .search-filter-order .box li #vlive::after{background-image: url(images/icons/social-media/vlive.png);}
         .search-filter-order .box li #twitter::after{background-image: url(images/icons/social-media/twitter.png);}
         .search-filter-order .box li #tiktok::after{background-image: url(images/icons/social-media/tiktok.png);}
         .search-filter-order .box li #socialmedia::after{background-image: url(images/icons/socialmedia.png);}
@@ -502,11 +527,40 @@
 
         .search-filter-order .box li #bu::after{background-image: url(images/icons/bu.png);}
         
-        .search-filter-order .box li:hover{
-            /* background-color: #5e34a62b; */
+        /* .search-filter-order .box li:hover{
+            background-color: #5e34a62b;
             color: var(--entry-description-hvr);
-        }
+        } */
 
+        #checkall, #uncheckall{
+            min-width: 21px;
+
+            height: 21px;
+            background-color: var(--entry-text);
+            cursor: pointer;
+            background-position: 3px;
+            background-repeat: no-repeat;
+            background-size: 15px;
+            font-size: 12px;
+            color: white;
+            font-family: teko;
+            padding: 3px 9px;
+            padding-left: 21px;
+            border-radius: 9px;
+            position: absolute;
+            top: 21px;
+            right: 6px;
+        }
+        #checkall:hover, #uncheckall:hover{
+            background-color: var(--entry-description-hvr);
+
+        }
+        #checkall{
+            background-image: url(images/autorenew_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg);
+        }
+        #uncheckall{
+            background-image: url(images/tab_close_24dp_5E34A6_FILL0_wght400_GRAD0_opsz24.svg);
+        }
 
 .scroll{
     
@@ -1180,6 +1234,8 @@ background-color: #ece8f3;
 .musicshow .icon{ background-image: url(images/icons/tv.png); }
 
  */
+.event .icon.loaded{ background-image: url(images/icons/ticket.png); }
+
 .music .icon.loaded{ background-image: url(images/icons/music.png); }
 .filmography .icon.loaded{ background-image: url(images/icons/tv.png); }
 .radio .icon.loaded{ background-image: url(images/icons/radio.png); }
@@ -1224,6 +1280,11 @@ background-color: #ece8f3;
 .s-youtube .icon.loaded::after{
     display: block;
     background-image: url(images/icons/social-media/youtube.png); 
+    background-size: 81%;
+}
+.s-dvd .icon.loaded::after{
+    display: block;
+    background-image: url(images/icons/dvd.png); 
     background-size: 81%;
 }
 .bu .icon.loaded::before{
@@ -1484,6 +1545,7 @@ color: var(--entry-text-hvr);
 { display: flex; } */
 
     body:has(#music:checked) .music,
+    body:has(#events:checked) .event,
     body:has(#filmography:checked) .filmography,
     body:has(#videos:checked) .video,
     body:has(#photos:checked) .photo,
@@ -1493,6 +1555,7 @@ color: var(--entry-text-hvr);
     body:has(#youtube:checked) .youtube,
     body:has(#youtube:checked) .s-youtube,
     body:has(#weverse:checked) .weverse,
+    body:has(#vlive:checked) .vlive,
     body:has(#twitter:checked) .twitter,
     body:has(#tiktok:checked) .tiktok,
     body:has(#stationhead:checked) .stationhead,

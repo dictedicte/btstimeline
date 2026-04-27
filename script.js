@@ -1,64 +1,78 @@
+// function uncheckAll() {
+//   const checkboxes = document.querySelectorAll('.filter input[type="checkbox"]');
+//   checkboxes.forEach(cb => cb.checked = false);
+// }
 
 
-
-/*HIDE EMPTY DAYS AND MONTHS*/
-// Function to update container visibility
-function updateDayOverlay() {
-  const containers = document.querySelectorAll('.day-overlay');
-
-  containers.forEach(container => {
-    const childrenExceptFirst = Array.from(container.children).slice(1);
-
-    if (childrenExceptFirst.length === 0) return;
-
-    const allHidden = childrenExceptFirst.every(child => {
-      return window.getComputedStyle(child).display === 'none';
-    });
-
-    container.style.display = allHidden ? 'none' : '';
-  });
+function checkAll() {
+  const checkboxes = document.querySelectorAll('.filter input[type="checkbox"]');
+  checkboxes.forEach(cb => cb.checked = true);
 }
 
-// Attach change listeners to all checkboxes
-document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-  checkbox.addEventListener('change', updateDayOverlay);
-});
-
-// Wait until the browser has applied CSS to accurately detect visibility
-window.addEventListener('load', () => {
-  // Use requestAnimationFrame to ensure styles are applied
-  requestAnimationFrame(updateDayOverlay);
-});
 
 
 
-// Function to update container visibility
-function updateMonthOverlay() {
-  const containers = document.querySelectorAll('.month-overlay');
 
-  containers.forEach(container => {
-    const childrenExceptFirst = Array.from(container.children).slice(1);
 
-    if (childrenExceptFirst.length === 0) return;
+  
+/*SAVE CHECKBOXES STATE*/
+// // Get all checkboxes
+// const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
-    const allHidden = childrenExceptFirst.every(child => {
-      return window.getComputedStyle(child).display === 'none';
-    });
+// // Load saved states on page load
+// window.addEventListener('DOMContentLoaded', () => {
+//   checkboxes.forEach(checkbox => {
+//     const saved = localStorage.getItem(checkbox.id);
+//     if (saved !== null) {
+//       checkbox.checked = saved === 'true';
+//     }
+//   });
+// });
 
-    container.style.display = allHidden ? 'none' : '';
+// // Save state when changed
+// checkboxes.forEach(checkbox => {
+//   checkbox.addEventListener('change', () => {
+//     localStorage.setItem(checkbox.id, checkbox.checked);
+//   });
+// });
+
+
+
+
+/*SAVE RADIO STATE*/
+
+
+// Get all radios
+const radios = document.querySelectorAll('input[type="radio"]');
+
+// Restore on load
+window.addEventListener('DOMContentLoaded', () => {
+  const groups = [...new Set([...radios].map(r => r.name))];
+
+  groups.forEach(name => {
+    const savedId = localStorage.getItem(name);
+    if (savedId) {
+      const radio = document.getElementById(savedId);
+      if (radio) {
+        radio.checked = true;
+      }
+    }
   });
-}
-
-// Attach change listeners to all checkboxes
-document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-  checkbox.addEventListener('change', updateMonthOverlay);
 });
 
-// Wait until the browser has applied CSS to accurately detect visibility
-window.addEventListener('load', () => {
-  // Use requestAnimationFrame to ensure styles are applied
-  requestAnimationFrame(updateMonthOverlay);
+// Save on change
+radios.forEach(radio => {
+  radio.addEventListener('change', () => {
+    if (radio.checked) {
+      localStorage.setItem(radio.name, radio.id);
+    }
+  });
 });
+
+
+
+
+
 
 
 
@@ -278,58 +292,6 @@ function filterItems() {
 
 
 
-/*SAVE CHECKBOXES STATE*/
-// Get all checkboxes
-const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-
-// Load saved states on page load
-window.addEventListener('DOMContentLoaded', () => {
-  checkboxes.forEach(checkbox => {
-    const saved = localStorage.getItem(checkbox.id);
-    if (saved !== null) {
-      checkbox.checked = saved === 'true';
-    }
-  });
-});
-
-// Save state when changed
-checkboxes.forEach(checkbox => {
-  checkbox.addEventListener('change', () => {
-    localStorage.setItem(checkbox.id, checkbox.checked);
-  });
-});
-
-
-
-
-
-// Get all radios
-const radios = document.querySelectorAll('input[type="radio"]');
-
-// Restore on load
-window.addEventListener('DOMContentLoaded', () => {
-  const groups = [...new Set([...radios].map(r => r.name))];
-
-  groups.forEach(name => {
-    const savedId = localStorage.getItem(name);
-    if (savedId) {
-      const radio = document.getElementById(savedId);
-      if (radio) {
-        radio.checked = true;
-      }
-    }
-  });
-});
-
-// Save on change
-radios.forEach(radio => {
-  radio.addEventListener('change', () => {
-    if (radio.checked) {
-      localStorage.setItem(radio.name, radio.id);
-    }
-  });
-});
-
 
 
 
@@ -391,3 +353,88 @@ window.addEventListener('DOMContentLoaded', () => {
   const newestfirstChecked = document.getElementById('newestfirst').checked;
   updateOrder(newestfirstChecked, false); // no animation on first render
 });
+
+
+
+
+
+  const checkboxes2 = document.querySelectorAll('.filter input');
+  const labels2 = document.querySelectorAll('.solo-check');
+
+  labels2.forEach(label => {
+    label.addEventListener('click', () => {
+      const targetId = label.dataset.for;
+      const targetCheckbox = document.getElementById(targetId);
+
+      // Uncheck all
+      checkboxes2.forEach(cb => cb.checked = false);
+
+      // Check only the clicked one
+      targetCheckbox.checked = true;
+    });
+  });
+
+
+
+
+
+  
+/*HIDE EMPTY DAYS AND MONTHS*/
+// Function to update container visibility
+function updateDayOverlay() {
+  const containers = document.querySelectorAll('.day-overlay');
+
+  containers.forEach(container => {
+    const childrenExceptFirst = Array.from(container.children).slice(1);
+
+    if (childrenExceptFirst.length === 0) return;
+
+    const allHidden = childrenExceptFirst.every(child => {
+      return window.getComputedStyle(child).display === 'none';
+    });
+
+    container.style.display = allHidden ? 'none' : '';
+  });
+}
+
+// Attach change listeners to all checkboxes
+document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+  checkbox.addEventListener('change', updateDayOverlay);
+});
+
+// Wait until the browser has applied CSS to accurately detect visibility
+window.addEventListener('load', () => {
+  // Use requestAnimationFrame to ensure styles are applied
+  requestAnimationFrame(updateDayOverlay);
+});
+
+
+
+// Function to update container visibility
+function updateMonthOverlay() {
+  const containers = document.querySelectorAll('.month-overlay');
+
+  containers.forEach(container => {
+    const childrenExceptFirst = Array.from(container.children).slice(1);
+
+    if (childrenExceptFirst.length === 0) return;
+
+    const allHidden = childrenExceptFirst.every(child => {
+      return window.getComputedStyle(child).display === 'none';
+    });
+
+    container.style.display = allHidden ? 'none' : '';
+  });
+}
+
+// Attach change listeners to all checkboxes
+document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+  checkbox.addEventListener('change', updateMonthOverlay);
+});
+
+// Wait until the browser has applied CSS to accurately detect visibility
+window.addEventListener('load', () => {
+  // Use requestAnimationFrame to ensure styles are applied
+  requestAnimationFrame(updateMonthOverlay);
+});
+
