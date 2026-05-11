@@ -16,25 +16,25 @@ function checkAll() {
 
   
 /*SAVE CHECKBOXES STATE*/
-// // Get all checkboxes
-// const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+// Get all checkboxes
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
-// // Load saved states on page load
-// window.addEventListener('DOMContentLoaded', () => {
-//   checkboxes.forEach(checkbox => {
-//     const saved = localStorage.getItem(checkbox.id);
-//     if (saved !== null) {
-//       checkbox.checked = saved === 'true';
-//     }
-//   });
-// });
+// Load saved states on page load
+window.addEventListener('DOMContentLoaded', () => {
+  checkboxes.forEach(checkbox => {
+    const saved = localStorage.getItem(checkbox.id);
+    if (saved !== null) {
+      checkbox.checked = saved === 'true';
+    }
+  });
+});
 
-// // Save state when changed
-// checkboxes.forEach(checkbox => {
-//   checkbox.addEventListener('change', () => {
-//     localStorage.setItem(checkbox.id, checkbox.checked);
-//   });
-// });
+// Save state when changed
+checkboxes.forEach(checkbox => {
+  checkbox.addEventListener('change', () => {
+    localStorage.setItem(checkbox.id, checkbox.checked);
+  });
+});
 
 
 
@@ -120,22 +120,10 @@ document.querySelectorAll(".links").forEach(el => {
   observer.observe(el);
 });
 
+
+
+
 /*lazy load entry*/
-// const observer4 = new IntersectionObserver((entries, obs) => {
-//   entries.forEach(entry => {
-//     if (entry.isIntersecting) {
-//       entry.target.classList.add("loaded");
-//       obs.unobserve(entry.target);
-//     }
-//   });
-// });
-
-// document.querySelectorAll(".entry-overlay").forEach(el => {
-//   observer.observe(el);
-// });
-
-
-
 const observer4 = new IntersectionObserver((entries, obs) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -143,13 +131,31 @@ const observer4 = new IntersectionObserver((entries, obs) => {
       obs.unobserve(entry.target);
     }
   });
-}, {
-  rootMargin: "900px 0px" // 👈 preload 200px before entering view
 });
 
 document.querySelectorAll(".entry-overlay").forEach(el => {
   observer.observe(el);
 });
+
+
+
+
+/*load entries when scrolling*/
+// const observer4 = new IntersectionObserver((entries, obs) => {
+//   entries.forEach(entry => {
+//     if (entry.isIntersecting) {
+//       entry.target.classList.add("loaded");
+//       obs.unobserve(entry.target);
+//     }
+//   });
+// }, {
+//   rootMargin: "700px 0px" // 👈 preload 200px before entering view
+// });
+
+// document.querySelectorAll(".entry-overlay").forEach(el => {
+//   observer.observe(el);
+// });
+
 
 
 
@@ -550,3 +556,23 @@ document.addEventListener('click', () => {
     item.classList.remove('active', 'clicked');
   });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  document.querySelector(".filter-dropdown-btn").addEventListener("click", () => {
+    document.querySelector(".filter-dropdown").classList.toggle("show");
+  });
