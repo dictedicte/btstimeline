@@ -138,6 +138,19 @@ document.querySelectorAll(".entry-overlay").forEach(el => {
 });
 
 
+/*lazy load days*/
+const observer5 = new IntersectionObserver((entries, obs) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("loaded");
+      obs.unobserve(entry.target);
+    }
+  });
+});
+
+document.querySelectorAll(".day").forEach(el => {
+  observer.observe(el);
+});
 
 
 /*load entries when scrolling*/
