@@ -588,6 +588,7 @@
             width: 100%;
             /* padding-top: 45px; */
             margin-top: -49px;
+            margin-top: -42px;
             padding-bottom: 114px;
         }
         /* .timeline::before{
@@ -668,6 +669,14 @@
                         backdrop-filter: blur(9px);
 
 
+
+                        
+            border-radius: 12px;
+            padding-left: 12px;
+            margin-left: 9px;
+            margin-left: 3px;
+
+
         }
 
         /* .month::before{
@@ -696,7 +705,7 @@
             margin: 6px;
             margin-left: 4.5px;
             margin-left: 16.5px;
-            margin-left: 7.5px;
+            margin-left: 10.5px;
             width: 21px;
 
 
@@ -727,8 +736,12 @@
             /* font-size: 12px; */
 font-weight: 800;
             margin-top: -0.7px;
-            margin-top: -1.5px;
+            margin-top: -1.8px;
+            /* margin-top: -1.5px; */
             font-size: 18px;
+            font-size: 16px;
+            background-color: var(--background);
+            /* box-shadow: 0 -5px 0 0 var(--background); */
             
         }
         /* .day::after{
@@ -822,7 +835,7 @@ font-weight: 800;
 
             border-radius: 1.5px;
             margin-left: 7.5px;
-            margin-right: 60px;
+            margin-right: 54px;
         }
 
         
@@ -849,6 +862,7 @@ font-weight: 800;
             left: 10.5px;
             left: 9px;
             left: 8.2px;
+            left: 11px;
             width: 30px;
             display: none;
             justify-content: center;
@@ -864,8 +878,9 @@ font-weight: 800;
             line-height: 15px;
             font-size: 9px;
             color: var(--header-bg);
-            opacity: 0.3;
+            opacity: 0.6;
             width: fit-content;
+            font-weight: 500;
             /* background-color: rgb(255, 255, 255);
             
             background-color: #a48bc7;
