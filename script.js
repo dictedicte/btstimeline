@@ -1,80 +1,19 @@
-// function uncheckAll() {
-//   const checkboxes = document.querySelectorAll('.filter input[type="checkbox"]');
-//   checkboxes.forEach(cb => cb.checked = false);
-// }
+
+
+
+
+
+
+
+
+
+
 
 
 function checkAll() {
   const checkboxes = document.querySelectorAll('.filter input[type="checkbox"]');
   checkboxes.forEach(cb => cb.checked = true);
 }
-
-
-
-
-
-
-  
-/*SAVE CHECKBOXES STATE*/
-// Get all checkboxes
-const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-
-// Load saved states on page load
-window.addEventListener('DOMContentLoaded', () => {
-  checkboxes.forEach(checkbox => {
-    const saved = localStorage.getItem(checkbox.id);
-    if (saved !== null) {
-      checkbox.checked = saved === 'true';
-    }
-  });
-});
-
-// Save state when changed
-checkboxes.forEach(checkbox => {
-  checkbox.addEventListener('change', () => {
-    localStorage.setItem(checkbox.id, checkbox.checked);
-  });
-});
-
-
-
-
-/*SAVE RADIO STATE*/
-
-
-// Get all radios
-const radios = document.querySelectorAll('input[type="radio"]');
-
-// Restore on load
-window.addEventListener('DOMContentLoaded', () => {
-  const groups = [...new Set([...radios].map(r => r.name))];
-
-  groups.forEach(name => {
-    const savedId = localStorage.getItem(name);
-    if (savedId) {
-      const radio = document.getElementById(savedId);
-      if (radio) {
-        radio.checked = true;
-      }
-    }
-  });
-});
-
-// Save on change
-radios.forEach(radio => {
-  radio.addEventListener('change', () => {
-    if (radio.checked) {
-      localStorage.setItem(radio.name, radio.id);
-    }
-  });
-});
-
-
-
-
-
-
-
 
 
 
@@ -138,37 +77,6 @@ document.querySelectorAll(".entry-overlay").forEach(el => {
 });
 
 
-/*lazy load days*/
-const observer5 = new IntersectionObserver((entries, obs) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("loaded");
-      obs.unobserve(entry.target);
-    }
-  });
-});
-
-document.querySelectorAll(".day").forEach(el => {
-  observer.observe(el);
-});
-
-
-/*load entries when scrolling*/
-// const observer4 = new IntersectionObserver((entries, obs) => {
-//   entries.forEach(entry => {
-//     if (entry.isIntersecting) {
-//       entry.target.classList.add("loaded");
-//       obs.unobserve(entry.target);
-//     }
-//   });
-// }, {
-//   rootMargin: "700px 0px" // 👈 preload 200px before entering view
-// });
-
-// document.querySelectorAll(".entry-overlay").forEach(el => {
-//   observer.observe(el);
-// });
-
 
 
 
@@ -189,123 +97,10 @@ function filterItems() {
       item.style.display = "none";
     }
   });
+
+
+  updateWrappers();
 }
-
-
-
-
-
-
-
-
-
-
-/*REMEMBER CHECKBOX AND RADIO STATES*/
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   const inputs = document.querySelectorAll("input[type=checkbox], input[type=radio]");
-
-//   // Load saved state
-//   inputs.forEach(input => {
-//     const saved = localStorage.getItem(input.name + "_" + input.value);
-
-//     if (input.type === "checkbox" && saved === "true") {
-//       input.checked = true;
-//     }
-
-//     if (input.type === "radio" && saved === "true") {
-//       input.checked = true;
-//     }
-//   });
-
-//   // Save state on change
-//   inputs.forEach(input => {
-//     input.addEventListener("change", () => {
-//       if (input.type === "checkbox") {
-//         localStorage.setItem(input.name + "_" + input.value, input.checked);
-//       }
-
-//       if (input.type === "radio") {
-//         // Clear other radios in same group
-//         document.querySelectorAll(`input[name="${input.name}"]`)
-//           .forEach(radio => {
-//             localStorage.setItem(radio.name + "_" + radio.value, false);
-//           });
-
-//         localStorage.setItem(input.name + "_" + input.value, true);
-//       }
-//     });
-//   });
-// });
-
-
-
-
-// const colorThemes = document.querySelectorAll('[name="theme"]');
-
-// // store theme
-// const storeTheme = function (theme) {
-//   localStorage.setItem("theme", theme);
-// };
-
-// // set theme when visitor returns
-// const setTheme = function () {
-//   const activeTheme = localStorage.getItem("theme");
-//   colorThemes.forEach((themeOption) => {
-//     if (themeOption.id === activeTheme) {
-//       themeOption.checked = true;
-//     }
-//   });
-//   // fallback for no :has() support
-//   document.documentElement.className = activeTheme;
-// };
-
-// colorThemes.forEach((themeOption) => {
-//   themeOption.addEventListener("click", () => {
-//     storeTheme(themeOption.id);
-//     // fallback for no :has() support
-//     document.documentElement.className = themeOption.id;
-//   });
-// });
-
-// document.onload = setTheme();
-
-
-// document.querySelectorAll("input").forEach(input => {
-//   input.addEventListener("change", () => {
-//     if (input.type === "checkbox") {
-//       localStorage.setItem(input.id, input.checked);
-//     } else if (input.type === "radio") {
-//       if (input.checked) {
-//         localStorage.setItem(input.name, input.value);
-//       }
-//     } else {
-//       localStorage.setItem(input.id, input.value);
-//     }
-//   });
-// });
-
-// document.querySelectorAll("input").forEach(input => {
-//   if (input.type === "checkbox") {
-//     input.checked = localStorage.getItem(input.id) === "true";
-//   } else if (input.type === "radio") {
-//     if (localStorage.getItem(input.name) === input.value) {
-//       input.checked = true;
-//     }
-//   } else {
-//     input.value = localStorage.getItem(input.id) || "";
-//   }
-// });
-
-
-// document.querySelectorAll('.day-overlay').forEach(parent => {
-//   const visibleElements = Array.from(parent.children)
-//     .filter(el => getComputedStyle(el).display !== 'none');
-
-//   if (visibleElements[1]) {
-//     visibleElements[1].classList.add('second-visible');
-//   }
-// });
 
 
 
@@ -397,132 +192,66 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 
-  
-/*HIDE EMPTY DAYS AND MONTHS*/
-// Function to update container visibility
-function updateDayOverlay() {
-  const containers = document.querySelectorAll('.day-overlay');
 
-  containers.forEach(container => {
-    const childrenExceptFirst = Array.from(container.children).slice(1);
+// document.querySelectorAll('.day-overlay').forEach(wrapper => {
+//     const items = wrapper.querySelectorAll('.entry-overlay');
 
-    if (childrenExceptFirst.length === 0) return;
+//     const allHidden = [...items].every(item => {
+//         return getComputedStyle(item).display === 'none';
+//     });
 
-    const allHidden = childrenExceptFirst.every(child => {
-      return window.getComputedStyle(child).display === 'none';
-    });
-
-    container.style.display = allHidden ? 'none' : '';
-  });
-}
-
-// Attach change listeners to all checkboxes
-document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-  checkbox.addEventListener('change', updateDayOverlay);
-});
-
-// Wait until the browser has applied CSS to accurately detect visibility
-window.addEventListener('load', () => {
-  // Use requestAnimationFrame to ensure styles are applied
-  requestAnimationFrame(updateDayOverlay);
-});
-
-
-
-// Function to update container visibility
-function updateMonthOverlay() {
-  const containers = document.querySelectorAll('.month-overlay');
-
-  containers.forEach(container => {
-    const childrenExceptFirst = Array.from(container.children).slice(1);
-
-    if (childrenExceptFirst.length === 0) return;
-
-    const allHidden = childrenExceptFirst.every(child => {
-      return window.getComputedStyle(child).display === 'none';
-    });
-
-    container.style.display = allHidden ? 'none' : '';
-  });
-}
-
-// Attach change listeners to all checkboxes
-document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-  checkbox.addEventListener('change', updateMonthOverlay);
-});
-
-// Wait until the browser has applied CSS to accurately detect visibility
-window.addEventListener('load', () => {
-  // Use requestAnimationFrame to ensure styles are applied
-  requestAnimationFrame(updateMonthOverlay);
-});
-
-
-
-
-// document.querySelectorAll('.entry').forEach(item => {
-//   item.addEventListener('click', function(e) {
-//     // prevent link navigation if needed
-//     e.preventDefault();
-
-//     // toggle active state
-//     this.classList.toggle('active');
-//   });
+//     if (allHidden) {
+//         wrapper.style.display = 'none';
+//     }
 // });
 
 
 
-// if (window.matchMedia('(hover: none)').matches) {
-//   // run the code here
-//   const items = document.querySelectorAll('.entry');
+document.querySelectorAll('.filter .box li').forEach(el => {
+    el.addEventListener('click', () => {
+          
+      updateWrappers();
+    });
+});
 
-//   // Toggle clicked item
-//   items.forEach(item => {
-//     item.addEventListener('click', function(e) {
-//       e.stopPropagation(); // prevent document click from firing
+function updateWrappers() {
+    document.querySelectorAll('.day-overlay').forEach(wrapper => {
+        const items = wrapper.querySelectorAll('.entry-overlay');
 
-//       // Close all others
-//       items.forEach(i => {
-//         if (i !== this) i.classList.remove('active');
-//       });
+        const allHidden = [...items].every(item => {
+            return getComputedStyle(item).display === 'none';
+        });
 
-//       // Toggle this one
-//       this.classList.toggle('active');
+        wrapper.style.display = allHidden ? 'none' : '';
+    });
+    
+    document.querySelectorAll('.month-overlay').forEach(wrapper => {
+        const items = wrapper.querySelectorAll('.day-overlay');
+
+        const allHidden = [...items].every(item => {
+            return getComputedStyle(item).display === 'none';
+        });
+
+        wrapper.style.display = allHidden ? 'none' : '';
+    });
+}
+
+
+// function updateWrappers() {
+//     document.querySelectorAll('.day-overlay').forEach(wrapper => {
+//         const items = wrapper.querySelectorAll('.entry-overlay');
+
+//         const allHidden = [...items].every(item =>
+//             item.classList.contains('hidden')
+//         );
+
+//         wrapper.style.display = allHidden ? 'none' : '';
 //     });
-//   });
-
-//   // Click outside → close everything
-//   document.addEventListener('click', () => {
-//     items.forEach(item => item.classList.remove('active'));
-//   });
 // }
 
 
 
-  // const items = document.querySelectorAll('.entry');
-
-  // // Toggle clicked item
-  // items.forEach(item => {
-  //   item.addEventListener('click', function(e) {
-  //     e.stopPropagation(); // prevent document click from firing
-
-  //     // Close all others
-  //     items.forEach(i => {
-  //       if (i !== this) i.classList.remove('active');
-  //     });
-
-  //     // Toggle this one
-  //     this.classList.toggle('active');
-  //   });
-  // });
-
-  // // Click outside → close everything
-  // document.addEventListener('click', () => {
-  //   items.forEach(item => item.classList.remove('active'));
-  // });
-
-  
-
+//hover effect fit for mobile too
   const items = document.querySelectorAll('.entry');
 
 // CLICK behavior (persistent)
@@ -576,16 +305,38 @@ document.addEventListener('click', () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
   document.querySelector(".filter-dropdown-btn").addEventListener("click", () => {
     document.querySelector(".filter-dropdown").classList.toggle("show");
   });
+
+
+
+
+
+
+//   //filter with js
+// const checkboxess = document.querySelectorAll('input[type="checkbox"]');
+
+// function filterrItems() {
+//     checkboxess.forEach(checkbox => {
+//         const items = document.querySelectorAll(`.${checkbox.id}`);
+
+//         items.forEach(item => {
+//             if (checkbox.checked) {
+//                 item.classList.remove('hidden');
+//             } else {
+//                 item.classList.add('hidden');
+//             }
+//         });
+//     });
+// }
+
+// // Run when checkboxes change
+// checkboxess.forEach(checkbox => {
+//     checkbox.addEventListener('change', filterrItems);
+// });
+
+// // Run once on page load
+// filterrItems();
+
+

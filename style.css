@@ -613,6 +613,7 @@
             /* position: relative; */
             /* margin-top: -33px; */
             /* margin: 1.5px 0; */
+            /* margin: -6px 0; */
         }
 
                 /* .day-overlay::after{
@@ -683,16 +684,21 @@
         .day{
             color: var(--header-bg);
             text-align: right;
-            /* text-align: center; */
+            text-align: center;
             position: sticky;
             top: 22.5px;
+            top: 24px;
+            top: 28.5px;
             /* top: 19.5px;
             top: 18px; */
             /* top: 40px; */
             /* top: 0; */
             margin: 6px;
             margin-left: 4.5px;
+            margin-left: 16.5px;
+            margin-left: 7.5px;
             width: 21px;
+
 
             /* height: 22.5px;
             line-height: 24px; */
@@ -708,10 +714,10 @@
             width: 22.5px;
             height: 22.5px;
             line-height: 22.5px;
-            height: 0;
+            /* height: 0; */
             margin-top: 0;
-            transform: translateY(-19.5px);
-            transform: translateY(-10.5px);
+            /* transform: translateY(-19.5px);
+            transform: translateY(-10.5px); */
             font-size: 15px;
             font-weight: 700;
             
@@ -721,6 +727,8 @@
             /* font-size: 12px; */
 font-weight: 800;
             margin-top: -0.7px;
+            margin-top: -1.5px;
+            font-size: 18px;
             
         }
         /* .day::after{
@@ -746,7 +754,7 @@ font-weight: 800;
                         /* background-color: hsla(261, 69%, 81%, 0.3);
                         
         } */
-        .day::after{
+        /* .day::after{
             content: "";
             position: absolute;
             width: 9px;
@@ -759,7 +767,7 @@ font-weight: 800;
             border-radius: 15px;
             top: 10.5px;
             right: -13.5px;
-        }
+        } */
         .day.loaded{
 
             opacity: 0;
@@ -779,12 +787,13 @@ font-weight: 800;
             display: none;
             position: absolute;
             left: 42px;
+            left: 39px;
             color: var(--header-bg);
             height: 18px;
             line-height: 20px;
             font-size: 12px;
             font-weight: 500;
-            padding: 0 6px;
+            padding-right:6px;
             border-radius: 6px;
             top: 1.5px;
             /* background-color: var(--openinnew-hvr); */
@@ -827,6 +836,69 @@ font-weight: 800;
             height: 22.5px;
             transform: translateY(0);
         }
+        :root:has(#showweekday:checked) .day-overlay{
+            margin: 0;
+        }
+
+        
+
+        time{
+            position: absolute;
+            left: 4.5px;
+            left: 12px;
+            left: 10.5px;
+            left: 9px;
+            left: 8.2px;
+            width: 30px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            top: 21px;
+            /* top: 9px; */
+            top: -1.5px;
+            top: 1.5px;
+            top: 4.5px;
+            padding-top: 4.5px;
+            z-index: 1;
+            border-radius: 6px;
+            line-height: 15px;
+            font-size: 9px;
+            color: var(--header-bg);
+            opacity: 0.3;
+            width: fit-content;
+            /* background-color: rgb(255, 255, 255);
+            
+            background-color: #a48bc7;
+            background-color: #b39bdd;
+            color: var(--header-bg);
+            color: #b9a9cf;
+            color: var(--entry-bg); */
+            /* font-family: Arial, Helvetica, sans-serif;
+            box-shadow: var(--date-shadow); */
+        }
+        time::after{
+            content: "";
+            position: absolute;
+            width: 9px;
+            height: 1.5px;
+            width: 6px;
+            width: 100%;
+            height: 1.5px;
+            background-color: var(--header-bg);
+            opacity: 0.3;
+            z-index: -1;
+            border-radius: 15px;
+            /* top: 6px;
+            right: -6px; */
+            top: 0;
+        }
+        :root:has(#showtime:checked) time{
+            display: flex;
+        }
+        :root:has(#hidetime:checked) time{
+            display: none;
+        }
+
 
         /* :root:has(#newestfirst:checked) .timeline,
         :root:has(#newestfirst:checked) .month-overlay,
@@ -1015,60 +1087,14 @@ font-weight: 800;
 
 
 
-        time{
-            position: absolute;
-            left: 4.5px;
-            left: 12px;
-            width: 30px;
-            display: none;
-            justify-content: center;
-            align-items: center;
-            top: 21px;
-            z-index: 1;
-            border-radius: 6px;
-            line-height: 15px;
-            font-size: 9px;
-            color: var(--header-bg);
-            opacity: 0.6;
-            /* background-color: rgb(255, 255, 255);
-            
-            background-color: #a48bc7;
-            background-color: #b39bdd;
-            color: var(--header-bg);
-            color: #b9a9cf;
-            color: var(--entry-bg); */
-            /* font-family: Arial, Helvetica, sans-serif;
-            box-shadow: var(--date-shadow); */
-        }
-        /* time::after{
-            content: "";
-            position: absolute;
-            width: 9px;
-            height: 1.5px;
-            width: 6px;
-            height: 1.5px;
-            background-color: var(--header-bg);
-            opacity: 0.3;
-            z-index: -1;
-            border-radius: 15px;
-            top: 6px;
-            right: -6px;
-        } */
-        :root:has(#showtime:checked) time{
-            display: flex;
-        }
-        :root:has(#hidetime:checked) time{
-            display: none;
-        }
-
-
         .timeline .entry-overlay{
             display: flex;
+            display: none;
             width: 100%;
                 height: fit-content;
-                display: none;
                 padding: 4.5px 24px 4.5px 48px;
                 padding: 4.5px 12px 4.5px 48px;
+                padding: 4.5px 12px 4.5px 39px;
                 box-sizing: border-box;
                 position: relative;
                 visibility: hidden;
@@ -1260,6 +1286,7 @@ font-weight: 800;
             list-style: none;
             display: flex;
             justify-content: right;
+            font-family: teko;
         }
         .link-list ul li a{
             display: block;
@@ -1270,6 +1297,7 @@ font-weight: 800;
             /* min-height: 24px; */
             /* width: fit-content; */
             width: 100%;
+            min-width: fit-content;
             text-align: right;
             /* padding-right: 18px; */
             font-size: 17px;
@@ -1296,12 +1324,17 @@ font-weight: 800;
             opacity: 1;
         } */
         .link-list ul li a:hover{
-            color: var(--entry-description-hvr);
+            color: var(--header-bg);
         }
         .links:hover .link-list{
             display: block;
         }
 
+        .links-locationrestriction{
+            height: 24px;
+            width: 24px;
+            background-color: red;
+        }
 
 
         .icon{
@@ -1770,6 +1803,8 @@ color: var(--entry-text-hvr);
     body:has(#dvd:checked) .dvd
 { display: flex; } */
 
+
+/*CSS FILTER FUNCION!!!*/
     body:has(#music:checked) .music,
     body:has(#events:checked) .event,
     body:has(#musicshows:checked) .musicshow,
@@ -1893,11 +1928,16 @@ a#previousyear, a#nextyear{
 
 } */
 
+.hidden{
+    display: none;
+}
+
 
 @media (min-width: 642px){
         .month{
             border-radius: 12px;
             padding-left: 12px;
             margin-left: 9px;
+            margin-left: 3px;
         }
 } 
