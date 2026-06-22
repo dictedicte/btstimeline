@@ -1050,36 +1050,50 @@ font-family: handwritten;
 
 
         
-
+/* 
         time{
             position: absolute;
             left: -21px;
             left: 27px;
-            /* left: -30px; */
             width: 30px;
             display: none;
             justify-content: center;
             align-items: center;
-            /* top: 27px; */
             height: 48px;
-            /* padding-top: 4.5px; */
             z-index: 1;
             border-radius: 6px;
             line-height: 15px;
             font-size: 9px;
             color: hsl(261, 45%, 78%);
-            /* opacity: 0.45; */
             width: 30px;
-            /* width: 36px; */
             font-weight: 650;
             font-weight: 700;
             letter-spacing: 0.75;
-                        /* font-style: italic; */
-                        /* background-color: red; */
-                        /* background-color: red; */
-                        
-                        /* display: block; */
-            /* display: flex; */
+
+            background-color: var(--background);
+        } */
+
+        time{
+            position: absolute;
+            left: 1.5px;
+            top: 21px;
+            width: 27px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            height: fit-content;
+            z-index: 1;
+            border-radius: 15px;
+            line-height: 9px;
+            font-size: 9px;
+            font-size: 7.5px;
+            color: hsl(261, 45%, 78%);
+            font-weight: 650;
+            font-weight: 700;
+            font-weight: 900;
+            letter-spacing: 1.5;
+
+            outline: 2.1px solid hsl(261, 42%, 87%) ;
             background-color: var(--background);
         }
         /* time::before{
@@ -1100,6 +1114,7 @@ font-family: handwritten;
             z-index: -100;
             border-radius: 1.5px;
         } */
+         /* ENTRY DOT: */
         .entry-overlay::before{
             content: "";
             position: absolute;
@@ -1108,13 +1123,11 @@ font-family: handwritten;
             height: 4.5px;
             width: 3.6px;
             height: 3.6px;
-            /* right: -8.4px; */
             left: 14.25px;
             top: 26.9px;
-            /* left: 0; */
             border-radius: 50%;
             outline: 3px solid hsl(261, 45%, 78%) ;
-            outline: 2.4px solid hsl(261, 42%, 87%) ;
+            outline: 2.1px solid hsl(261, 42%, 87%) ;
         }
         /* .entry-overlay::after{
             content: "";
@@ -1147,9 +1160,9 @@ font-family: handwritten;
             display: flex;
             
         }
-        :root:has(#showtime:checked) .entry-overlay{
+        /* :root:has(#showtime:checked) .entry-overlay{
             padding-left: 63px;
-        }
+        } */
         /* :root:has(#showtime:checked) .date-overlay{
             padding-left: 48px;
         } */

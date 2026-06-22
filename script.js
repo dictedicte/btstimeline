@@ -92,9 +92,9 @@ const suggestions = document.querySelectorAll('.suggestion-data');
 
 function filterItems() {
   const input = document.getElementById("search").value.toLowerCase();
-  const items = document.querySelectorAll(".entry-overlay");
+  const itemsy = document.querySelectorAll(".entry-overlay");
 
-  items.forEach(item => {
+  itemsy.forEach(item => {
     const pText = item.querySelector("p")?.textContent.toLowerCase() || "";
     const h5Text = item.querySelector("h5")?.textContent.toLowerCase() || "";
 
@@ -108,7 +108,6 @@ function filterItems() {
 
   updateWrappers();
 
-  // updateMessage();
 }
 
 
@@ -159,23 +158,6 @@ searchBar.addEventListener('input', () => {
 
 });
 
-// //FILTER WHEN ENTER IS PRESSED
-// searchBar.addEventListener('keydown', (e) => {
-
-//     if (e.key === 'Enter') {
-
-//         filterItems();
-//         suggestionsBox.style.display = 'none';
-
-//     }
-
-// });
-// document.getElementById('searchButton').addEventListener('click', () => {
-
-//     filterItems();
-//     suggestionsBox.style.display = 'none';
-
-// });
 
 
 // WHEN CLICKING SEARCH BAR
@@ -198,17 +180,16 @@ document.addEventListener('click', (e) => {
 
 
 
-document.getElementById('clearButton').addEventListener('click', () => {
-    searchBar.value = '';
-    suggestionsBox.style.display = 'none';
+// document.getElementById('clearButton').addEventListener('click', () => {
+//     searchBar.value = '';
+//     suggestionsBox.style.display = 'none';
 
-    document.querySelectorAll('.entry-overlay').forEach(item => {
-        item.style.display = '';
-    });
+//     document.querySelectorAll('.entry-overlay').forEach(item => {
+//         item.style.display = '';
+//     });
 
-    updateWrappers();
-    // updateMessage();
-});
+//     updateWrappers();
+// });
 
 function resetFilter() {
 
@@ -219,15 +200,14 @@ function resetFilter() {
     });
 
     updateWrappers();
-    // updateMessage();
 
 }
-document.getElementById('clearButton').addEventListener('click', () => {
+// document.getElementById('clearButton').addEventListener('click', () => {
 
-    suggestionsBox.style.display = 'none';
-    resetFilter();
+//     suggestionsBox.style.display = 'none';
+//     resetFilter();
 
-});
+// });
 
 
 // document.querySelectorAll('.filter li').addEventListener('click', () => {
@@ -347,9 +327,9 @@ document.querySelectorAll('.filter .box li').forEach(el => {
 
 function updateWrappers() {
     document.querySelectorAll('.date-overlay').forEach(wrapper => {
-        const items = wrapper.querySelectorAll('.entry-overlay');
+        const itemst = wrapper.querySelectorAll('.entry-overlay');
 
-        const allHidden = [...items].every(item =>
+        const allHidden = [...itemst].every(item =>
             item.style.display === 'none'
         );
 
