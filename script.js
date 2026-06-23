@@ -1,4 +1,53 @@
 
+
+// const checkboxxes = document.querySelectorAll('input[type="checkbox"]');
+
+// function updateItems() {
+//     checkboxxes.forEach(checkbox => {
+//         const matchingItems = document.querySelectorAll(`.${checkbox.id}`);
+
+//         matchingItems.forEach(item => {
+//             item.classList.toggle('visible', checkbox.checked);
+//         });
+//     });
+// }
+
+// // Initial state
+// updateItems();
+
+// // Update on change
+// checkboxxes.forEach(checkbox => {
+//     checkbox.addEventListener('change', updateItems);
+// });
+
+
+
+// const checkboxxes = document.querySelectorAll('input[type="checkbox"]');
+
+// function updateItems() {
+//     checkboxxes.forEach(checkbox => {
+//         const matchingItems = document.querySelectorAll(`.${checkbox.id}`);
+
+//         matchingItems.forEach(item => {
+//             item.style.display = checkbox.checked ? 'flex' : 'none';
+//         });
+//     });
+
+//       updateWrappers();
+    
+// }
+
+// // Run on page load
+// updateItems();
+
+// // Run whenever a checkbox changes
+// checkboxxes.forEach(checkbox => {
+//     checkbox.addEventListener('change', updateItems);
+    
+// });
+
+
+
 function checkAll() {
   const checkboxes = document.querySelectorAll('.filter input[type="checkbox"]');
   checkboxes.forEach(cb => cb.checked = true);
@@ -227,7 +276,7 @@ const containers = document.querySelectorAll('.timeline, .date-overlay');
 containers.forEach(container => {
   Array.from(container.children).forEach((child, i) => {
     child.dataset.index = i;
-    child.classList.add('visible'); // ensures starting visibility
+    // child.classList.add('visible'); // ?? ensures starting visibility
   });
 });
 
@@ -310,32 +359,32 @@ document.querySelectorAll('.filter .box li').forEach(el => {
     });
 });
 
-// function updateWrappers() {
-//     document.querySelectorAll('.date-overlay').forEach(wrapper => {
-//         const items = wrapper.querySelectorAll('.entry-overlay');
-
-//         const allHidden = [...items].every(item => {
-//             return getComputedStyle(item).display === 'none';
-//         });
-
-//         wrapper.style.display = allHidden ? 'none' : '';
-//     });
-
-// }
-
-
-
 function updateWrappers() {
     document.querySelectorAll('.date-overlay').forEach(wrapper => {
-        const itemst = wrapper.querySelectorAll('.entry-overlay');
+        const items = wrapper.querySelectorAll('.entry-overlay');
 
-        const allHidden = [...itemst].every(item =>
-            item.style.display === 'none'
-        );
+        const allHidden = [...items].every(item => {
+            return getComputedStyle(item).display === 'none';
+        });
 
         wrapper.style.display = allHidden ? 'none' : '';
     });
+
 }
+
+
+
+// function updateWrappers() {
+//     document.querySelectorAll('.date-overlay').forEach(wrapper => {
+//         const itemst = wrapper.querySelectorAll('.entry-overlay');
+
+//         const allHidden = [...itemst].every(item =>
+//     item.classList.contains('hidden')
+//         );
+
+//         wrapper.style.display = allHidden ? 'none' : '';
+//     });
+// }
 
 
 
@@ -416,3 +465,5 @@ document.addEventListener('click', () => {
 // }
 
 // updateMessage();
+
+
