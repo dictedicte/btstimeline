@@ -472,6 +472,8 @@ font-family: handwritten;
     font-size: 9px;
     font-weight: 800;
     letter-spacing: 0.6;
+        background-color: var(--entry-hvr-bg);
+        z-index: 900;
 }
     .suggestions {
         position: absolute;
@@ -484,7 +486,7 @@ font-family: handwritten;
         background: var(--entry-bg);
         background-color: var(--entry-hvr-bg);
         display: none;
-        max-height: 1000px;
+        max-height: 30vh;
         height: fit-content;
         overflow-y: auto;
         overflow-x: hidden;
@@ -503,6 +505,7 @@ font-family: handwritten;
         cursor: pointer;
             color: #b2a6c4;
                     font-size: 12px;
+                    font-size: 13.5px;
                     font-weight: 550;
                     width: 100%;
     white-space: nowrap;
@@ -511,8 +514,8 @@ font-family: handwritten;
     .suggestion-item img{
         position: absolute;
         left: 7.5px;
-        width: 13.5px;
-        height: 13.5px;
+        width: 15px;
+        height: 15px;
         box-sizing: border-box;
         object-fit: contain;
         opacity: 0.75;
@@ -2264,3 +2267,8 @@ a#previousyear, a#nextyear{
             margin-left: 3px;
         }
 }  */
+/* 
+
+.visible{
+    display: flex;
+} */
