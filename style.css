@@ -6,7 +6,7 @@
             --background: hsl(261, 33%, 91.5%);
             --header-bg: hsl(262, 42%, 57%);
             --header: hsl(261, 36%, 87%);
-            --header: hsl(261, 36%, 84%);
+            --header: hsl(261, 36%, 82.5%);
             --day-bg: hsla(261, 43.5%, 89%);
             --openinnew-hvr: #b7a4da;
             --entry-bg: hsl(261, 36%, 97%);
@@ -346,7 +346,7 @@ overflow-y: auto;
             background-image: url(images/search_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg);
             background-position: 7.5px;
             background-repeat: no-repeat;
-            background-size: 66%;
+            background-size: 72%;
             background-color: transparent;
         }
         #clearButton{
@@ -451,6 +451,9 @@ overflow-y: auto;
             font-size: 12px; */
             /* font-weight: 550; */
             color: var(--entry-bg);
+            color: white;
+            font-size: 15px;
+            margin-left: 3px;
             
         }
         /* .search-filter-order:has(input#search:focus){
@@ -474,7 +477,9 @@ overflow-y: auto;
 
 
         /*SUGGESTIONS DROP DOWN*/
-
+/* .suggestions-overlay{
+    padding: ;
+} */
         
 .suggestions::before{
     position: sticky;
@@ -557,7 +562,7 @@ overflow-y: auto;
         .filter .overlay,
         .order .overlay{
             max-height: 300px;
-            width: 190px;
+            width: 240px;
             position: absolute;
             top: 30px;
             display: none;
@@ -594,7 +599,7 @@ overflow-y: auto;
             height: 0;
             border-left: 9px solid transparent;
             border-right: 9px solid transparent;
-            border-bottom: 9px solid var(--entry-hvr-bg);
+            border-bottom: 9px solid var(--header);
         }
 
         .filter .box,
@@ -602,9 +607,12 @@ overflow-y: auto;
             background-color: var(--entry-hvr-bg);
             margin-top: 15px;
             box-sizing: border-box;
-            border-radius: 6px;
+            border-radius: 12px;
             overflow: auto;
+            overflow-x: hidden;
             box-shadow: var(--shadow-on-bg);
+                        background-color: var(--header);
+
         }
 
 
@@ -620,6 +628,7 @@ overflow-y: auto;
 
         .box li{
             margin: 4.5px;
+            margin: 6px;
             /* border-radius: 6px; */
             text-align: left;
             display: flex;
@@ -627,10 +636,21 @@ overflow-y: auto;
             flex-direction: column;
             align-items: start;
             position: relative;
-            padding-left: 24px;
+            padding-left: 27px;
             color: var(--entry-description);
-            border-bottom: 1px solid var(--detail);
-            font-size: 17px;
+            color: var(--header-bg);
+            /* border-bottom: 1px solid var(--detail); */
+            background-color: var(--entry-bg);
+            border-radius: 9px;
+            font-size: 15px;
+            height: 27px;
+            line-height: 27px;
+            font-weight: 500;
+                        background-color: var(--background);
+
+        }
+        .box li:hover{
+            scale: 1.015;
         }
         .box li:last-child{
             border-bottom: 0;
@@ -645,8 +665,11 @@ overflow-y: auto;
             /* padding-right: 21px; */
             box-sizing: border-box;
         }
-        .box li span:hover{
+        /* .box li span:hover{
             text-decoration: underline;
+        } */
+        .filter .box li:has(input:not(:checked)){
+            opacity: 0.6;
         }
         
         .box input{
@@ -686,9 +709,10 @@ overflow-y: auto;
             height: 18px;
             position: absolute;
             left: -157px;
+            left: -205px;
             background-position: center;
             background-repeat: no-repeat;
-            background-size: 90%;
+            background-size: 87%;
             cursor: default;
             pointer-events: none;
         }
@@ -899,6 +923,7 @@ overflow-y: auto;
             height: 30px;
             /* height: 57px; */
             height: 28.5px;
+            height: 27px;
             /* height: 39px; */
             padding-left: 30px;
             padding-left: 12px;
