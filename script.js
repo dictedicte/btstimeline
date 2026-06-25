@@ -359,13 +359,25 @@ document.querySelectorAll('.filter .box li').forEach(el => {
     });
 });
 
+// function updateWrappers() {
+//     document.querySelectorAll('.date-overlay').forEach(wrapper => {
+//         const items = wrapper.querySelectorAll('.entry-overlay');
+
+//         const allHidden = [...items].every(item => {
+//             return getComputedStyle(item).display === 'none';
+//         });
+
+//         wrapper.style.display = allHidden ? 'none' : '';
+//     });
+
+// }
 function updateWrappers() {
     document.querySelectorAll('.date-overlay').forEach(wrapper => {
         const items = wrapper.querySelectorAll('.entry-overlay');
 
-        const allHidden = [...items].every(item => {
-            return getComputedStyle(item).display === 'none';
-        });
+        const allHidden = [...items].every(item =>
+          item.style.display === 'none'        
+        );
 
         wrapper.style.display = allHidden ? 'none' : '';
     });
@@ -467,3 +479,7 @@ document.addEventListener('click', () => {
 // updateMessage();
 
 
+
+  // document.querySelector(".select-year").addEventListener("click", () => {
+  //   updateWrappers();
+  // });
