@@ -16,15 +16,11 @@
                     <h2>2026</h2>
                     <div class="overlay">
                     <div class="select-year">
-                        
-                    <p>TIME</p>
-                    <label for="showtime"><input name="time" type="checkbox" id="showtime" checked>SHOW</label>
-                    <p>WEEKDAY</p>
-                    <label for="showweekday"><input name="weekday" type="checkbox" id="showweekday" checked>SHOW</label>
+
                         <ol>
                             <li><a target="_parent" href="years/2024.html">2026</a></li>
                             <li><a target="_parent" href="years/2025.html">2025</a>
-                                <ol class="select-month">
+                                <!-- <ol class="select-month">
                                     <li><a target="_parent" href="years/2025.html#january">January</a></li>
                                     <li><a target="_parent" href="years/2025.html#february">February</a></li>
                                     <li><a target="_parent" href="years/2025.html#march">March</a></li>
@@ -37,7 +33,7 @@
                                     <li><a target="_parent" href="years/2025.html#october">October</a></li>
                                     <li><a target="_parent" href="years/2025.html#november">November</a></li>
                                     <li><a target="_parent" href="years/2025.html#december">December</a></li>
-                                </ol>
+                                </ol> -->
                             </li>
                             
                             <li><a target="_parent" href="years/2024.html">2024</a></li>
@@ -55,7 +51,7 @@
                             <li><a target="_parent" href="years/2012.html">2012</a></li>
                         </ol>
                         
-                        <i>ALL KST (Korean Standard Time)</i>
+                        <!-- <i>ALL TIME AND DATES ARE IN KST (Korean Standard Time)</i> -->
                     </div>
                     </div>
             </div>
@@ -63,11 +59,58 @@
                 <!-- <span class="search"></span> -->
                 <button id="searchButton"></button>
 
-                <input type="text" id="search" placeholder="Search BTS timeline..." autocomplete="off">
+                <input type="text" id="search" placeholder="Search..." autocomplete="off">
                 <!-- <input type="text" id="search" placeholder="Search..." oninput="filterItems()" autocomplete="off"> -->
                  
                 <!-- <button id="clearButton"></button> -->
-                  <div class="suggestions" id="suggestions"></div>
+                 <div class="suggestions-overlay">
+                <div class="suggestions" id="suggestions"></div>
+                </div>
+                <div id="suggestionData" style="display:none;">
+
+                    <div class="suggestion-data">
+                        <img src="images/icons/tv.png">
+                        <span>달려라 방탄 2.0</span>
+                    </div>
+
+                    <div class="suggestion-data">
+                        <img src="images/icons/social-media/youtube.png">
+                        <span>EPISODE</span>
+                    </div>
+                    <div class="suggestion-data">
+                        <img src="images/icons/social-media/youtube.png">
+                        <span>DANCE PRACTICE</span>
+                    </div>
+
+                    <div class="suggestion-data">
+                        <img src="images/icons/tv.png">
+                        <span>APPLE MUSIC INTERVIEW WITH ZANE LOWE</span>
+                    </div>
+
+                    <div class="suggestion-data">
+                        <img src="images/icons/tv.png">
+                        <span>THE TONIGHT SHOW STARRING JIMMY FALLON</span>
+                    </div>
+
+                    
+                    <div class="suggestion-data">
+                        <img src="images/icons/tv.png">
+                        <span>EPIKASE</span>
+                    </div>
+                    <div class="suggestion-data">
+                        <img src="images/icons/tv.png">
+                        <span>BTS: 더 리턴</span>
+                    </div>
+                    <div class="suggestion-data">
+                        <img src="images/icons/tv.png">
+                        <span>HOT ONES</span>
+                    </div>
+                    <div class="suggestion-data">
+                        <img src="images/icons/tv.png">
+                        <span>ROLLING STONE COVER STORY</span>
+                    </div>
+
+                </div>
               
                 <span class="filter">
                     <div class="overlay">
@@ -102,51 +145,7 @@
                         </div>
                     </div>
                 </span>
-<div id="suggestionData" style="display:none;">
 
-    <div class="suggestion-data">
-        <img src="images/icons/tv.png">
-        <span>달려라 방탄 2.0</span>
-    </div>
-
-    <div class="suggestion-data">
-        <img src="images/icons/social-media/youtube.png">
-        <span>EPISODE</span>
-    </div>
-    <div class="suggestion-data">
-        <img src="images/icons/social-media/youtube.png">
-        <span>DANCE PRACTICE</span>
-    </div>
-
-    <div class="suggestion-data">
-        <img src="images/icons/tv.png">
-        <span>APPLE MUSIC INTERVIEW WITH ZANE LOWE</span>
-    </div>
-
-    <div class="suggestion-data">
-        <img src="images/icons/tv.png">
-        <span>THE TONIGHT SHOW STARRING JIMMY FALLON</span>
-    </div>
-
-    
-    <div class="suggestion-data">
-        <img src="images/icons/tv.png">
-        <span>EPIKASE</span>
-    </div>
-    <div class="suggestion-data">
-        <img src="images/icons/tv.png">
-        <span>BTS: 더 리턴</span>
-    </div>
-    <div class="suggestion-data">
-        <img src="images/icons/tv.png">
-        <span>HOT ONES</span>
-    </div>
-    <div class="suggestion-data">
-        <img src="images/icons/tv.png">
-        <span>ROLLING STONE COVER STORY</span>
-    </div>
-
-</div>
             </div>
             
 
@@ -179,7 +178,11 @@
                     <label for="theme-light"><input name="theme" type="radio" checked="" id="theme-light">Light</label>
                     <label for="theme-dark"><input name="theme" type="radio" id="theme-dark">Dark</label>
                     <br>
-
+                        
+                    <p>TIME</p>
+                    <label for="showtime"><input name="time" type="checkbox" id="showtime">SHOW</label>
+                    <p>WEEKDAY</p>
+                    <label for="showweekday"><input name="weekday" type="checkbox" id="showweekday" checked>SHOW</label>
                     <h2>SHOW/HIDE</h2>
                     <p>BOTTOM TEXT</p>
                     <label for="hidetext"><input name="text" type="radio" id="hidetext">HIDE</label>
@@ -200,7 +203,7 @@
         <div class="max-width">
 
     <div class="scroll">
-    <div class="timeline flip">
+    <div class="timeline">
 
 
 <div class="date-overlay">
