@@ -7,7 +7,9 @@
             --header-bg: hsl(262, 42%, 57%);
             --header: hsl(261, 36%, 87%);
             --header: hsl(261, 36%, 82.5%);
+            --header: hsl(261, 39%, 72%);
             --day-bg: hsla(261, 43.5%, 89%);
+            --weekday: hsla(262, 42%, 57%, 0.3);
             --openinnew-hvr: #b7a4da;
             --entry-bg: hsl(261, 36%, 97%);
             --entry-bg: hsl(261, 36%, 96%);
@@ -127,6 +129,27 @@ overflow-y: auto;
 
             /* box-shadow: 0px 0px 6px -0.9px hsla(261, 30%, 42%, 0.3), 0px 0px 9px -3px hsla(261, 42%, 45%, 0.15); */
             background-color: var(--background);
+            background-color: hsl(261, 36%, 82.5%);
+            background-color: hsl(261, 36%, 75%);
+            background-color: hsl(261, 36%, 78%);
+        }
+        header::after{
+            content: "";
+            position: absolute;
+            bottom: -27px;
+            height: 1.5px;
+            height: 27px;
+            bottom: -27px;
+            width: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transition-duration: 0.3s;
+            z-index: 600;
+            border-bottom: 1.5px solid var(--weekday);
+        }
+        header.show-after::after{
+            opacity: 1;
+            visibility: visible;
         }
         /* header::after{
             content: "";
@@ -157,7 +180,20 @@ overflow-y: auto;
             width: 100%;
             /* padding: 0 15px; */
             gap: 6px;
+            z-index: 600;
         }
+        main::after{
+            content: "";
+            position: fixed;
+            top: 51px;
+            height: 1.5px;
+            height: 27px;
+            bottom: -27px;
+            width: 100%;
+            background-color: var(--background); 
+            z-index: 600;
+        }
+
         /* header .max-width:after{
             content: "";
             position: absolute;
@@ -649,9 +685,9 @@ overflow-y: auto;
                         background-color: var(--background);
 
         }
-        .box li:hover{
+        /* .box li:hover{
             scale: 1.015;
-        }
+        } */
         .box li:last-child{
             border-bottom: 0;
         }
@@ -904,7 +940,7 @@ overflow-y: auto;
             /* background: linear-gradient(to bottom, var(--background) 50%, transparent 50%); */
             /* background-color: hsla(261, 66%, 78%, 0.45); */
 
-            background-color: var(--background);
+            /* background-color: var(--background); */
             /* background-color: hsla(261, 33%, 91.5%, 0.75); */
             /* background: linear-gradient(to bottom, hsla(261, 33%, 93%, 1), hsla(261, 33%, 93%, 0.1)); */
 
@@ -1012,7 +1048,7 @@ overflow-y: auto;
             margin-left: 6px;
             width: fit-content;
             height: fit-content;
-            opacity: 0.3;
+            color: var(--weekday);
             /* font-style: italic; */
             display: none;
             text-transform: uppercase;

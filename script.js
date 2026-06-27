@@ -1,4 +1,17 @@
 
+const element = document.querySelector("header");
+const showAfter = 3;
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > showAfter) {
+        element.classList.add("show-after");
+    } else {
+        element.classList.remove("show-after");
+    }
+});
+
+
+
 
 // const checkboxxes = document.querySelectorAll('input[type="checkbox"]');
 
