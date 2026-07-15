@@ -13,7 +13,7 @@
             --entry-hvr-bg: hsl(261, 36%, 97.2%);
             --entry-description: #56496f;
             --entry-text: #9c92af;
-            --link-bg: hsl(261, 42%, 78%);
+            --link-bg: hsl(261, 42%, 79.5%);
             --link-bg-visited: hsl(261, 42%, 90%);
             --link-bg-hvr: hsl(261, 42%, 72%);
             --detail: hsla(261, 30%, 90%, 0.5);
@@ -96,6 +96,7 @@
         }
         body{
             cursor: default;
+            background: hsl(261, 33%, 60%);
             background: var(--background);
             overflow: hidden;
             font-family: Arial, Helvetica, sans-serif;
@@ -746,6 +747,7 @@ overflow-y: auto;
         .box li #tiktok::after{background-image: url(images/icons/social-media/tiktok.png);}
         .box li #socialmedia::after{background-image: url(images/icons/socialmedia.png);}
         .box li #stationhead::after{background-image: url(images/icons/social-media/stationhead.jpg);}
+        .box li #fancafe::after{background-image: url(images/icons/social-media/daumcafe.svg);}
 
         .box li #bu::after{background-image: url(images/icons/bu.png);}
         
@@ -804,6 +806,7 @@ overflow-y: auto;
         }
 
         .timeline{
+            background: var(--background);
             display: flex;
             /* flex-direction: column-reverse; */
             flex-direction: column;
@@ -1566,7 +1569,7 @@ overflow-y: auto;
             height: fit-content;
             min-height: var(--entry-min-height);
             border-radius: 15px;
-            border-radius: 18px;
+            border-radius: 24px;
             width: 100%;
             box-sizing: border-box;
             position: relative;
@@ -1576,6 +1579,7 @@ overflow-y: auto;
             display: flex;
             /* padding-right: 7.5px; */
             /* padding-right: 30px; */
+            /* border: 1.5px solid hsl(261, 33%, 93%); */
         }
         /* .entry:hover, .entry.active{
             background-color: var(--entry-hvr-bg); */
@@ -1598,12 +1602,13 @@ overflow-y: auto;
         
 
         .entry .link{
-            width: 30px;
-            height: 30px;
+            width: 33px;
+            height: 33px;
             /* width: var(--entry-min-height);
             height: var(--entry-min-height); */
-            margin: 7.5px;
+            margin: 12px;
             margin-right: 9px;
+            border-radius: 12px;
             border-radius: 50%;
             /* position: absolute;
             right: 0;
@@ -1615,7 +1620,7 @@ overflow-y: auto;
             /* background-color: #866bb6;
             background-color: #b19bd7; */
             background-color: var(--link-bg);
-            margin: 9px;
+            margin: 10.5px;
             margin-right: 0;
             
         }
@@ -1872,12 +1877,14 @@ background-color: #ece8f3;
 .vlive .icon.loaded{ background-image: url(images/icons/social-media/vlive.png);}
 .stationhead .icon.loaded{ background-image: url(images/icons/social-media/stationhead.jpg);}
 .tiktok .icon.loaded{ background-image: url(images/icons/social-media/tiktok.png);}
+.fancafe .icon.loaded{ background-image: url(images/icons/social-media/daumcafe.svg);}
 
 .musicshow .icon.loaded{ background-image: url(images/icons/mic.png);}
 
 .webtoon .icon.loaded{ background-image: url(images/icons/social-media/WEBTOON_Logo.png);}
 
-
+.fancafe .icon{
+background-size: 54%;}
 
 
 
@@ -1953,7 +1960,7 @@ background-color: #ece8f3;
             height: fit-content;
             display: flex;
             flex-direction: row;
-            padding-right: 9px;
+            padding-right: 10.5px;
             box-sizing: border-box;
         }
 
@@ -2007,8 +2014,8 @@ background-color: #ece8f3;
                 color: #9C92AF;
                 color: hsla(261, 40%, 60%, 0.75);
             font-size: 10.5px;
-            font-weight: 700;
-            font-size: 9px;
+            font-weight: 600;
+            font-size: 10.5px;
             padding: 0 1.5px;
             border: 0.75px solid hsla(261, 40%, 75%, 0.06);
             
@@ -2068,8 +2075,8 @@ background-color: #ece8f3;
             position: relative;
             width: 17.25px;
             height: 17.25px;
-            width: 19.5px;
-            height: 19.5px;
+            width: 18px;
+            height: 18px;
             background-size: 60%;
             background-position: center;
             background-repeat: no-repeat;
@@ -2084,7 +2091,7 @@ background-color: #ece8f3;
         }
         .detail.audio::before{
             background-image: url(images/mic_24dp_8D70C2_FILL1_wght400_GRAD200_opsz24.svg);
-            background-size: 75%;
+            background-size: 69%;
         }
         .detail.duration::before{
             background-image: url(images/videocam_24dp_9C92AF_FILL1_wght500_GRAD0_opsz24.svg);
@@ -2148,6 +2155,7 @@ min-width: 0;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
     font-family:Trebuchet MS, Lucida Sans Unicode, Arial, sans-serif;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 10.5px;
     font-size: 12px;
     font-weight: 750;
     letter-spacing: 0.3px;
@@ -2163,8 +2171,8 @@ animation-duration: 1s; */
         article p{
             display: inline;
             position: relative;
-    font-size: 10.5px;
-    font-size: 12px;
+            font-size: 12px;
+            font-size: 12px;
     font-weight: 300;
     font-weight: 400;
     /* height: 18px;
@@ -2211,8 +2219,7 @@ flex-grow: 0;
             transform: translateY(3px);
         }
         article p::after{
-            position: absolute;
-            right: 0;
+            position: relative;
         }
         article:hover p::after{
             position: relative;
@@ -2330,6 +2337,7 @@ flex-grow: 0;
     body:has(#facebook:checked) .facebook,
     body:has(#tiktok:checked) .tiktok,
     body:has(#stationhead:checked) .stationhead,
+    body:has(#fancafe:checked) .fancafe,
     body:has(#bu:checked) .bu,
     body:has(#misc:checked) .misc
 { display: flex; }
