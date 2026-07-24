@@ -232,7 +232,7 @@ searchBar.addEventListener('focus', () => {
 // CLICK OUTSIDE
 document.addEventListener('click', (e) => {
 
-    if (!document.querySelector('.search-filter-order').contains(e.target)) {
+    if (!document.querySelector('.searchbar').contains(e.target)) {
 
         suggestionsBox.style.display = 'none';
 
@@ -462,40 +462,6 @@ document.addEventListener('click', () => {
 });
 
 
-
-
-
-
-
-  document.querySelector(".filter-dropdown-btn").addEventListener("click", () => {
-    document.querySelector(".filter-dropdown").classList.toggle("show");
-  });
-
-
-
-
-
-
-
-// function updateMessage() {
-//     const items = document.querySelectorAll('.entry-overlay');
-
-//     const allHidden = [...items].every(
-//         item => getComputedStyle(item).display === 'none'
-//     );
-
-//     document
-//         .getElementById('message')
-//         .classList.toggle('hidden', !allHidden);
-// }
-
-// updateMessage();
-
-
-
-  // document.querySelector(".select-year").addEventListener("click", () => {
-  //   updateWrappers();
-  // });
 
 
 
