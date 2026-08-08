@@ -1,184 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BTS Timeline | 2012</title>
-    <link rel="stylesheet" href="../style.css">
-    <base target="_blank">
-    <link rel="icon" type="image/svg" href="../images/heart.svg">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="../style.css">
+<base target="_blank">
+<link rel="icon" type="image/svg" href="../images/heart.svg">
+<title>BTS Timeline | 2012</title>
 </head>
 <body>
-    <header>
-        <div class="max-width">
-                <div class="year"><h2>2012</h2>
-                    <div class="overlay">
-                        <div class="select-year">
-                            <ol>
-                                <li><a target="_parent" href="2026.html">2026</a></li>
-                                <li><a target="_parent" href="2025.html">2025</a></li>
-                                <li><a target="_parent" href="2024.html">2024</a></li>
-                                <li><a target="_parent" href="2023.html">2023</a></li>
-                                <li><a target="_parent" href="2022.html">2022</a></li>
-                                <li><a target="_parent" href="2021.html">2021</a></li>
-                                <li><a target="_parent" href="2020.html">2020</a></li>
-                                <li><a target="_parent" href="2019.html">2019</a></li>
-                                <li><a target="_parent" href="2018.html">2018</a></li>
-                                <li><a target="_parent" href="2017.html">2017</a></li>
-                                <li><a target="_parent" href="2016.html">2016</a></li>
-                                <li><a target="_parent" href="2015.html">2015</a></li>
-                                <li><a target="_parent" href="2014.html">2014</a></li>
-                                <li><a target="_parent" href="2013.html">2013</a></li>
-                                <li><a target="_parent" href="2012.html">2012</a></li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="searchbar">
-                    <input type="text" id="search" placeholder="Search..." autocomplete="off">
-                    <div class="suggestions-overlay">
-                        <div class="suggestions" id="suggestions"></div>
-                    </div>
-                    <div id="suggestionData" style="display:none;">
-
-                        <div class="suggestion-data">
-                            <img src="images/icons/tv.png">
-                            <span>달려라 방탄 2.0</span>
-                        </div>
-
-                        <div class="suggestion-data">
-                            <img src="images/icons/social-media/youtube.png">
-                            <span>EPISODE</span>
-                        </div>
-                        <div class="suggestion-data">
-                            <img src="images/icons/social-media/youtube.png">
-                            <span>DANCE PRACTICE</span>
-                        </div>
-
-                        <div class="suggestion-data">
-                            <img src="images/icons/tv.png">
-                            <span>APPLE MUSIC INTERVIEW WITH ZANE LOWE</span>
-                        </div>
-
-                        <div class="suggestion-data">
-                            <img src="images/icons/tv.png">
-                            <span>THE TONIGHT SHOW STARRING JIMMY FALLON</span>
-                        </div>
-
-                        
-                        <div class="suggestion-data">
-                            <img src="images/icons/tv.png">
-                            <span>EPIKASE</span>
-                        </div>
-                        <div class="suggestion-data">
-                            <img src="images/icons/tv.png">
-                            <span>BTS: 더 리턴</span>
-                        </div>
-                        <div class="suggestion-data">
-                            <img src="images/icons/tv.png">
-                            <span>HOT ONES</span>
-                        </div>
-                        <div class="suggestion-data">
-                            <img src="images/icons/tv.png">
-                            <span>ROLLING STONE COVER STORY</span>
-                        </div>
-
-                    </div>
-                </div>
-            
-                <!-- <div class="adjustments"> -->
-                
-                    <div class="filter">
-                        <!-- Filter -->
-                        <div class="overlay">
-                            <div class="box">
-                                <!-- <h2>FILTER</h2> -->
-                                <button id="checkall" onclick="checkAll()">ALL</button>
-                                <!-- <label><input type="checkbox" id="filterSelect"></label> -->
-                                <h2>CATEGORIES</h2>
-                                <ul>
-                                    <li><span class="solo-check" data-for="music">Discography</span><input type="checkbox" checked="" id="music" name="music"></li>
-                                    <li><span class="solo-check" data-for="filmography">Filmography</span><input type="checkbox" checked="" id="filmography" name="filmography"></li>
-                                    <li><span class="solo-check" data-for="event">Concerts & Live Events</span><input type="checkbox" checked="" id="event" name="events"></li>
-                                    <li><span class="solo-check" data-for="musicshow">Korean Music Shows</span><input type="checkbox" checked="" id="musicshow" name="musicshows"></li>
-                                    <li><span class="solo-check" data-for="video">Official Videos</span><input type="checkbox" checked="" id="video"></li>
-                                    <li><span class="solo-check" data-for="photo">Official Photos</span><input type="checkbox" checked="" id="photo"></li>
-                                    
-                                        <li><span class="solo-check" data-for="youtube">YouTube</span><input type="checkbox" checked="" id="youtube"></li>
-                                        <li><span class="solo-check" data-for="twitter">Twitter</span><input type="checkbox" checked="" id="twitter"></li>
-                                        <li><span class="solo-check" data-for="facebook">Facebook</span><input type="checkbox" checked="" id="facebook"></li>
-                                        <li><span class="solo-check" data-for="bangtanblog">BANGTAN BLOG</span><input type="checkbox" checked="" id="bangtanblog"></li>
-                                        <li><span class="solo-check" data-for="fancafe">DAUM FANCAFE</span><input type="checkbox" checked="" id="fancafe"></li>
-                                        
-                                        <li><span class="solo-check" data-for="misc">Miscellaneous</span><input type="checkbox" checked="" id="misc"></li>
-
-                                        
-                                </ul>
-                                <h2>MEDIA TYPE</h2>
-                                        <li><span class="solo-check" data-for="media-videos">Videos</span><input type="checkbox" checked="" id="media-videos"></li>
-                                        <li><span class="solo-check" data-for="media-images">Images</span><input type="checkbox" checked="" id="media-images"></li>
-                                        <li><span class="solo-check" data-for="media-audio">Audio</span><input type="checkbox" checked="" id="media-audio"></li>
-                                        <li><span class="solo-check" data-for="media-none">No Media</span><input type="checkbox" checked="" id="media-none"></li>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="order">
-                        <!-- Order -->
-                        <div class="overlay">
-                            <div class="box">
-                                <span class="newestfirst"><input type="radio" name="order" id="newestfirst">Newest First</span>
-                                <span class="oldestfirst"><input type="radio" name="order" id="oldestfirst">Oldest First</span>
-                            </div>
-                        </div>
-                    </div>
-                <!-- </div> -->
-                 
-                    <div class="settings-btn">
-                        <div class="overlay">
-                            <div class="settings">
-                                <!-- <h2>ORDER</h2>
-                                <ul>
-                                    <li><label for="newestfirst"><input type="radio" name="order" checked="" id="newestfirst">Newest first</label></li>
-                                    <li><label for="oldestfirst"><input type="radio" name="order" id="oldestfirst">Oldest first</label></li>
-                                </ul> -->
 
 
-                                <h2>LANGUAGE</h2>
-                                <label for="english"><input name="language" type="radio" checked="" id="english">English</label>
-                                <label for="korean"><input name="language" type="radio" id="korean">Korean</label>
-                                <br>
-                                <h2>THEME</h2>
-                                <label for="theme-light"><input name="theme" type="radio" checked="" id="theme-light">Light</label>
-                                <label for="theme-dark"><input name="theme" type="radio" id="theme-dark">Dark</label>
-                                <br>
-                                    
-                                <p>TIME</p>
-                                <label for="showtime"><input name="time" type="checkbox" id="showtime">SHOW</label>
-                                <p>WEEKDAY</p>
-                                <label for="showweekday"><input name="weekday" type="checkbox" id="showweekday" checked>SHOW</label>
-                                <h2>SHOW/HIDE</h2>
-                                <p>BOTTOM TEXT</p>
-                                <label for="hidetext"><input name="text" type="radio" id="hidetext">HIDE</label>
-                                <label for="showtext"><input name="text" type="radio" id="showtext" checked="">SHOW</label>
-                                <label for="showfulltext"><input name="text" type="radio" id="showfulltext">SHOW FULL</label>
-                                <p>DETAILS</p>
-                                <label for="showdetails"><input name="details" type="radio" id="showdetails">SHOW</label>
-                                <label for="hidedetails"><input name="details" type="radio" id="hidedetails" checked="">HIDE</label>
-                                <p>ALBUM TRACKS</p>
-                                <label for="showalbum"><input name="album" type="radio" id="showalbum">SHOW</label>
-                                <label for="hidealbum"><input name="album" type="radio" id="hidealbum" checked="">HIDE</label>
-                            </div>
-                        </div>
-                    </div>
+<header>
+<div class="max-width">
+    
+    <div class="year"><h2>2012</h2>
+    <div class="overlay">
+    <div class="box">
+        <a target="_parent" href="../index.html">2026</a>
+        <a target="_parent" href="2025.html">2025</a>
+        <a target="_parent" href="2024.html">2024</a>
+        <a target="_parent" href="2023.html">2023</a>
+        <a target="_parent" href="2022.html">2022</a>
+        <a target="_parent" href="2021.html">2021</a>
+        <a target="_parent" href="2020.html">2020</a>
+        <a target="_parent" href="2019.html">2019</a>
+        <a target="_parent" href="2018.html">2018</a>
+        <a target="_parent" href="2017.html">2017</a>
+        <a target="_parent" href="2016.html">2016</a>
+        <a target="_parent" href="2015.html">2015</a>
+        <a target="_parent" href="2014.html">2014</a>
+        <a target="_parent" href="2013.html">2013</a>
+        <a target="_parent" href="2012.html">2012</a>
+    </div>
+    </div>
+    </div>
+        
+    <div class="searchbar">
+        <input type="text" id="search" placeholder="Search..." autocomplete="off">
+        <button type="button" id="clearSearch">×</button>
+
+        <div class="suggestions-overlay">
+            <div class="suggestions" id="suggestions"></div>
+        </div>
+        <div id="suggestionData" style="display:none;">
+
+            <div class="suggestion-data">
+                <img src="images/icons/tv.png">
+                <span>NETFLIX</span>
+            </div>
+
+            <div class="suggestion-data">
+                <img src="images/icons/social-media/youtube.png">
+                <span>YOUTUBE VIDEO</span>
+            </div>
+
+            <div class="suggestion-data">
+                <img src="images/icons/tv.png">
+                <span>HOT ONES</span>
+            </div>
+
+            <div class="suggestion-data">
+                <img src="images/icons/ticket.png">
+                <span>WORLD TOUR</span>
+            </div>
 
         </div>
-</header>
-    <main>
-        <div class="max-width">
+    </div>
 
-    <div class="scroll">
-    <div class="timeline">
+    <div class="settings">
+    <div class="overlay">
+    <div class="box">
+
+        <div class="section settings1">
+            <h2>ORDER</h2>
+            <label class="newestfirst"><input type="radio" name="order" id="newestfirst" checked>Newest First</label>
+            <label class="oldestfirst"><input type="radio" name="order" id="oldestfirst">Oldest First</label>
+
+            <h2>DISPLAY MODE</h2>
+            <label class="compact"><input type="radio" name="compactability" id="compact" checked>Compact</label>
+            <label class="expanded"><input type="radio" name="compactability" id="expanded">Expanded</label>
+        </div>
+
+        <div class="section filter-categories">
+            <h2>CATEGORIES</h2>
+            <button class="toggle-all" id="toggleAll" data-filter-group="categories">Deselect all</button>
+        
+            <label for="music">Discography<input class="category-checkbox" type="checkbox" checked="" id="music"></label>
+            <label for="filmography">Filmography<input class="category-checkbox" type="checkbox" checked="" id="filmography"></label>
+            <label for="event">Concerts & Live Events<input class="category-checkbox" type="checkbox" checked="" id="event"></label>
+            <label for="musicshow">Korean Music Shows<input class="category-checkbox" type="checkbox" checked="" id="musicshow"></label>
+            <label for="officialvideo">Official Videos<input class="category-checkbox" type="checkbox" checked="" id="officialvideo"></label>
+            <label for="officialphoto">Official Photos<input class="category-checkbox" type="checkbox" checked="" id="officialphoto"></label>
+            <label for="live">Livestreams<input class="category-checkbox" type="checkbox" checked="" id="live"></label>
+            <label for="dvd">DVD/blu-ray/Digital Code<input class="category-checkbox" type="checkbox" checked="" id="dvd"></label>
+            
+            <label for="youtube">YouTube<input class="category-checkbox" type="checkbox" checked="" id="youtube"></label>
+            <label for="weverse">Weverse<input class="category-checkbox" type="checkbox" checked="" id="weverse"></label>
+            <label for="twitter">Twitter / X<input class="category-checkbox" type="checkbox" checked="" id="twitter"></label>
+            <label for="instagram">Instagram<input class="category-checkbox" type="checkbox" checked="" id="instagram"></label>
+            <label for="bangtanblog">BANGTAN BLOG<input class="category-checkbox" type="checkbox" checked="" id="bangtanblog"></label>
+            <label for="fancafe">Daum Fancafe<input class="category-checkbox" type="checkbox" checked="" id="fancafe"></label>
+            <label for="facebook">Facebook<input class="category-checkbox" type="checkbox" checked="" id="facebook"></label>
+
+            <label for="misc">Miscellaneous<input class="category-checkbox" type="checkbox" checked="" id="misc"></label>
+        </div>
+
+        <div class="section filter-mediatype">
+            <h2>MEDIA TYPE</h2>
+            <button class="toggle-all" id="toggleMediaAll" data-filter-group="media">Deselect all</button>
+
+            <label for="media-video">Videos<input type="checkbox" checked id="media-video"></label>
+            <label for="media-image">Images<input type="checkbox" checked id="media-image"></label>
+            <label for="media-audio">Audio<input type="checkbox" checked id="media-audio"></label>
+            <label for="media-none">No Media<input type="checkbox" checked id="media-none"></label>
+        </div>
+
+        <div class="section filter-duration">
+            <h2>VIDEO/AUDIO DURATION</h2>
+            <button class="toggle-all" id="toggleDurationAll" data-filter-group="duration">Deselect all</button>
+            <label for="duration-unspecified">Unspecified<input type="checkbox" id="duration-unspecified" checked></label>
+            <label for="duration-0-10">0-10 min.<input type="checkbox" id="duration-0-10" checked></label>
+            <label for="duration-10-30">10-30 min.<input type="checkbox" id="duration-10-30" checked></label>
+            <label for="duration-30-60">30-60 min.<input type="checkbox" id="duration-30-60" checked></label>
+            <label for="duration-60-plus">&gt; 60 min.<input type="checkbox" id="duration-60-plus" checked></label>
+        </div>
+
+        <div class="section settings2">
+            <h2>LANGUAGE PRIORITY</h2>
+            <label for="english"><input name="language" type="radio" id="english" checked>English</label>
+            <label for="korean"><input name="language" type="radio" id="korean">한국어</label>
+
+            <h2>THEME</h2>
+            <label for="theme-light"><input name="theme" type="radio" id="theme-light" checked>Light</label>
+            <label for="theme-dark"><input name="theme" type="radio" id="theme-dark">Dark</label>
+            <label for="theme-skoolluvaffair"><input name="theme" type="radio" id="theme-skoolluvaffair">Skool Luv Affair</label>
+        </div>
+
+    </div>
+    </div>
+    </div>
+
+</div>
+</header>
+
+
+<div id="empty-results" style="display: none;">
+    <p>EMPTY SEARCH / FILTER RESULTS</p>
+    <!-- <img src="../images/jin-disappear-bts-disappear.gif"> -->
+</div>
+
+
+<main>
+<div class="max-width">
+<div class="scroll">
+<div class="timeline">
 
 
 <div class="date-overlay">
@@ -197,7 +174,7 @@
 <h5 class="eng">j-hope and Jung Kook with Jo Kwon on 'Show! Music Core'</h5>
 <div class="entry-bottom">
 <div class="entry-details">
-<span class="detail video"></span>
+<span class="detail media-video"></span>
 </div>
 <p class="kor">314회</p>
 <p class="eng">Ep.314</p>
@@ -206,8 +183,8 @@
 <span class="links">
 <div class="link-list"><ul>
 <li><a href="https://playvod.imbc.com/Templete/VodView?bid=1000788100347100000">MBC TV</a></li>
-<li><a href="https://www.youtube.com/watch?v=tp2o4_8ZVqI">YouTube</a></li>
-<li><a href="https://www.youtube.com/watch?v=zkeDw-HvLYQ">YouTube</a></li>
+<li><a href="https://www.youtube.com/watch?v=tp2o4_8ZVqI">YouTube 1/2</a></li>
+<li><a href="https://www.youtube.com/watch?v=zkeDw-HvLYQ">YouTube 2/2</a></li>
 </ul>
 </div>
 </span>
@@ -231,7 +208,7 @@
 <h5 class="eng">j-hope and Jung Kook with Jo Kwon on 'SBS Inkigayo'</h5>
 <div class="entry-bottom">
 <div class="entry-details">
-<span class="detail video"></span>
+<span class="detail media-video"></span>
 </div>
 <p class="kor">679회</p>
 <p class="eng">Ep.679</p>
@@ -263,7 +240,7 @@
 <h5 class="eng">j-hope and Jung Kook with Jo Kwon on 'Show! Music Core'</h5>
 <div class="entry-bottom">
 <div class="entry-details">
-<span class="detail video"></span>
+<span class="detail media-video"></span>
 </div>
 <p class="kor">315회</p>
 <p class="eng">Ep.315</p>
@@ -296,7 +273,7 @@
 <h5 class="eng">j-hope with Jo Kwon on 'Show! Music Core'</h5>
 <div class="entry-bottom">
 <div class="entry-details">
-<span class="detail video"></span>
+<span class="detail media-video"></span>
 </div>
 <p class="kor">316회</p>
 <p class="eng">Ep.316</p>
@@ -329,7 +306,7 @@
 <h5 class="eng">j-hope with Jo Kwon on 'SBS Inkigayo'</h5>
 <div class="entry-bottom">
 <div class="entry-details">
-<span class="detail video"></span>
+<span class="detail media-video"></span>
 </div>
 <p class="kor">681회</p>
 <p class="eng">Ep.681</p>
@@ -361,7 +338,7 @@
 <h5 class="eng">BTS are backup dancers for GLAM on 'SBS Inkigayo'</h5>
 <div class="entry-bottom">
 <div class="entry-details">
-<span class="detail video"></span>
+<span class="detail media-video"></span>
 </div>
 <p class="kor">682회</p>
 <p class="eng">Ep.682</p>
@@ -392,7 +369,7 @@
 <h5>BANGTANTV YOUTUBE VIDEO</h5>
 <div class="entry-bottom">
 <div class="entry-details">
-<span class="detail video"><span>01:41</span></span>
+<span class="detail media-video"><span>01:41</span></span>
 </div>
 <p class="kor">닥투 - RAP MONSTER of 방탄소년단</p>
 <p class="eng">닥투 - RAP MONSTER of 방탄소년단</p>
@@ -631,7 +608,7 @@
 <h5>BANGTANTV YOUTUBE VIDEO</h5>
 <div class="entry-bottom">
 <div class="entry-details">
-<span class="detail video"><span>01:53</span></span>
+<span class="detail media-video"><span>01:53</span></span>
 </div>
 <p class="kor">Let's Introduce BANGTAN ROOM by 방탄소년단</p>
 <p class="eng">Let's Introduce BANGTAN ROOM by 방탄소년단</p>
@@ -985,7 +962,7 @@
 열 당연하죠 회사만하면 딱딱하고 재미없고 차별화도안되구.. 어휴 생각만해도 현기증난다 그쵸?</p>
 </div>
 </div>
-<a class="link" href="https://x.com/BTS_twt/status/282192692635652096"></a>
+<a class="link" href="https://x.com/BTS_twt/status/282196163980034048"></a>
 </div>
 </article>
 </div>
@@ -1000,7 +977,7 @@
 <p>@orjoo94 음 사실 정확한건 저도 몰라요 그거만큼은 ㅠㅠ 그래도 블로그는 곧 열려요 으헤헤</p>
 </div>
 </div>
-<a class="link" href="https://x.com/BTS_twt/status/282193025726291968"></a>
+<a class="link" href="https://x.com/BTS_twt/status/282196306397642752"></a>
 </div>
 </article>
 </div>
@@ -1018,7 +995,7 @@
 감자님이랑 트윗!! 처음해보는데 이거 신기하네요 헐</p>
 </div>
 </div>
-<a class="link" href="https://x.com/BTS_twt/status/282193173193818112"></a>
+<a class="link" href="https://x.com/BTS_twt/status/282196437020856320"></a>
 </div>
 </article>
 </div>
@@ -1036,7 +1013,7 @@
 어때요 싫어요??</p>
 </div>
 </div>
-<a class="link" href="https://x.com/BTS_twt/status/282193290563031040"></a>
+<a class="link" href="https://x.com/BTS_twt/status/282196527923986433"></a>
 </div>
 </article>
 </div>
@@ -1052,7 +1029,7 @@
 이야 기억이나 해주시다니 감사하네요 사실 제트윗은 아니구요 저희 팀 트윗인데 일단 저만 하구있어요</p>
 </div>
 </div>
-<a class="link" href="https://x.com/BTS_twt/status/282193666687262721"></a>
+<a class="link" href="https://x.com/BTS_twt/status/282196706022547456"></a>
 </div>
 </article>
 </div>
@@ -1376,21 +1353,7 @@
 <p>Replying to
 @94_suyeon
 @94_suyeon
-괜찮아요 이제부터 알면..되...죠...하하
-방탄소년단
-@BTS_twt
-·
-Dec 22, 2012
-Replying to
-@Mazeinbrain
-@Mazeinbrain
-둘다 아닌걸로!!!!!!!!!!
-방탄소년단
-@BTS_twt
-·
-Dec 22, 2012
-@HIH__LOL
-어 그러면 자야겠다</p>
+괜찮아요 이제부터 알면..되...죠...하하</p>
 </div>
 </div>
 <a class="link" href="https://x.com/BTS_twt/status/282199979358035971"></a>
@@ -1752,26 +1715,7 @@ Zzz..</p>
 <p>Replying to
 @jiyoung30097
 @jiyoung30097
-말을 잇지 못하시는군요
-방탄소년단
-@BTS_twt
-·
-Dec 22, 2012
-Replying to
-@m2lee_
-@Nyuni_J
-코앞까진 아니구 그냥 앞..정도? 암튼 가까워요 ㅋㅋㅋ
-방탄소년단
-@BTS_twt
-·
-Dec 22, 2012
-@Z_INY 이년...?님!
-방탄소년단
-@BTS_twt
-·
-Dec 22, 2012
-@hw410
-블로그에 다 올라갈거니까 걱정 하덜덜마세요~</p>
+말을 잇지 못하시는군요</p>
 </div>
 </div>
 <a class="link" href="https://x.com/BTS_twt/status/282317217557782529"></a>
@@ -2137,21 +2081,7 @@ Dec 22, 2012
 <p>Replying to
 @base_139
 @bears_96
-거절받고 한거절 더
-방탄소년단
-@BTS_twt
-·
-Dec 22, 2012
-@mje_ong107
-전 너무시름! 흑역사라서 ㅋㅋㅋㅋ
-방탄소년단
-@BTS_twt
-·
-Dec 22, 2012
-Replying to
-@jiyoung30097
-@jiyoung30097
-감동먹기엔 아직 이르다</p>
+거절받고 한거절 더</p>
 </div>
 </div>
 <a class="link" href="https://x.com/BTS_twt/status/282384341051523072"></a>
@@ -2999,7 +2929,7 @@ Replying to
 <h5>BANGTANTV YOUTUBE VIDEO</h5>
 <div class="entry-bottom">
 <div class="entry-details">
-<span class="detail video"><span>01:27</span></span>
+<span class="detail media-video"><span>01:27</span></span>
 </div>
 <p class="kor">흔한 연습생의 크리스마스 Video Edit by 방탄소년단</p>
 <p class="eng">흔한 연습생의 크리스마스 Video Edit by 방탄소년단</p>
@@ -3381,15 +3311,7 @@ Replying to
 <div class="entry-text">
 <h5>@BTS_TWT TWITTER POST</h5>
 <div class="entry-bottom">
-<p>@minj0213 저.. 저도...?
-방탄소년단
-@BTS_twt
-·
-Dec 23, 2012
-Replying to
-@fks6667
-@fks6667
-당근빠다죠 왜 랩몬스터겠어요</p>
+<p>@minj0213 저.. 저도...?</p>
 </div>
 </div>
 <a class="link" href="https://x.com/BTS_twt/status/282515170960490496"></a>
@@ -5531,15 +5453,7 @@ $$$</p>
 <p>Replying to
 @__DukuNee
 @__DukuNee
-불우팬을 돕겠습니다
-방탄소년단
-@BTS_twt
-·
-Dec 23, 2012
-Replying to
-@_tea_tea
-@_malovee
-헤헤 믿음은 좋은거에요</p>
+불우팬을 돕겠습니다</p>
 </div>
 </div>
 <a class="link" href="https://x.com/BTS_twt/status/282755137955573760"></a>
@@ -6583,7 +6497,7 @@ Yup.</p>
 <h5>@BTS_TWT TWITTER POST</h5>
 <div class="entry-bottom">
 <div class="entry-details">
-<span class="detail image"><span>1</span></span>
+<span class="detail media-image"><span>1</span></span>
 </div>
 <p>아랫입술이 매력.jpg</p>
 </div>
@@ -9387,7 +9301,7 @@ Yup.</p>
 <h5>BANGTAN BLOG POST</h5>
 <div class="entry-bottom">
 <div class="entry-details">
-<span class="detail image"><span>1</span></span>
+<span class="detail media-image"><span>1</span></span>
 </div>
 <p>흔한 연습생의 크리스마스 후기</p>
 </div>
@@ -11449,7 +11363,7 @@ ssup</p>
 <h5>@BTS_TWT TWITTER POST</h5>
 <div class="entry-bottom">
 <div class="entry-details">
-<span class="detail image"><span>1</span></span>
+<span class="detail media-image"><span>1</span></span>
 </div>
 <p>맛있겠진
 먹고프면 숙소로 오셈
@@ -12790,7 +12704,7 @@ im rapsome</p>
 <h5>@BTS_TWT TWITTER POST</h5>
 <div class="entry-bottom">
 <div class="entry-details">
-<span class="detail image"><span>1</span></span>
+<span class="detail media-image"><span>1</span></span>
 </div>
 <p>새나라의 어린이는 일찍일어나진
 은 무슨 떡 시켰는데 새벽 5시에옴</p>
@@ -13196,10 +13110,10 @@ im rapsome</p>
 
 </div>
 </div>
-<!-- <a id="previousyear" href="years/2025.html" target="_parent">2025</a> -->
 </div>
-
 </main>
-    <script src="../script.js"></script>
+
+
+<script src="../script.js"></script>
 </body>
 </html>
