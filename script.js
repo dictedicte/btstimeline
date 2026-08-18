@@ -1032,8 +1032,8 @@ function updateToggleButton(button) {
 
     button.textContent =
         allChecked
-            ? 'Deselect all'
-            : 'Select all';
+            ? 'Deselect all ✕'
+            : 'Select all ✓';
 
 }
 
