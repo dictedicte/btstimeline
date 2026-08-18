@@ -4,75 +4,75 @@
     --header-height: 51px;
     --entry-min-height: 54px;
 
-    --background: hsl(261, 33%, 91.5%);
-    --background: hsl(261, 42%, 96%);
+    --background: hsl(263, 33%, 91.5%);
+    --background: hsl(263, 51%, 96%);
     
     --background-size: contain;
     --background-blend-mode: multiply;
 
-    --header-bg: hsl(262, 42%, 57%);
-    --header-item: hsl(261, 39%, 72%);
-    --header-item-hvr: hsl(261, 39%, 69%);
-    --search-bar-bg: hsl(261, 45%, 87%);
-    --search-bar-bg: hsl(261, 45%, 81%);
+    --header-bg: hsl(263, 42%, 57%);
+    --header-item: hsl(263, 39%, 72%);
+    --header-item-hvr: hsl(263, 39%, 69%);
+    --search-bar-bg: hsl(263, 45%, 87%);
+    --search-bar-bg: hsl(263, 45%, 81%);
 
-    --year: hsl(262, 42%, 57%);
-    --year: #8563bf;
+    --year: hsl(263, 42%, 57%);
+    --year: hsl(263, 42%, 57%);
 
-    --date: hsl(262, 42%, 99%);
-    --weekday: hsl(262, 42%, 91.5%);
-    --date: hsl(262, 42%, 63%);
-    --weekday: hsl(262, 42%, 81%);
-    --date: hsl(262, 30%, 63%);
-    --weekday: hsl(262, 39%, 82.5%);
+    --date: hsl(263, 42%, 99%);
+    --weekday: hsl(263, 42%, 91.5%);
+    --date: hsl(263, 42%, 63%);
+    --weekday: hsl(263, 42%, 81%);
+    --date: hsl(263, 30%, 63%);
+    --weekday: hsl(263, 39%, 82.5%);
 
-    --entry-bg-skeleton: hsla(261, 39%, 99%, 0.6);
-    --entry-bg: hsl(261, 36%, 97.5%);
-    --entry-bg: hsl(261, 100%, 99%);
-    --entry-description: hsl(261, 27%, 45%);
-    --entry-description: hsl(261, 24%, 48%);
-    --entry-text: hsl(261, 15%, 60%);
-    --entry-text: hsl(261, 24%, 69%);
+    --entry-bg-skeleton: hsl(263, 39%, 99%, 0.6);
+    --entry-bg: hsl(263, 36%, 97.5%);
+    --entry-bg: hsl(263, 100%, 99%);
+    --entry-description: hsl(263, 27%, 45%);
+    --entry-description: hsl(263, 24%, 48%);
+    --entry-text: hsl(263, 15%, 60%);
+    --entry-text: hsl(263, 24%, 69%);
 
-    --detail-bg: hsl(261, 60%, 93%);
-    --detail-bg: hsl(261, 63%, 94.5%);
-    --detail-text: #8d70c2bf;
+    --detail-bg: hsl(263, 60%, 93%);
+    --detail-bg: hsl(263, 63%, 94.5%);
+    --detail-text: hsl(263, 40%, 60%, 0.749);
 
-    --link-bg: hsl(261, 42%, 75%);
-    --link-bg: hsl(261, 48%, 84%);
-    --link-bg: hsl(261, 39%, 79.5%);
-    --link-bg-visited: hsl(261, 39%, 88.5%);
-    --link-bg: hsl(261, 39%, 78%);
-    --link-bg-visited: hsl(261, 39%, 87%);
+    --link-bg: hsl(263, 42%, 75%);
+    --link-bg: hsl(263, 48%, 84%);
+    --link-bg: hsl(263, 39%, 79.5%);
+    --link-bg-visited: hsl(263, 39%, 88.5%);
+    --link-bg: hsl(263, 39%, 78%);
+    --link-bg-visited: hsl(263, 39%, 87%);
 
     --link-img: url(images/link_2_24dp_8563BF_FILL0_wght600_GRAD0_opsz24.svg);
     --link-img: url(images/link_2_24dp_FFFFFF_FILL1_wght700_GRAD0_opsz24.svg);
     --link-img: url(images/open_in_new_24dp_FFFFFF_FILL0_wght600_GRAD0_opsz24.svg);
     --links-img: url(images/link_2_24dp_FFFFFF_FILL1_wght700_GRAD0_opsz24.svg);
 
-    --shadow-on-bg: 0px 0px 4.5px -3px hsla(261, 45%, 42%, 0.25), 1.5px 1.5px 9px -3px hsla(261, 42%, 45%, 0.2);
-    --shadow-on-bg: 0px 0px 4.5px -3px hsla(261, 48%, 45%, 0.21), 0px 0px 12px -6px hsla(261, 48%, 45%, 0.15);
-    --inset-shadow: inset 1.5px 1.5px 1.5px white, inset -1.5px -1.5px 1.5px hsl(261, 60%, 97%), ;
-    --icon-shadow: 0.5px 0.5px 2px #7e5fb622;
-    --date-shadow: 0px 0px 3px -1.5px hsla(261, 90%, 9%, 1), 1.5px 1.5px 12px -6px hsla(261, 75%, 36%, 0.3);
-    --filter-shadow-on-header: 1.5px 1.5px 3px #33136a;
+    --shadow-on-bg: 0px 0px 4.5px -3px hsl(263, 45%, 42%, 0.25), 1.5px 1.5px 9px -3px hsl(263, 42%, 45%, 0.2);
+    --shadow-on-bg: 0px 0px 4.5px -3px hsl(263, 48%, 45%, 0.21), 0px 0px 12px -6px hsl(263, 48%, 45%, 0.15);
+    --inset-shadow: inset 1.5px 1.5px 1.5px white, inset -1.5px -1.5px 1.5px hsl(263, 60%, 97%), ;
+    --icon-shadow: 0.5px 0.5px 2px hsla(261, 37%, 54%, 0.133);
+    --date-shadow: 0px 0px 3px -1.5px hsl(263, 90%, 9%, 1), 1.5px 1.5px 12px -6px hsl(263, 75%, 36%, 0.3);
+    --filter-shadow-on-header: 1.5px 1.5px 3px hsl(263, 70%, 25%);
 
-    --pop-up-shadow: 0px 0px 4.5px -3px hsla(261, 48%, 36%, 0.45), 1.5px 1.5px 9px -3px hsla(261, 48%, 39%, 0.45);
-    --pop-up-filtershadow: drop-shadow(0px 0px 1.8px hsla(261, 39%, 36%, 0.18)) drop-shadow(1.5px 1.5px 3px hsla(261, 39%, 39%, 0.09));
-    --pop-up-bg: hsl(261, 42%, 94.5%);
-    --pop-up-item-bg: hsl(261, 45%, 90%);
+    --pop-up-shadow: 0px 0px 4.5px -3px hsl(263, 48%, 36%, 0.45), 1.5px 1.5px 9px -3px hsl(263, 48%, 39%, 0.45);
+    --pop-up-filtershadow: drop-shadow(0px 0px 1.8px hsl(263, 39%, 36%, 0.18)) drop-shadow(1.5px 1.5px 3px hsl(263, 39%, 39%, 0.09));
+    --pop-up-bg: hsl(263, 42%, 94.5%);
+    --pop-up-item-bg: hsl(263, 45%, 90%);
 }
 :root:has(#theme-dark:checked){
-    --background: hsl(266, 12%, 12%);
-    --header-bg: #5e34a6;
-    --header-bg: #b995f9;
-    --entry-bg: #3c3b40;
+    --background: hsl(263, 12%, 12%);
+    --header-bg: hsl(263, 52%, 43%);
+    --header-bg: hsl(263, 89%, 78%);
+    --entry-bg: hsl(252, 4%, 24%);
     --entry-bg: hsl(267, 15%, 18%);
     --entry-bg-skeleton: hsl(267, 13.5%, 15%);
-    --shadow-on-bg: 2px 2px 12px -4px #100e12;
+    --shadow-on-bg: 2px 2px 12px -4px hsl(270, 13%, 6%);
     --shadow-on-bg: none;
-    --entry-text: #d3cae4;
-    --entry-description: #e9d8ff;
+    --entry-text: hsl(261, 33%, 84%);
+    --entry-description: hsl(263, 100%, 92%);
 
     --img-open-in-new: url(images/dark/open_in_new_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg);
 }
@@ -164,9 +164,9 @@ header{
     height: 51px;
     height: var(--header-height);
     /* backdrop-filter: blur(12px); */
-    /* box-shadow: 0 0px 1.2px 0.6px hsla(261, 33%, 30%, 0.3); */
-    background-color: hsla(261, 32%, 91%, 0.6);
-    background-color: hsl(261, 36%, 84%);
+    /* box-shadow: 0 0px 1.2px 0.6px hsl(263, 33%, 30%, 0.3); */
+    background-color: hsl(263, 32%, 91%, 0.6);
+    background-color: hsl(263, 36%, 84%);
 }
 header .max-width{
     display: flex;
@@ -626,7 +626,7 @@ input#search::placeholder{
     height: fit-content;
     padding: 6px 9px;
     display: block;
-    color: #b2a6c4;
+    color: hsl(263, 20%, 71%);
     font-size: 9px;
     font-weight: 800;
     letter-spacing: 0.6;
@@ -803,7 +803,7 @@ main::after{
     bottom: -24px;
     width: 100%;
     z-index: 600;
-    background-color: hsla(261, 32%, 91%, 0.6);
+    background-color: hsl(263, 32%, 91%, 0.6);
     background-color: var(--background);
     backdrop-filter: blur(12px);
     background: var(--background);
@@ -844,7 +844,7 @@ main::after{
     /* border-radius: 15px; */
 /*     
     width: fit-content;
-    background-color: hsl(261, 42%, 87%);
+    background-color: hsl(263, 42%, 87%);
     border-radius: 15px; */
     /*SCROLL SKIP STICKY WITH ONE ENTRY:*/
     /* margin-bottom: 54px; */
@@ -1053,11 +1053,11 @@ article.entry{
     display: flex;
     /* padding-right: 7.5px; */
     /* padding-right: 30px; */
-    /* border: 1.5px solid hsl(261, 33%, 93%); */
+    /* border: 1.5px solid hsl(263, 33%, 93%); */
     /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
     visibility: hidden;
     opacity: 0;
-    /* border: 1.5px solid hsl(261, 45%, 93%); */
+    /* border: 1.5px solid hsl(263, 45%, 93%); */
     
     padding: 0 12px;
 }
@@ -1375,10 +1375,10 @@ background-size: 54%;}
     position: relative;
     display: inline-flex;
     letter-spacing: normal;
-    background-color: hsl(261, 60%, 93%);
+    background-color: hsl(263, 60%, 93%);
     background-color: var(--detail-bg);
     color: var(--detail-text);
-    border: 0.75px solid hsla(261, 40%, 78%, 0.06);
+    border: 0.75px solid hsl(263, 40%, 78%, 0.06);
     font-weight: 600;
     font-size: 10.5px;
     /* font-size: 9px; */
@@ -1442,9 +1442,9 @@ background-size: 54%;}
     position: relative;
     display: inline-flex;
     letter-spacing: normal;
-    background-color: hsl(261, 60%, 93%);
-    color: #8d70c2bf;
-    border: 0.75px solid hsla(261, 40%, 75%, 0.06);
+    background-color: hsl(263, 60%, 93%);
+    color: hsla(266, 40%, 60%, 0.749);
+    border: 0.75px solid hsl(263, 40%, 75%, 0.06);
     font-weight: 600;
     font-size: 10.5px;
     padding: 0 1.5px;
@@ -1589,7 +1589,7 @@ article p{
     width: 100%;
     height: 1.5px;
     border-radius: 1.5px;
-    background-color: hsl(261, 60%, 93%);
+    background-color: hsl(263, 60%, 93%);
 }
 .disc{
     position: relative;
@@ -1599,7 +1599,7 @@ article p{
     line-height: 21px;
     height: 21px;
     box-sizing: border-box;
-    color: hsla(261, 40%, 60%, 0.75);
+    color: hsl(263, 40%, 60%, 0.75);
 }
 .disc::before{
     content: "";
@@ -1644,12 +1644,12 @@ li:last-child::after{
     width: 100%;
     height: 0.75px;
     border-radius: 1.5px;
-    background-color: hsl(261, 60%, 93%);
+    background-color: hsl(263, 60%, 93%);
     transition-property: all;
     transition-duration: 0.3s;
 }
 .entry-album .track-duration{
-    color: hsla(261, 40%, 60%, 0.75);
+    color: hsl(263, 40%, 60%, 0.75);
     min-width: 27px;
     text-align: right;
     font-weight: 400;
@@ -1666,7 +1666,7 @@ li:last-child::after{
     font-weight: 600;
     opacity: 0.75;
     margin-left: 3.75px;
-    color: hsla(261, 40%, 60%, 0.75);
+    color: hsl(263, 40%, 60%, 0.75);
 }
 .entry-album li:hover .track-nr{
     opacity: 1;
