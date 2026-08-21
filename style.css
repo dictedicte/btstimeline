@@ -4,56 +4,58 @@
     --header-height: 51px;
     --entry-min-height: 54px;
 
-    --background: hsl(263, 45%, 95%);
+    --background: hsl(260, 45%, 95%);
     --background-size: contain;
     --background-blend-mode: multiply;
 
-    --header-bg: hsl(263, 42%, 57%);
-    --header-item: hsl(263, 39%, 72%);
-    --header-item-hvr: hsl(263, 39%, 69%);
-    --search-bar-bg: hsl(263, 45%, 81%);
+    --header-bg: hsl(260, 42%, 57%);
+    --header-item: hsl(260, 39%, 72%);
+    --header-item-hvr: hsl(260, 39%, 69%);
+    --search-bar-bg: hsl(260, 45%, 81%);
+    --search-bar-bg: hsl(260, 42%, 66%);
 
-    --year: hsl(263, 42%, 57%);
+    --year: hsl(260, 42%, 57%);
+    --year: hsl(260, 100%, 99%);
 
-    --date: hsl(263, 30%, 63%);
-    --weekday: hsl(263, 39%, 82.5%);
+    --date: hsl(260, 30%, 63%);
+    --weekday: hsl(260, 39%, 82.5%);
 
-    --entry-bg-skeleton: hsl(263, 39%, 99%, 0.6);
-    --entry-bg: hsl(263, 100%, 99%);
-    --entry-description: hsl(263, 24%, 48%);
-    --entry-text: hsl(263, 24%, 69%);
+    --entry-bg-skeleton: hsl(260, 39%, 99%, 0.6);
+    --entry-bg: hsl(260, 100%, 99%);
+    --entry-description: hsl(260, 24%, 48%);
+    --entry-text: hsl(260, 24%, 69%);
 
-    --detail-bg: hsl(263, 63%, 94.5%);
-    --detail-text: hsl(263, 40%, 60%, 0.6);
+    --detail-bg: hsl(260, 63%, 94.5%);
+    --detail-text: hsl(260, 40%, 60%, 0.6);
 
-    --link-bg: hsl(263, 39%, 75%);
-    --link-bg-visited: hsl(263, 45%, 88%);
+    --link-bg: hsl(260, 39%, 75%);
+    --link-bg-visited: hsl(260, 45%, 88%);
 
     --link-img: url(images/open_in_new_24dp_FFFFFF_FILL0_wght600_GRAD0_opsz24.svg);
     --links-img: url(images/link_2_24dp_FFFFFF_FILL1_wght700_GRAD0_opsz24.svg);
 
-    --shadow-on-bg: 0px 0px 4.5px -3px hsl(263, 48%, 45%, 0.21), 0px 0px 12px -6px hsl(263, 48%, 45%, 0.15);
-    --inset-shadow: inset 1.5px 1.5px 1.5px white, inset -1.5px -1.5px 1.5px hsl(263, 60%, 97%), ;
+    --shadow-on-bg: 0px 0px 4.5px -3px hsl(260, 48%, 45%, 0.21), 0px 0px 12px -6px hsl(260, 48%, 45%, 0.15);
+    --inset-shadow: inset 1.5px 1.5px 1.5px white, inset -1.5px -1.5px 1.5px hsl(260, 60%, 97%), ;
     --icon-shadow: 0.5px 0.5px 2px hsla(266, 37%, 54%, 0.133);
-    --date-shadow: 0px 0px 3px -1.5px hsl(263, 90%, 9%, 1), 1.5px 1.5px 12px -6px hsl(263, 75%, 36%, 0.3);
-    --filter-shadow-on-header: 1.5px 1.5px 3px hsl(263, 70%, 25%);
+    --date-shadow: 0px 0px 3px -1.5px hsl(260, 90%, 9%, 1), 1.5px 1.5px 12px -6px hsl(260, 75%, 36%, 0.3);
+    --filter-shadow-on-header: 1.5px 1.5px 3px hsl(260, 70%, 25%);
 
-    --pop-up-shadow: 0px 0px 4.5px -3px hsl(263, 48%, 36%, 0.45), 1.5px 1.5px 9px -3px hsl(263, 48%, 39%, 0.45);
-    --pop-up-filtershadow: drop-shadow(0px 0px 1.8px hsl(263, 39%, 36%, 0.18)) drop-shadow(1.5px 1.5px 3px hsl(263, 39%, 39%, 0.09));
-    --pop-up-bg: hsl(263, 42%, 94.5%);
-    --pop-up-item-bg: hsl(263, 45%, 90%);
+    --pop-up-shadow: 0px 0px 4.5px -3px hsl(260, 48%, 36%, 0.45), 1.5px 1.5px 9px -3px hsl(260, 48%, 39%, 0.45);
+    --pop-up-filtershadow: drop-shadow(0px 0px 1.8px hsl(260, 39%, 36%, 0.18)) drop-shadow(1.5px 1.5px 3px hsl(260, 39%, 39%, 0.09));
+    --pop-up-bg: hsl(260, 42%, 94.5%);
+    --pop-up-item-bg: hsl(260, 45%, 90%);
 }
 :root:has(#theme-dark:checked){
-    --background: hsl(263, 12%, 12%);
-    --header-bg: hsl(263, 52%, 43%);
-    --header-bg: hsl(263, 89%, 78%);
+    --background: hsl(260, 12%, 12%);
+    --header-bg: hsl(260, 52%, 43%);
+    --header-bg: hsl(260, 89%, 78%);
     --entry-bg: hsl(252, 4%, 24%);
     --entry-bg: hsl(267, 15%, 18%);
     --entry-bg-skeleton: hsl(267, 13.5%, 15%);
     --shadow-on-bg: 2px 2px 12px -4px hsl(270, 13%, 6%);
     --shadow-on-bg: none;
     --entry-text: hsl(261, 33%, 84%);
-    --entry-description: hsl(263, 100%, 92%);
+    --entry-description: hsl(260, 100%, 92%);
 
     --img-open-in-new: url(images/dark/open_in_new_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg);
 }
@@ -129,6 +131,7 @@ h1{
     /* font-family: btsfont; */
     font-weight: 900;
     color: var(--year);
+
 }
 
 /* ---HEADER--- */
@@ -145,9 +148,10 @@ header{
     height: 51px;
     height: var(--header-height);
     /* backdrop-filter: blur(12px); */
-    /* box-shadow: 0 0px 1.2px 0.6px hsl(263, 33%, 30%, 0.3); */
-    background-color: hsl(263, 32%, 91%, 0.6);
-    background-color: hsl(263, 36%, 84%);
+    /* box-shadow: 0 0px 1.2px 0.6px hsl(260, 33%, 30%, 0.3); */
+    background-color: hsl(260, 32%, 91%, 0.6);
+    background-color: hsl(260, 36%, 84%);
+    background-color: hsl(260, 42%, 72%);
 }
 header .max-width{
     display: flex;
@@ -298,7 +302,7 @@ header .max-width{
     background-position: center;
     background-repeat: no-repeat;
     background-size: 90%;
-    background-image: url(images/tune_24dp_8D70C2_FILL0_wght600_GRAD0_opsz24.svg);
+    background-image: url(images/tune_24dp_FCFAFF_FILL0_wght400_GRAD200_opsz24.svg);
 }
 
 /* SETTINGS OVERLAY (FOR HOVER)*/
@@ -544,9 +548,11 @@ input#search{
     position: absolute;
     top: 0;
     font-size: 15px;
+    font-weight: 500;
     padding-left: 30px;
     color: var(--header-bg);
     overflow: hidden;
+    color: hsl(264, 100%, 99%);
 }
 /* .searchbar:has(input#search:focus){
     border-radius: 15px 15px 0 0;
@@ -557,6 +563,7 @@ input#search{
 input#search::placeholder{
     opacity: 0.45;
     color: var(--header-bg);
+    color: hsl(260, 60%, 88%);
 }
 
 /*---CLEAR SEARCH BUTTON---*/
@@ -593,6 +600,7 @@ input#search::placeholder{
     border-radius: 15px;
     box-shadow: var(--shadow-on-bg);
     background-color: var(--pop-up-bg);
+    background-color: var(--search-bar-bg);
 }
 .suggestions::-webkit-scrollbar {
     width: 0px;
@@ -607,7 +615,7 @@ input#search::placeholder{
     height: fit-content;
     padding: 6px 9px;
     display: block;
-    color: hsl(263, 20%, 71%);
+    color: hsl(260, 20%, 71%);
     font-size: 9px;
     font-weight: 800;
     letter-spacing: 0.6;
@@ -784,7 +792,7 @@ main::after{
     bottom: -24px;
     width: 100%;
     z-index: 600;
-    background-color: hsl(263, 32%, 91%, 0.6);
+    background-color: hsl(260, 32%, 91%, 0.6);
     background-color: var(--background);
     backdrop-filter: blur(12px);
     background: var(--background);
@@ -825,7 +833,7 @@ main::after{
     /* border-radius: 15px; */
 /*     
     width: fit-content;
-    background-color: hsl(263, 42%, 87%);
+    background-color: hsl(260, 42%, 87%);
     border-radius: 15px; */
     /*SCROLL SKIP STICKY WITH ONE ENTRY:*/
     /* margin-bottom: 54px; */
@@ -997,7 +1005,8 @@ time{
 .entry-overlay::before{
     content: "";
     position: absolute;
-    height: var(--entry-min-height);
+    min-height: var(--entry-min-height);
+    height: calc(100% - 9px);
     width: calc(100% - 30px);
     background-color: var(--entry-bg-skeleton);
     box-shadow: var(--shadow-on-bg);
@@ -1006,6 +1015,8 @@ time{
     border-radius: 18px;
     align-self: center;
     /* scale: 1; */
+    /* margin: 4.5px 0; */
+    flex-grow: 1;
 }
 /* .entry-overlay.loaded::before{
     scale: 1;
@@ -1034,11 +1045,11 @@ article.entry{
     display: flex;
     /* padding-right: 7.5px; */
     /* padding-right: 30px; */
-    /* border: 1.5px solid hsl(263, 33%, 93%); */
+    /* border: 1.5px solid hsl(260, 33%, 93%); */
     /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
     visibility: hidden;
     opacity: 0;
-    /* border: 1.5px solid hsl(263, 45%, 93%); */
+    /* border: 1.5px solid hsl(260, 45%, 93%); */
     
     padding: 0 12px;
 }
@@ -1356,10 +1367,10 @@ background-size: 54%;}
     position: relative;
     display: inline-flex;
     letter-spacing: normal;
-    background-color: hsl(263, 60%, 93%);
+    background-color: hsl(260, 60%, 93%);
     background-color: var(--detail-bg);
     color: var(--detail-text);
-    /* border: 0.75px solid hsl(263, 40%, 78%, 0.06); */
+    /* border: 0.75px solid hsl(260, 40%, 78%, 0.06); */
     font-weight: 600;
     font-weight: 800;
     font-size: 9px;
@@ -1430,9 +1441,9 @@ background-size: 54%;}
     position: relative;
     display: inline-flex;
     letter-spacing: normal;
-    background-color: hsl(263, 60%, 93%);
+    background-color: hsl(260, 60%, 93%);
     color: hsla(266, 40%, 60%, 0.749);
-    border: 0.75px solid hsl(263, 40%, 75%, 0.06);
+    border: 0.75px solid hsl(260, 40%, 75%, 0.06);
     font-weight: 600;
     font-size: 10.5px;
     padding: 0 1.5px;
@@ -1452,7 +1463,7 @@ background-size: 54%;}
 
 
 /*ENTRY TEXT OVERLAY*/
-article .entry-main .entry-text{
+.entry .entry-main .entry-text{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1584,7 +1595,7 @@ article p{
     width: 100%;
     height: 1.5px;
     border-radius: 1.5px;
-    background-color: hsl(263, 60%, 93%);
+    background-color: hsl(260, 60%, 93%);
 }
 .disc{
     position: relative;
@@ -1594,7 +1605,7 @@ article p{
     line-height: 21px;
     height: 21px;
     box-sizing: border-box;
-    color: hsl(263, 40%, 60%, 0.75);
+    color: hsl(260, 40%, 60%, 0.75);
 }
 .disc::before{
     content: "";
@@ -1639,12 +1650,12 @@ li:last-child::after{
     width: 100%;
     height: 0.75px;
     border-radius: 1.5px;
-    background-color: hsl(263, 60%, 93%);
+    background-color: hsl(260, 60%, 93%);
     transition-property: all;
     transition-duration: 0.3s;
 }
 .entry-album .track-duration{
-    color: hsl(263, 40%, 60%, 0.75);
+    color: hsl(260, 40%, 60%, 0.75);
     min-width: 27px;
     text-align: right;
     font-weight: 400;
@@ -1661,7 +1672,7 @@ li:last-child::after{
     font-weight: 600;
     opacity: 0.75;
     margin-left: 3.75px;
-    color: hsl(263, 40%, 60%, 0.75);
+    color: hsl(260, 40%, 60%, 0.75);
 }
 .entry-album li:hover .track-nr{
     opacity: 1;
