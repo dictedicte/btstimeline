@@ -9,6 +9,7 @@
     --background-blend-mode: multiply;
 
     --header-bg: hsl(260, 42%, 57%);
+    --header-bg: hsl(260, 42%, 72%);
     --header-item: hsl(260, 39%, 72%);
     --header-item-hvr: hsl(260, 39%, 69%);
     --search-bar-bg: hsl(260, 45%, 81%);
@@ -516,6 +517,7 @@ header .max-width{
     align-items: center;
     z-index: 999;
     border-radius: 30px;
+    border-radius: 12px;
     z-index: 999;
     height: fit-content;
     min-height: 30px;
@@ -532,7 +534,7 @@ header .max-width{
     height: 27px;
     flex-shrink: 0;
     border-radius: 50%;
-    background-image: url(images/search_24dp_8D70C2_FILL1_wght700_GRAD0_opsz24.svg);
+    background-image: url(images/search_24dp_FFFFFF_FILL1_wght600_GRAD0_opsz24.svg);
     background-position: 7.5px;
     background-repeat: no-repeat;
     background-size: 72%;
@@ -561,9 +563,10 @@ input#search{
     border-radius: 15px 15px 0 0;
 } */
 input#search::placeholder{
-    opacity: 0.45;
+    opacity: 0.6;
     color: var(--header-bg);
     color: hsl(260, 60%, 88%);
+    color: var(--entry-bg);
 }
 
 /*---CLEAR SEARCH BUTTON---*/
@@ -590,6 +593,7 @@ input#search::placeholder{
     top: 100%;
     left: 0;
     right: 0;
+    margin-top: 6px;
     border-top: none;
     display: none;
     max-height: 30vh;
@@ -625,23 +629,26 @@ input#search::placeholder{
 /*SUGGESTION ITEMS*/
 .suggestion-item{
     padding: 6px 9px;
+    margin: 6px;
+    padding: 3px 6px;
     padding-left: 27px;
+    border-radius: 6px;
     cursor: pointer;
     font-size: 12px;
     font-size: 13.5px;
     font-weight: 550;
-    width: 100%;
+    width: calc(100% - 45px);
     white-space: nowrap;
     height: 18px;
-    border-bottom: 1.5px solid var(--detail);
-    border-bottom: 1.5px solid var(--pop-up-item-bg);
-    color: var(--header-bg);
+    line-height: 18px;
+    /* border-bottom: 1.5px solid var(--detail);
+    border-bottom: 1.5px solid var(--pop-up-item-bg); */
+    color: var(--entry-bg);
     font-size: 12px;
-    opacity: 0.75;
+    background-color: var(--header-bg);
+
 }
-.suggestion-item:hover{
-    opacity: 1;
-}
+
 .suggestion-item img{
     position: absolute;
     left: 7.5px;
