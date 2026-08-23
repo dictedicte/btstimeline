@@ -669,6 +669,7 @@ input#search::placeholder{
     box-sizing: border-box;
     width: 100%;
     transition-property: all;
+    /* border-bottom: 0.3px solid hsl(260, 42%, 69%); */
 }
 .suggestion-item span{
     min-height: 15px;
@@ -688,7 +689,8 @@ input#search::placeholder{
     left: 0;
     width: 36px;
     height: 36px;
-    padding: 7.5px;
+    padding: 9px;
+    padding: 8px;
     box-sizing: border-box;
     object-fit: contain;
     opacity: 1;
