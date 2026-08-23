@@ -192,7 +192,6 @@ header .max-width{
 .year{
     height: 30px;
     width: 90px;
-    width: fit-content;
     color: var(--year);
     display: flex;
     justify-content: left;
@@ -200,9 +199,12 @@ header .max-width{
     right: 0;
     margin-right: -3px;
     position: relative;
-    border-radius: 15px;
+    /* border-radius: 15px; */
     box-sizing: border-box;
     z-index: 990;
+    /* background-color: red; */
+    
+
 }
 .year h2{
     font-weight: 900;
@@ -210,8 +212,8 @@ header .max-width{
     font-size: 16.5px;
     font-size: 15px;
     font-size: 18px;
-    font-size: 24px;
     font-size: 27px;
+    font-size: 24px;
     text-align: left;
 }
 .year::after{
@@ -219,7 +221,7 @@ header .max-width{
     position: relative;
     left: 0;
     background-image: url(images/calendar_today_24dp_FFFFFF_FILL0_wght600_GRAD0_opsz24.svg);
-    background-image: url(images/arrow_drop_down_24dp_8D70C2_FILL0_wght400_GRAD0_opsz24.svg);
+    background-image: url(images/arrow_drop_down_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg);
     width: 30px;
     height: 30px;
     flex-shrink: 0;
@@ -267,8 +269,12 @@ header .max-width{
     border-radius: 12px;
     z-index: 950;
     background-color: var(--search-bar-bg);
-    overflow: hidden;
+    overflow: auto;
     max-height: 80vh;
+}
+.year .box::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
 }
 
 
@@ -279,9 +285,9 @@ header .max-width{
     list-style: none;
     /* margin: 3px;
     border-radius: 9px; */
-    height: 39px;
-    line-height: 39px;
-    font-size: 21px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 18px;
     font-weight: 800;
     box-sizing: border-box;
     position: relative;
@@ -289,6 +295,8 @@ header .max-width{
     text-align: center;
     color: var(--entry-hvr-bg);
     transition-property: all;
+        border-bottom: 1.5px solid hsl(260, 42%, 69%);
+
 }
 .year a:hover{
     background-color: var(--header-bg);
@@ -308,11 +316,8 @@ header .max-width{
     border-radius: 50%;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 90%;
+    background-size: 84%;
     background-image: url(images/tune_24dp_FCFAFF_FILL0_wght400_GRAD200_opsz24.svg);
-    opacity: 0.75;
-}
-.settings:hover{
     opacity: 1;
 }
 
@@ -339,7 +344,7 @@ header .max-width{
 
 /*SETTINGS BOX*/
 /*ARROW*/
-.settings .box::before{
+/* .settings .box::before{
     content: "";
     position: absolute;
     top: 7px;
@@ -349,7 +354,7 @@ header .max-width{
     border-left: 9px solid transparent;
     border-right: 9px solid transparent;
     border-bottom: 9px solid var(--pop-up-bg);
-}
+} */
 .settings .box{
     margin-top: 15px;
     box-sizing: border-box;
@@ -366,6 +371,10 @@ header .max-width{
     padding: 9px;
     row-gap: 9px;
     position: relative;
+}
+.settings .box::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
 }
 
 
@@ -530,12 +539,14 @@ header .max-width{
     border-radius: 30px;
     border-radius: 12px;
     z-index: 999;
-    height: fit-content;
-    min-height: 30px;
+    /* height: fit-content;
+    min-height: 30px; */
+    height: 30px;
     flex-grow: 1;
     padding-right: 0;
     color: var(--header-bg);
     background-color: var(--search-bar-bg);
+    cursor: text;
 }
 
 /*SEARCH ICON*/
@@ -558,16 +569,23 @@ input#search{
     width: calc(100% - 105px);
     width: calc(100% - 30px);
     width: calc(100% - 33px);
+    width: calc(100% - 60px);
+    width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
+
+    position: relative;
+
     font-size: 15px;
     font-weight: 500;
-    padding-left: 30px;
+    padding-left: 33px;
+    margin-left: -30px;
     color: var(--header-bg);
     overflow: hidden;
     color: hsl(264, 100%, 99%);
     text-transform: uppercase;
+    /* background-color: rgba(255, 0, 0, 0.525); */
 }
 /* .searchbar:has(input#search:focus){
     border-radius: 15px 15px 0 0;
@@ -585,15 +603,22 @@ input#search::placeholder{
 
 /*---CLEAR SEARCH BUTTON---*/
 #clearSearch{
-    position: absolute;
-    right: 9px;
+    position: relative;
+    /* right: 9px; */
     width: 18px;
     height: 18px;
-    border-radius: 50%;
-    background-color: var(--header-bg);
+    width: 30px;
+    height: 30px;
+    /* border-radius: 50%; */
+    /* background-color: var(--header-bg); */
     opacity: 0.45;
     cursor: pointer;
-    color: var(--background);
+    color: var(--entry-bg);
+    flex-shrink: 0;
+    font-size: 15px;
+    /* margin: 0 6px; */
+    background-color: transparent;
+    /* background-color: green; */
 }
 #clearSearch:hover{
     opacity: 0.6;
@@ -610,7 +635,6 @@ input#search::placeholder{
     margin-top: 6px;
     border-top: none;
     display: none;
-    min-height: 66px;
     height: 324px;
     max-height: 80vh;
     height: fit-content;
@@ -671,14 +695,14 @@ input#search::placeholder{
     box-sizing: border-box;
     width: 100%;
     transition-property: all;
-    /* border-bottom: 0.3px solid hsl(260, 42%, 69%); */
+    border-bottom: 1.5px solid hsl(260, 42%, 69%);
 }
 .suggestion-item span{
-    min-height: 15px;
     height: fit-content;
-    line-height: 15px;
+    min-height: 18px;
+    line-height: 18px;
     display: inline-block;
-    margin: 10.5px 0;
+    margin: 9px 0;
     white-space: wrap;
     width: calc(100% - 10.5px);
 }
