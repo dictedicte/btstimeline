@@ -268,6 +268,7 @@ header .max-width{
     z-index: 950;
     background-color: var(--search-bar-bg);
     overflow: hidden;
+    max-height: 80vh;
 }
 
 
@@ -358,7 +359,8 @@ header .max-width{
     box-shadow: var(--shadow-on-bg);
     background-color: var(--search-bar-bg);
     width: 360px;
-    max-height: 81vh;
+    max-width: 80vw;
+    max-height: 80vh;
     display: flex;
     flex-direction: column;
     padding: 9px;
@@ -609,8 +611,8 @@ input#search::placeholder{
     border-top: none;
     display: none;
     min-height: 66px;
-    height: 297px;
-    max-height: 60vh;
+    height: 324px;
+    max-height: 80vh;
     height: fit-content;
     overflow-y: auto;
     overflow-x: hidden;
