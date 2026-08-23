@@ -191,19 +191,18 @@ header .max-width{
 /*YEAR*/
 .year{
     height: 30px;
-    width: 90px;
+    width: 75px;
     color: var(--year);
     display: flex;
     justify-content: left;
     align-items: center;
     right: 0;
-    margin-right: -3px;
+    /* margin-right: -3px; */
     position: relative;
     /* border-radius: 15px; */
     box-sizing: border-box;
     z-index: 990;
-    /* background-color: red; */
-    
+    margin-right: 6px;
 
 }
 .year h2{
@@ -212,11 +211,11 @@ header .max-width{
     font-size: 16.5px;
     font-size: 15px;
     font-size: 18px;
-    font-size: 27px;
     font-size: 24px;
+    font-size: 27px;
     text-align: left;
 }
-.year::after{
+/* .year::after{
     content: "";
     position: relative;
     left: 0;
@@ -225,25 +224,23 @@ header .max-width{
     width: 30px;
     height: 30px;
     flex-shrink: 0;
-    /* width: 24px;
-    height: 24px; */
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100%;
-}
+} */
 
 /*YEAR OVERLAY FOR HOVER*/
 .year .overlay{
     max-height: 300px;
     width: 100%;
-    width: 90px;
+    width: 75px;
     position: absolute;
     top: 0px;
     display: none;
     left: 0;
     padding-top: 36px;
     border-radius: 12px 12px 0 0;
-    filter: var(--pop-up-filtershadow);
+    /* filter: var(--pop-up-filtershadow); */
 }
 .year:hover .overlay,
 .year .overlay:hover{
@@ -271,6 +268,7 @@ header .max-width{
     background-color: var(--search-bar-bg);
     overflow: auto;
     max-height: 80vh;
+    box-shadow: var(--shadow-on-bg);
 }
 .year .box::-webkit-scrollbar {
     width: 0px;
@@ -310,7 +308,6 @@ header .max-width{
 /* ---SETTINGS & FILTER---*/
 .settings{
     position: relative;
-    cursor: pointer;
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -326,17 +323,17 @@ header .max-width{
     height: fit-content;
     width: fit-content;
     position: absolute;
-    top: 30px;
+    top: 21px;
     right: 0px;
     display: none;
 }
 .settings .overlay::before{
     content: "";
     position: absolute;
-    top: -30px;
+    top: -21px;
     right: 0px;
-    width: 30px;
-    height: 30px;
+    width: 21px;
+    height: 21px;
 }
 .settings:hover .overlay{
     display: block;
@@ -363,12 +360,13 @@ header .max-width{
     overflow-x: hidden;
     box-shadow: var(--shadow-on-bg);
     background-color: var(--search-bar-bg);
-    width: 360px;
+    width: 300px;
     max-width: 80vw;
     max-height: 80vh;
     display: flex;
     flex-direction: column;
     padding: 9px;
+    padding: 6px;
     row-gap: 9px;
     position: relative;
 }
@@ -379,10 +377,10 @@ header .max-width{
 
 
 .settings .section{
-    background-color: var(--entry-bg);
-    border-radius: 15px;
-    padding: 6px 6px;
-    box-shadow: var(--shadow-on-bg);
+    /* background-color: var(--entry-bg);
+    box-shadow: var(--shadow-on-bg); */
+    /* border-radius: 15px; */
+    /* padding: 6px 6px; */
     position: relative;
 }
 
@@ -395,8 +393,9 @@ header .max-width{
     font-weight: 800;
     margin: 6px 0;
     margin-left: 9px;
-    opacity: 0.6;
+    /* opacity: 0.6; */
     letter-spacing: 0.3px;
+    color: var(--entry-bg);
 }
 /*SETTINGS SUB-TITLE*/
 .settings h3{
@@ -447,8 +446,9 @@ header .max-width{
     height: 27px;
     line-height: 27px;
     font-weight: 500;
-    color: var(--header-bg);
+    color: var(--entry-bg);
     background-color: var(--pop-up-item-bg);
+    background-color: var(--header-bg);
     display: block;
     width: calc(100% - 21px);
     cursor: pointer;
@@ -458,7 +458,7 @@ header .max-width{
     box-sizing: border-box;
 }
 .settings label:has(input:not(:checked)){
-    opacity: 0.6;
+    opacity: 0.45;
 }
 
 /*SETTINGS CHECKBOX*/
@@ -497,7 +497,6 @@ header .max-width{
 #officialphoto::after{background-image: url(images/icons/photo.png);}
 #dvd::after{background-image: url(images/icons/dvd.png);}
 #live::after{background-image: url(images/icons/live.png);}
-#socialmedia::after{background-image: url(images/icons/live.png);}
 
 #youtube::after{background-image: url(images/icons/social-media/youtube.png);}
 #weverse::after{background-image: url(images/icons/social-media/weverse.svg);}
@@ -506,10 +505,9 @@ header .max-width{
 #instagram::after{background-image: url(images/icons/social-media/instagram.svg);}
 #facebook::after{background-image: url(images/icons/social-media/facebook.png);}
 #tiktok::after{background-image: url(images/icons/social-media/tiktok.png);}
-#socialmedia::after{background-image: url(images/icons/socialmedia.png);}
 #stationhead::after{background-image: url(images/icons/social-media/stationhead.jpg);}
 #fancafe::after{background-image: url(images/icons/social-media/daumcafe.svg);}
-#bangtanblog{background-image: url(images/icons/social-media/tistory.png);}
+#bangtanblog::after{background-image: url(images/icons/social-media/tistory.png);}
 
 #notice::after{background-image: url(images/icons/notices.png);}
 #bu::after{background-image: url(images/icons/bu.png);}
@@ -839,8 +837,8 @@ header::before{
     visibility: hidden;
     background-color: var(--weekday);
     
-    opacity: 0.6;
-    visibility: visible;
+    /* opacity: 0.6;
+    visibility: visible; */
 }
 header.show-after::before{
     opacity: 0.6;
@@ -1282,7 +1280,6 @@ article.entry{
 .fancafe .icon.loaded{ background-image: url(images/icons/social-media/daumcafe.svg);}
 .fancafe .icon{
 background-size: 54%;}
-.bangtanblog .icon.loaded{ background-image: url(images/icons/social-media/tistory.png);}
 
 .webtoon .icon.loaded{ background-image: url(images/icons/social-media/WEBTOON_Logo.png);}
 .misc .icon.loaded{
