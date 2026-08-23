@@ -86,7 +86,7 @@
     padding: 0;
     border: 0;
     outline: 0;
-    transition-duration: 0.15s;
+    transition-duration: 0.3s;
 }
 
 @font-face {
@@ -287,6 +287,7 @@ header .max-width{
     height: fit-content;
     text-align: center;
     color: var(--entry-hvr-bg);
+    transition-property: all;
 }
 .year a:hover{
     background-color: var(--header-bg);
@@ -667,6 +668,7 @@ input#search::placeholder{
     text-transform: uppercase;
     box-sizing: border-box;
     width: 100%;
+    transition-property: all;
 }
 .suggestion-item span{
     min-height: 15px;
