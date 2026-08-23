@@ -4,59 +4,59 @@
     --header-height: 51px;
     --entry-min-height: 54px;
 
-    --background: hsl(260, 45%, 95%);
+    --background: hsl(262, 45%, 95%);
     --background-size: contain;
     --background-blend-mode: multiply;
 
-    --header-bg: hsl(260, 42%, 57%);
-    --header-bg: hsl(260, 42%, 72%);
-    --header-item: hsl(260, 39%, 72%);
-    --header-item-hvr: hsl(260, 39%, 69%);
-    --search-bar-bg: hsl(260, 45%, 81%);
-    --search-bar-bg: hsl(260, 42%, 66%);
+    --header-bg: hsl(262, 42%, 57%);
+    --header-bg: hsl(262, 42%, 72%);
+    --header-item: hsl(262, 39%, 72%);
+    --header-item-hvr: hsl(262, 39%, 69%);
+    --search-bar-bg: hsl(262, 45%, 81%);
+    --search-bar-bg: hsl(262, 42%, 66%);
 
-    --year: hsl(260, 42%, 57%);
-    --year: hsl(260, 100%, 99%);
+    --year: hsl(262, 42%, 57%);
+    --year: hsl(262, 100%, 99%);
 
-    --date: hsl(260, 30%, 63%);
-    --weekday: hsl(260, 39%, 82.5%);
+    --date: hsl(262, 30%, 63%);
+    --weekday: hsl(262, 39%, 82.5%);
 
-    --entry-bg-skeleton: hsl(260, 39%, 99%, 0.6);
-    --entry-bg: hsl(260, 100%, 99%);
-    --entry-description: hsl(260, 24%, 48%);
-    --entry-text: hsl(260, 24%, 69%);
+    --entry-bg-skeleton: hsl(262, 39%, 99%, 0.6);
+    --entry-bg: hsl(262, 100%, 99%);
+    --entry-description: hsl(262, 24%, 48%);
+    --entry-text: hsl(262, 24%, 69%);
 
-    --detail-bg: hsl(260, 63%, 94.5%);
-    --detail-text: hsl(260, 40%, 60%, 0.6);
+    --detail-bg: hsl(262, 63%, 94.5%);
+    --detail-text: hsl(262, 40%, 60%, 0.6);
 
-    --link-bg: hsl(260, 39%, 75%);
-    --link-bg-visited: hsl(260, 45%, 88%);
+    --link-bg: hsl(262, 39%, 75%);
+    --link-bg-visited: hsl(262, 45%, 86%);
 
     --link-img: url(images/open_in_new_24dp_FFFFFF_FILL0_wght600_GRAD0_opsz24.svg);
     --links-img: url(images/link_2_24dp_FFFFFF_FILL1_wght700_GRAD0_opsz24.svg);
 
-    --shadow-on-bg: 0px 0px 4.5px -3px hsl(260, 48%, 45%, 0.21), 0px 0px 12px -6px hsl(260, 48%, 45%, 0.15);
-    --inset-shadow: inset 1.5px 1.5px 1.5px white, inset -1.5px -1.5px 1.5px hsl(260, 60%, 97%), ;
+    --shadow-on-bg: 0px 0px 4.5px -3px hsl(262, 48%, 45%, 0.21), 0px 0px 12px -6px hsl(262, 48%, 45%, 0.15);
+    --inset-shadow: inset 1.5px 1.5px 1.5px white, inset -1.5px -1.5px 1.5px hsl(262, 60%, 97%), ;
     --icon-shadow: 0.5px 0.5px 2px hsla(266, 37%, 54%, 0.133);
-    --date-shadow: 0px 0px 3px -1.5px hsl(260, 90%, 9%, 1), 1.5px 1.5px 12px -6px hsl(260, 75%, 36%, 0.3);
-    --filter-shadow-on-header: 1.5px 1.5px 3px hsl(260, 70%, 25%);
+    --date-shadow: 0px 0px 3px -1.5px hsl(262, 90%, 9%, 1), 1.5px 1.5px 12px -6px hsl(262, 75%, 36%, 0.3);
+    --filter-shadow-on-header: 1.5px 1.5px 3px hsl(262, 70%, 25%);
 
-    --pop-up-shadow: 0px 0px 4.5px -3px hsl(260, 48%, 36%, 0.45), 1.5px 1.5px 9px -3px hsl(260, 48%, 39%, 0.45);
-    --pop-up-filtershadow: drop-shadow(0px 0px 1.8px hsl(260, 39%, 36%, 0.18)) drop-shadow(1.5px 1.5px 3px hsl(260, 39%, 39%, 0.09));
-    --pop-up-bg: hsl(260, 42%, 94.5%);
-    --pop-up-item-bg: hsl(260, 45%, 90%);
+    --pop-up-shadow: 0px 0px 4.5px -3px hsl(262, 48%, 36%, 0.45), 1.5px 1.5px 9px -3px hsl(262, 48%, 39%, 0.45);
+    --pop-up-filtershadow: drop-shadow(0px 0px 1.8px hsl(262, 39%, 36%, 0.18)) drop-shadow(1.5px 1.5px 3px hsl(262, 39%, 39%, 0.09));
+    --pop-up-bg: hsl(262, 42%, 94.5%);
+    --pop-up-item-bg: hsl(262, 45%, 90%);
 }
 :root:has(#theme-dark:checked){
-    --background: hsl(260, 12%, 12%);
-    --header-bg: hsl(260, 52%, 43%);
-    --header-bg: hsl(260, 89%, 78%);
+    --background: hsl(262, 12%, 12%);
+    --header-bg: hsl(262, 52%, 43%);
+    --header-bg: hsl(262, 89%, 78%);
     --entry-bg: hsl(252, 4%, 24%);
     --entry-bg: hsl(267, 15%, 18%);
     --entry-bg-skeleton: hsl(267, 13.5%, 15%);
     --shadow-on-bg: 2px 2px 12px -4px hsl(270, 13%, 6%);
     --shadow-on-bg: none;
     --entry-text: hsl(261, 33%, 84%);
-    --entry-description: hsl(260, 100%, 92%);
+    --entry-description: hsl(262, 100%, 92%);
 
     --img-open-in-new: url(images/dark/open_in_new_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg);
 }
@@ -149,10 +149,10 @@ header{
     height: 51px;
     height: var(--header-height);
     /* backdrop-filter: blur(12px); */
-    /* box-shadow: 0 0px 1.2px 0.6px hsl(260, 33%, 30%, 0.3); */
-    background-color: hsl(260, 32%, 91%, 0.6);
-    background-color: hsl(260, 36%, 84%);
-    background-color: hsl(260, 42%, 72%);
+    /* box-shadow: 0 0px 1.2px 0.6px hsl(262, 33%, 30%, 0.3); */
+    background-color: hsl(262, 32%, 91%, 0.6);
+    background-color: hsl(262, 36%, 84%);
+    background-color: hsl(262, 42%, 72%);
 }
 header .max-width{
     display: flex;
@@ -293,7 +293,7 @@ header .max-width{
     text-align: center;
     color: var(--entry-hvr-bg);
     transition-property: all;
-        border-bottom: 1.5px solid hsl(260, 42%, 69%);
+        border-bottom: 1.5px solid hsl(262, 42%, 69%);
 
 }
 .year a:hover{
@@ -594,7 +594,7 @@ input#search{
 input#search::placeholder{
     opacity: 0.6;
     color: var(--header-bg);
-    color: hsl(260, 60%, 88%);
+    color: hsl(262, 60%, 88%);
     color: var(--entry-bg);
     text-transform: none;
 }
@@ -660,7 +660,7 @@ input#search::placeholder{
     height: fit-content;
     padding: 6px 9px;
     display: block;
-    color: hsl(260, 20%, 71%);
+    color: hsl(262, 20%, 71%);
     color: var(--entry-bg);
     font-size: 9px;
     font-weight: 800;
@@ -693,7 +693,7 @@ input#search::placeholder{
     box-sizing: border-box;
     width: 100%;
     transition-property: all;
-    border-bottom: 1.5px solid hsl(260, 42%, 69%);
+    border-bottom: 1.5px solid hsl(262, 42%, 69%);
 }
 .suggestion-item span{
     height: fit-content;
@@ -859,7 +859,7 @@ main::after{
     bottom: -24px;
     width: 100%;
     z-index: 600;
-    background-color: hsl(260, 32%, 91%, 0.6);
+    background-color: hsl(262, 32%, 91%, 0.6);
     background-color: var(--background);
     backdrop-filter: blur(12px);
     background: var(--background);
@@ -900,7 +900,7 @@ main::after{
     /* border-radius: 15px; */
 /*     
     width: fit-content;
-    background-color: hsl(260, 42%, 87%);
+    background-color: hsl(262, 42%, 87%);
     border-radius: 15px; */
     /*SCROLL SKIP STICKY WITH ONE ENTRY:*/
     /* margin-bottom: 54px; */
@@ -1112,11 +1112,11 @@ article.entry{
     display: flex;
     /* padding-right: 7.5px; */
     /* padding-right: 30px; */
-    /* border: 1.5px solid hsl(260, 33%, 93%); */
+    /* border: 1.5px solid hsl(262, 33%, 93%); */
     /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
     visibility: hidden;
     opacity: 0;
-    /* border: 1.5px solid hsl(260, 45%, 93%); */
+    /* border: 1.5px solid hsl(262, 45%, 93%); */
     
     padding: 0 12px;
 }
@@ -1433,10 +1433,10 @@ background-size: 54%;}
     position: relative;
     display: inline-flex;
     letter-spacing: normal;
-    background-color: hsl(260, 60%, 93%);
+    background-color: hsl(262, 60%, 93%);
     background-color: var(--detail-bg);
     color: var(--detail-text);
-    /* border: 0.75px solid hsl(260, 40%, 78%, 0.06); */
+    /* border: 0.75px solid hsl(262, 40%, 78%, 0.06); */
     font-weight: 600;
     font-weight: 800;
     font-size: 9px;
@@ -1507,9 +1507,9 @@ background-size: 54%;}
     position: relative;
     display: inline-flex;
     letter-spacing: normal;
-    background-color: hsl(260, 60%, 93%);
+    background-color: hsl(262, 60%, 93%);
     color: hsla(266, 40%, 60%, 0.749);
-    border: 0.75px solid hsl(260, 40%, 75%, 0.06);
+    border: 0.75px solid hsl(262, 40%, 75%, 0.06);
     font-weight: 600;
     font-size: 10.5px;
     padding: 0 1.5px;
@@ -1661,7 +1661,7 @@ article p{
     width: 100%;
     height: 1.5px;
     border-radius: 1.5px;
-    background-color: hsl(260, 60%, 93%);
+    background-color: hsl(262, 60%, 93%);
 }
 .disc{
     position: relative;
@@ -1671,7 +1671,7 @@ article p{
     line-height: 21px;
     height: 21px;
     box-sizing: border-box;
-    color: hsl(260, 40%, 60%, 0.75);
+    color: hsl(262, 40%, 60%, 0.75);
 }
 .disc::before{
     content: "";
@@ -1716,12 +1716,12 @@ li:last-child::after{
     width: 100%;
     height: 0.75px;
     border-radius: 1.5px;
-    background-color: hsl(260, 60%, 93%);
+    background-color: hsl(262, 60%, 93%);
     transition-property: all;
     transition-duration: 0.3s;
 }
 .entry-album .track-duration{
-    color: hsl(260, 40%, 60%, 0.75);
+    color: hsl(262, 40%, 60%, 0.75);
     min-width: 27px;
     text-align: right;
     font-weight: 400;
@@ -1738,7 +1738,7 @@ li:last-child::after{
     font-weight: 600;
     opacity: 0.75;
     margin-left: 3.75px;
-    color: hsl(260, 40%, 60%, 0.75);
+    color: hsl(262, 40%, 60%, 0.75);
 }
 .entry-album li:hover .track-nr{
     opacity: 1;
