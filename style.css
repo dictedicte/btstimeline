@@ -234,10 +234,11 @@ header .max-width{
 .year .overlay{
     max-height: 300px;
     width: 100%;
+    width: 90px;
     position: absolute;
     top: 0px;
     display: none;
-    right: 0;
+    left: 0;
     padding-top: 36px;
     border-radius: 12px 12px 0 0;
     filter: var(--pop-up-filtershadow);
@@ -277,10 +278,10 @@ header .max-width{
     list-style: none;
     /* margin: 3px;
     border-radius: 9px; */
-    height: 42px;
-    line-height: 42px;
+    height: 39px;
+    line-height: 39px;
     font-size: 21px;
-    font-weight: 600;
+    font-weight: 800;
     box-sizing: border-box;
     position: relative;
     height: fit-content;
@@ -606,7 +607,9 @@ input#search::placeholder{
     margin-top: 6px;
     border-top: none;
     display: none;
-    max-height: 30vh;
+    min-height: 66px;
+    height: 297px;
+    max-height: 60vh;
     height: fit-content;
     overflow-y: auto;
     overflow-x: hidden;
@@ -615,6 +618,8 @@ input#search::placeholder{
     box-shadow: var(--shadow-on-bg);
     background-color: var(--pop-up-bg);
     background-color: var(--search-bar-bg);
+    /* width: 100%;
+    min-width: 300px; */
     /* padding: 6px 0; */
 }
 .suggestions::-webkit-scrollbar {
@@ -644,16 +649,15 @@ input#search::placeholder{
     /* margin: 6px; */
     /* padding: 3px 6px;
     padding: 6px 9px; */
-    padding-left: 36px;
+    padding-left: 33px;
     cursor: pointer;
-    font-size: 12px;
     font-size: 13.5px;
     font-size: 15px;
+    font-size: 12px;
     font-weight: 550;
     /* width: calc(100% - 45px); */
     white-space: nowrap;
-    height: 36px;
-    line-height: 36px;
+    min-height: 33px;
     /* border-bottom: 1.5px solid var(--detail);
     border-bottom: 1.5px solid var(--pop-up-item-bg); */
     color: var(--entry-bg);
@@ -661,6 +665,16 @@ input#search::placeholder{
     /* border-radius: 6px;
     margin: 0 6px; */
     text-transform: uppercase;
+    box-sizing: border-box;
+    width: 100%;
+}
+.suggestion-item span{
+    min-height: 15px;
+    height: fit-content;
+    line-height: 15px;
+    display: inline-block;
+    margin: 9px 0;
+    white-space: wrap;
 }
 .suggestion-item:hover{
     background-color: var(--header-bg);
@@ -669,9 +683,9 @@ input#search::placeholder{
 .suggestion-item img{
     position: absolute;
     left: 0;
-    width: 36px;
-    height: 36px;
-    padding: 7.5px;
+    width: 33px;
+    height: 33px;
+    padding: 7px;
     box-sizing: border-box;
     object-fit: contain;
     opacity: 1;
