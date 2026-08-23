@@ -650,15 +650,15 @@ input#search::placeholder{
     /* margin: 6px; */
     /* padding: 3px 6px;
     padding: 6px 9px; */
-    padding-left: 33px;
+    padding-left: 36px;
     cursor: pointer;
     font-size: 13.5px;
-    font-size: 15px;
     font-size: 12px;
+    font-size: 15px;
     font-weight: 550;
     /* width: calc(100% - 45px); */
     white-space: nowrap;
-    min-height: 33px;
+    min-height: 36px;
     /* border-bottom: 1.5px solid var(--detail);
     border-bottom: 1.5px solid var(--pop-up-item-bg); */
     color: var(--entry-bg);
@@ -675,8 +675,9 @@ input#search::placeholder{
     height: fit-content;
     line-height: 15px;
     display: inline-block;
-    margin: 9px 0;
+    margin: 10.5px 0;
     white-space: wrap;
+    width: calc(100% - 10.5px);
 }
 .suggestion-item:hover{
     background-color: var(--header-bg);
@@ -685,9 +686,9 @@ input#search::placeholder{
 .suggestion-item img{
     position: absolute;
     left: 0;
-    width: 33px;
-    height: 33px;
-    padding: 7px;
+    width: 36px;
+    height: 36px;
+    padding: 7.5px;
     box-sizing: border-box;
     object-fit: contain;
     opacity: 1;
