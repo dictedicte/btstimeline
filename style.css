@@ -293,7 +293,7 @@ header .max-width{
     text-align: center;
     color: var(--entry-hvr-bg);
     transition-property: all;
-        border-bottom: 1.5px solid hsl(262, 42%, 69%);
+        border-bottom: 1.8px solid hsl(262, 42%, 69%);
 
 }
 .year a:hover{
@@ -367,8 +367,10 @@ header .max-width{
     flex-direction: column;
     padding: 9px;
     padding: 6px;
+    padding: 0;
     row-gap: 9px;
     position: relative;
+    padding-top: 12px;
 }
 .settings .box::-webkit-scrollbar {
     width: 0px;
@@ -382,6 +384,9 @@ header .max-width{
     /* border-radius: 15px; */
     /* padding: 6px 6px; */
     position: relative;
+    border-bottom: 1.8px solid hsl(262, 42%, 69%);
+    width: 100%;
+    padding-bottom: 6px;
 }
 
 /*SETTING TITLE*/
@@ -391,8 +396,8 @@ header .max-width{
     font-size: 10.5px;
     font-size: 12px;
     font-weight: 800;
-    margin: 6px 0;
-    margin-left: 9px;
+    /* margin: 6px 0; */
+    margin-left: 12px;
     /* opacity: 0.6; */
     letter-spacing: 0.3px;
     color: var(--entry-bg);
@@ -417,24 +422,28 @@ header .max-width{
     cursor: pointer;
     position: absolute;
     right: 18px;
-    top: 9px;
+    top: 0px;
     font-size: 9px;
+    font-weight: 700;
     letter-spacing: 0;
     border-radius: 15px;
     margin: 0;
     background-color: transparent;
-    color: var(--entry-description);
+    color: var(--search-bar-bg);
+    color: var(--entry-bg);
     text-transform: uppercase;
     text-align: right;
     padding: 1.5px 4.5px;
-    border: 1.5px solid var(--entry-text);
-    opacity: 0.75;
+    /* border: 1.5px solid var(--entry-bg); */
+    opacity: 0.9;
+    background-color: var(--entry-bg-skeleton);
+    background-color: var(--header-bg);
 }
 
 /*SETTINGS OPTION*/
 .settings label{
     margin: 4.5px;
-    margin: 6px;
+    margin: 6px 12px;
     text-align: left;
     display: flex;
     flex-direction: column;
@@ -450,7 +459,7 @@ header .max-width{
     background-color: var(--pop-up-item-bg);
     background-color: var(--header-bg);
     display: block;
-    width: calc(100% - 21px);
+    /* width: calc(100% - 21px); */
     cursor: pointer;
     transition-duration: 0.3s;
     transition-property: all;
@@ -693,7 +702,7 @@ input#search::placeholder{
     box-sizing: border-box;
     width: 100%;
     transition-property: all;
-    border-bottom: 1.5px solid hsl(262, 42%, 69%);
+    border-bottom: 1.8px solid hsl(262, 42%, 69%);
 }
 .suggestion-item span{
     height: fit-content;
@@ -827,6 +836,7 @@ header::before{
     position: absolute;
     height: 1.5px;
     bottom: -24px;
+    bottom: -27px;
     border-radius: 6px;
 
     width: 100%;
@@ -857,6 +867,8 @@ main::after{
     bottom: -21px;
     height: 24px;
     bottom: -24px;
+    height: 27px;
+    bottom: -27px;
     width: 100%;
     z-index: 600;
     background-color: hsl(262, 32%, 91%, 0.6);
@@ -878,7 +890,7 @@ main::after{
     align-items: center;
 
     position: sticky;
-    top: var(--header-height);
+    top: calc(var(--header-height) + 3px);
     z-index: 800;
     font-size: 12px;
     font-size: 10.5px;
@@ -1355,7 +1367,7 @@ background-size: 54%;}
     background-image: url(images/icons/dvd.png); 
     background-size: 81%;
 }
-.s-photos .icon.loaded::after{
+.s-officialphoto .icon.loaded::after{
     display: block;
     background-image: url(images/icons/photo.png); 
     background-size: 81%;
