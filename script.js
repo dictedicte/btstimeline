@@ -92,9 +92,25 @@ document.querySelectorAll(".date").forEach(el => {
 });
 
 
+// ---LAZY LOAD TIME---
+
+const observer6 = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("loaded");
+            obs.unobserve(entry.target);
+        }
+    });
+});
+
+document.querySelectorAll(".time").forEach(el => {
+    observer6.observe(el);
+});
 
 
-// ---HOVER EFFECT FIT MOBILE TOO---
+// ==================================================
+// HOVER EFFECT FIT MOBILE TOO
+// ==================================================
 
 const items = document.querySelectorAll('.entry');
 
@@ -145,7 +161,7 @@ items.forEach(item => {
 });
 
 
-// Click outside → reset everything
+// CLICK OUTSIDE → RESET EVERYTHING
 
 document.addEventListener('click', () => {
 
@@ -154,8 +170,6 @@ document.addEventListener('click', () => {
     });
 
 });
-
-
 
 
 // ==================================================
@@ -180,9 +194,9 @@ function filterItems() {
 
     itemsy.forEach(item => {
 
-        // Search ALL p and h5 elements,
+        // Search ALL p and h4 elements,
         // including elements with display:none
-        const searchableText = [...item.querySelectorAll("p, h5")]
+        const searchableText = [...item.querySelectorAll("p, h4")]
             .map(element => element.textContent.toLowerCase())
             .join(" ");
 
@@ -310,46 +324,68 @@ document.addEventListener('click', (e) => {
 updateClearButton();
 
 
-
-
 // ==================================================
 // FLIP ORDER
 // ==================================================
 
-// Get the timeline
 const timeline = document.querySelector('.timeline');
 
-// Get all date overlays
-const dateOverlays = document.querySelectorAll('.date-overlay');
+const dateGroups =
+    document.querySelectorAll('.date-group');
 
 
-// Store original order of date overlays
+// --------------------------------------------------
+// STORE ORIGINAL DATE ORDER
+// --------------------------------------------------
 
 Array.from(timeline.children).forEach((child, i) => {
+
     child.dataset.index = i;
+
 });
 
 
-// Store original order of entry overlays inside each date overlay
+// --------------------------------------------------
+// STORE ORIGINAL TIME + ENTRY ORDER
+// --------------------------------------------------
 
-dateOverlays.forEach(dateOverlay => {
+dateGroups.forEach(dateGroup => {
 
-    Array.from(
-        dateOverlay.querySelectorAll(':scope > .entry-overlay')
-    ).forEach((child, i) => {
-        child.dataset.index = i;
+    const timeGroups =
+        dateGroup.querySelectorAll(
+            ':scope > .time-group'
+        );
+
+    timeGroups.forEach((timeGroup, i) => {
+
+        timeGroup.dataset.index = i;
+
+
+        // Store original entry order
+        Array.from(
+            timeGroup.querySelectorAll(
+                ':scope > .entry-overlay'
+            )
+        ).forEach((entry, j) => {
+
+            entry.dataset.index = j;
+
+        });
+
     });
 
 });
 
 
-// Function to update order
+// --------------------------------------------------
+// FUNCTION TO UPDATE ORDER
+// --------------------------------------------------
 
 function updateOrder(reverse, animate = true) {
 
-    // =========================
-    // FLIP DATE OVERLAYS
-    // =========================
+    // ==================================================
+    // ORDER DATE GROUPS
+    // ==================================================
 
     const dateChildren =
         Array.from(timeline.children);
@@ -362,52 +398,136 @@ function updateOrder(reverse, animate = true) {
         );
 
 
-    // =========================
-    // FLIP ENTRY OVERLAYS
-    // =========================
+    // ==================================================
+    // ORDER TIME GROUPS
+    // ==================================================
 
-    const orderedEntries = new Map();
+    const orderedTimeGroups = new Map();
 
-    dateOverlays.forEach(dateOverlay => {
+    dateGroups.forEach(dateGroup => {
 
-        const entries = Array.from(
-            dateOverlay.querySelectorAll(
-                ':scope > .entry-overlay'
-            )
-        );
-
-        orderedEntries.set(
-            dateOverlay,
-            reverse
-                ? [...entries].reverse()
-                : [...entries].sort((a, b) =>
-                    Number(a.dataset.index) -
-                    Number(b.dataset.index)
+        const timeGroups =
+            Array.from(
+                dateGroup.querySelectorAll(
+                    ':scope > .time-group'
                 )
+            );
+
+        // Separate the unspecified-time group
+        const specifiedTimeGroups =
+            timeGroups.filter(
+                timeGroup =>
+                    !timeGroup.classList.contains(
+                        'time-unspecified'
+                    )
+            );
+
+        const unspecifiedTimeGroup =
+            timeGroups.find(
+                timeGroup =>
+                    timeGroup.classList.contains(
+                        'time-unspecified'
+                    )
+            );
+
+        // Reverse/sort only specified times
+        const orderedSpecifiedTimes = reverse
+            ? [...specifiedTimeGroups].reverse()
+            : [...specifiedTimeGroups].sort((a, b) =>
+                Number(a.dataset.index) -
+                Number(b.dataset.index)
+            );
+
+        // Always put unspecified time last
+        if (unspecifiedTimeGroup) {
+            orderedSpecifiedTimes.push(
+                unspecifiedTimeGroup
+            );
+        }
+
+        orderedTimeGroups.set(
+            dateGroup,
+            orderedSpecifiedTimes
         );
 
     });
 
 
-    // =========================
+    // ==================================================
+    // ORDER ENTRIES
+    // ==================================================
+
+    const orderedEntries = new Map();
+
+    dateGroups.forEach(dateGroup => {
+
+        const timeGroups =
+            dateGroup.querySelectorAll(
+                ':scope > .time-group'
+            );
+
+        timeGroups.forEach(timeGroup => {
+
+            const entries =
+                Array.from(
+                    timeGroup.querySelectorAll(
+                        ':scope > .entry-overlay'
+                    )
+                );
+
+            // Keep unspecified-time entries in their
+            // original order.
+            const ordered =
+                timeGroup.classList.contains(
+                    'time-unspecified'
+                )
+                    ? [...entries]
+                    : reverse
+                        ? [...entries].reverse()
+                        : [...entries].sort((a, b) =>
+                            Number(a.dataset.index) -
+                            Number(b.dataset.index)
+                        );
+
+            orderedEntries.set(
+                timeGroup,
+                ordered
+            );
+
+        });
+
+    });
+
+
+    // ==================================================
     // ANIMATION
-    // =========================
+    // ==================================================
 
     if (animate) {
 
         timeline.classList.add('flipping');
 
-        dateOverlays.forEach(dateOverlay => {
+        dateGroups.forEach(dateGroup => {
 
-            dateOverlay.classList.add('flipping');
+            dateGroup.classList.add('flipping');
 
-            dateOverlay
+            dateGroup
                 .querySelectorAll(
-                    ':scope > .entry-overlay'
+                    ':scope > .time-group'
                 )
-                .forEach(entry => {
+                .forEach(timeGroup => {
 
-                    entry.classList.remove('visible');
+                    timeGroup.classList.add('flipping');
+
+                    timeGroup
+                        .querySelectorAll(
+                            ':scope > .entry-overlay'
+                        )
+                        .forEach(entry => {
+
+                            entry.classList.remove('visible');
+
+                        });
 
                 });
 
@@ -416,20 +536,30 @@ function updateOrder(reverse, animate = true) {
 
         setTimeout(() => {
 
-            // Reorder date overlays
-
-            orderedDates.forEach(dateOverlay => {
-                timeline.appendChild(dateOverlay);
+            // Reorder date groups
+            orderedDates.forEach(dateGroup => {
+                timeline.appendChild(dateGroup);
             });
 
 
-            // Reorder entries
+            // Reorder time groups
+            orderedTimeGroups.forEach(
+                (timeGroups, dateGroup) => {
 
+                    timeGroups.forEach(timeGroup => {
+                        dateGroup.appendChild(timeGroup);
+                    });
+
+                }
+            );
+
+
+            // Reorder entries
             orderedEntries.forEach(
-                (entries, dateOverlay) => {
+                (entries, timeGroup) => {
 
                     entries.forEach(entry => {
-                        dateOverlay.appendChild(entry);
+                        timeGroup.appendChild(entry);
                     });
 
                 }
@@ -440,17 +570,27 @@ function updateOrder(reverse, animate = true) {
 
                 timeline.classList.remove('flipping');
 
-                dateOverlays.forEach(dateOverlay => {
+                dateGroups.forEach(dateGroup => {
 
-                    dateOverlay.classList.remove('flipping');
+                    dateGroup.classList.remove('flipping');
 
-                    dateOverlay
+                    dateGroup
                         .querySelectorAll(
-                            ':scope > .entry-overlay'
+                            ':scope > .time-group'
                         )
-                        .forEach(entry => {
+                        .forEach(timeGroup => {
 
-                            entry.classList.add('visible');
+                            timeGroup.classList.remove('flipping');
+
+                            timeGroup
+                                .querySelectorAll(
+                                    ':scope > .entry-overlay'
+                                )
+                                .forEach(entry => {
+
+                                    entry.classList.add('visible');
+
+                                });
 
                         });
 
@@ -463,20 +603,30 @@ function updateOrder(reverse, animate = true) {
 
     } else {
 
-        // Reorder date overlays
-
-        orderedDates.forEach(dateOverlay => {
-            timeline.appendChild(dateOverlay);
+        // Reorder date groups
+        orderedDates.forEach(dateGroup => {
+            timeline.appendChild(dateGroup);
         });
 
 
-        // Reorder entries
+        // Reorder time groups
+        orderedTimeGroups.forEach(
+            (timeGroups, dateGroup) => {
 
+                timeGroups.forEach(timeGroup => {
+                    dateGroup.appendChild(timeGroup);
+                });
+
+            }
+        );
+
+
+        // Reorder entries
         orderedEntries.forEach(
-            (entries, dateOverlay) => {
+            (entries, timeGroup) => {
 
                 entries.forEach(entry => {
-                    dateOverlay.appendChild(entry);
+                    timeGroup.appendChild(entry);
                 });
 
             }
@@ -487,7 +637,9 @@ function updateOrder(reverse, animate = true) {
 }
 
 
-// Order radio buttons
+// --------------------------------------------------
+// ORDER RADIO BUTTONS
+// --------------------------------------------------
 
 document.getElementById('oldestfirst')
     .addEventListener('change', e => {
@@ -513,8 +665,6 @@ document.getElementById('newestfirst')
         }
 
     });
-
-
 
 
 // ==================================================
@@ -593,6 +743,7 @@ function parseDuration(text) {
     }
 
     return seconds;
+
 }
 
 
@@ -754,21 +905,14 @@ function updateVisibility() {
         '.entry-overlay'
     ).forEach(item => {
 
-
-        // ==========================================
         // CATEGORY FILTER
-        // ==========================================
-
         const categoryMatch =
             checkedCategories.some(category =>
                 item.classList.contains(category)
             );
 
 
-        // ==========================================
         // FIND MEDIA
-        // ==========================================
-
         const videoElements =
             item.querySelectorAll('.media-video');
 
@@ -789,27 +933,20 @@ function updateVisibility() {
             audioElements.length > 0;
 
 
-        // ==========================================
         // NO MEDIA
-        // ==========================================
-
         const mediaNone =
             !hasVideo &&
             !hasImage &&
             !hasAudio;
 
 
-        // ==========================================
         // DURATION MATCHES
-        // ==========================================
-
         const videoDurationMatch =
             hasVideo &&
             mediaHasMatchingDuration(
                 videoElements,
                 checkedDurations
             );
-
 
         const audioDurationMatch =
             hasAudio &&
@@ -819,10 +956,7 @@ function updateVisibility() {
             );
 
 
-        // ==========================================
         // MEDIA FILTER
-        // ==========================================
-
         /*
             Images are NOT affected by duration.
 
@@ -831,21 +965,17 @@ function updateVisibility() {
             No-media is also not affected by duration.
         */
 
-
         const imageMatch =
             checkedMedia.includes('media-image') &&
             hasImage;
-
 
         const videoMatch =
             checkedMedia.includes('media-video') &&
             videoDurationMatch;
 
-
         const audioMatch =
             checkedMedia.includes('media-audio') &&
             audioDurationMatch;
-
 
         const noneMatch =
             checkedMedia.includes('media-none') &&
@@ -859,10 +989,7 @@ function updateVisibility() {
             noneMatch;
 
 
-        // ==========================================
         // MUST PASS CATEGORY + MEDIA FILTERS
-        // ==========================================
-
         item.classList.toggle(
             'hidden',
             !(categoryMatch && mediaMatch)
@@ -883,7 +1010,6 @@ function updateVisibility() {
 function saveCheckboxStates() {
 
     // Get states already saved by other pages
-
     const states =
         JSON.parse(
             sessionStorage.getItem(storageKey)
@@ -892,7 +1018,6 @@ function saveCheckboxStates() {
 
     // Only update checkboxes that exist
     // on the current page
-
     filterCheckboxes.forEach(checkbox => {
 
         states[checkbox.id] =
@@ -919,9 +1044,6 @@ function restoreCheckboxStates() {
         JSON.parse(
             sessionStorage.getItem(storageKey)
         );
-
-
-    // Nothing saved yet
 
     if (!savedStates) {
         return;
@@ -955,14 +1077,11 @@ filterCheckboxes.forEach(checkbox => {
         updateVisibility();
         saveCheckboxStates();
 
-        // Update toggle button text
         updateAllToggleButtons();
 
     });
 
 });
-
-
 
 
 // ==================================================
@@ -1032,8 +1151,8 @@ function updateToggleButton(button) {
 
     button.textContent =
         allChecked
-            ? 'Deselect all ✕'
-            : 'Select all ✓';
+            ? 'Deselect all'
+            : 'Select all';
 
 }
 
@@ -1074,12 +1193,6 @@ toggleAllButtons.forEach(button => {
             );
 
 
-        // If everything is checked:
-        // uncheck everything.
-        //
-        // Otherwise:
-        // check everything.
-
         checkboxes.forEach(checkbox => {
 
             checkbox.checked =
@@ -1088,30 +1201,17 @@ toggleAllButtons.forEach(button => {
         });
 
 
-        // Update button text
-
         updateToggleButton(button);
-
-
-        // Apply filters
 
         updateVisibility();
 
-
-        // Save checkbox states
-
         saveCheckboxStates();
-
-
-        // Make sure all buttons are up to date
 
         updateAllToggleButtons();
 
     });
 
 });
-
-
 
 
 // ==================================================
@@ -1126,6 +1226,7 @@ toggleAllButtons.forEach(button => {
     LOCAL:
     - LANGUAGE
     - THEME
+    - TIME
 */
 
 
@@ -1137,7 +1238,8 @@ const sessionRadioSettings = [
 
 const localRadioSettings = [
     'language',
-    'theme'
+    'theme',
+    'time'
 ];
 
 
@@ -1146,7 +1248,6 @@ const localRadioSettings = [
 // --------------------------------------------------
 
 function saveRadioSettings() {
-
 
     // SESSION SETTINGS
 
@@ -1199,7 +1300,6 @@ function saveRadioSettings() {
 // --------------------------------------------------
 
 function restoreRadioSettings() {
-
 
     // SESSION SETTINGS
 
@@ -1261,7 +1361,8 @@ document.querySelectorAll(
     'input[type="radio"][name="order"], ' +
     'input[type="radio"][name="compactability"], ' +
     'input[type="radio"][name="language"], ' +
-    'input[type="radio"][name="theme"]'
+    'input[type="radio"][name="theme"], ' +
+    'input[type="radio"][name="time"]'
 ).forEach(radio => {
 
     radio.addEventListener('change', () => {
@@ -1273,59 +1374,71 @@ document.querySelectorAll(
 });
 
 
-
-
 // ==================================================
-// UPDATE DATE WRAPPERS WITH "EMPTY RESULTS"
-// MESSAGE
+// UPDATE WRAPPERS WITH "EMPTY RESULTS"
 // ==================================================
 
 function updateWrappers() {
 
-    const wrappers =
-        document.querySelectorAll(
-            '.date-overlay'
-        );
+    const dateGroups =
+        document.querySelectorAll('.date-group');
 
 
-    wrappers.forEach(wrapper => {
+    dateGroups.forEach(dateGroup => {
 
-        const items =
-            wrapper.querySelectorAll(
-                '.entry-overlay'
+        const timeGroups =
+            dateGroup.querySelectorAll(
+                ':scope > .time-group'
             );
 
 
-        const allHidden =
-            [...items].every(item =>
-                item.style.display === 'none' ||
-                item.classList.contains('hidden')
+        timeGroups.forEach(timeGroup => {
+
+            const entries =
+                timeGroup.querySelectorAll(
+                    ':scope > .entry-overlay'
+                );
+
+
+            const allHidden =
+                [...entries].every(entry =>
+                    entry.style.display === 'none' ||
+                    entry.classList.contains('hidden')
+                );
+
+
+            timeGroup.style.display =
+                allHidden ? 'none' : '';
+
+        });
+
+
+        const allTimeGroupsHidden =
+            [...timeGroups].every(
+                timeGroup =>
+                    timeGroup.style.display === 'none'
             );
 
 
-        wrapper.style.display =
-            allHidden ? 'none' : '';
+        dateGroup.style.display =
+            allTimeGroupsHidden ? 'none' : '';
 
     });
 
 
-    // Check whether all wrappers are hidden
-
-    const allWrappersHidden =
-        [...wrappers].every(
-            wrapper =>
-                wrapper.style.display === 'none'
+    const allDateGroupsHidden =
+        [...dateGroups].every(
+            dateGroup =>
+                dateGroup.style.display === 'none'
         );
 
 
     document.getElementById(
         'empty-results'
     ).style.display =
-        allWrappersHidden ? '' : 'none';
+        allDateGroupsHidden ? '' : 'none';
 
 }
-
-
 
 
 // ==================================================
@@ -1334,25 +1447,15 @@ function updateWrappers() {
 
 window.addEventListener('DOMContentLoaded', () => {
 
-
-    // --------------------------------------------------
     // RESTORE SAVED RADIO SETTINGS
-    // --------------------------------------------------
-
     restoreRadioSettings();
 
 
-    // --------------------------------------------------
     // RESTORE SAVED CHECKBOX SETTINGS
-    // --------------------------------------------------
-
     restoreCheckboxStates();
 
 
-    // --------------------------------------------------
     // RESTORE SAVED SEARCH
-    // --------------------------------------------------
-
     const savedSearch =
         sessionStorage.getItem(
             searchStorageKey
@@ -1367,10 +1470,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // --------------------------------------------------
     // APPLY ORDER
-    // --------------------------------------------------
-
     const newestfirst =
         document.getElementById(
             'newestfirst'
@@ -1379,23 +1479,16 @@ window.addEventListener('DOMContentLoaded', () => {
 
     if (newestfirst.checked) {
 
-        // Newest First
-
         updateOrder(true, false);
 
     } else {
-
-        // Oldest First
 
         updateOrder(false, false);
 
     }
 
 
-    // --------------------------------------------------
     // APPLY SEARCH
-    // --------------------------------------------------
-
     if (searchBar.value) {
 
         filterItems();
@@ -1403,17 +1496,11 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // --------------------------------------------------
     // APPLY FILTERS
-    // --------------------------------------------------
-
     updateVisibility();
 
 
-    // --------------------------------------------------
     // UPDATE ALL TOGGLE BUTTONS
-    // --------------------------------------------------
-
     updateAllToggleButtons();
 
 });

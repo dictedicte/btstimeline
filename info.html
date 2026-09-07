@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>info | BTS Timeline</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+:root{
+    --green: hsl(120, 61%, 57%);
+    --yellow: hsl(48, 100%, 70%);
+    --orange: hsl(29, 100%, 63%);
+    --red: hsl(0, 78%, 61%);
+}
+        .card{
+            background-color: var(--entry-bg);
+            color: var(--entry-text);
+            font-size: 18px;
+            max-width: var(--max-width);
+        }
+
+
+        .checklist ul li{
+            width: fit-content;
+            position: relative;
+        }
+
+        h1{
+            font-size: 21px;
+            width: 100%;
+        }
+
+.back{
+    position: absolute;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 66%;
+    background-image: url(images/arrow_back_24dp_FFFFFF_FILL0_wght600_GRAD-25_opsz24.svg);
+    /* background-color: hsl(262, 45%, 75%); */
+    opacity: 1;
+    /* box-shadow: var(--shadow-on-bg); */
+    border-radius: 12px;
+    cursor: pointer;
+    background-color: hsl(262, 45%, 73.5%);
+}
+.back:hover{
+    background-color: hsl(262, 48%, 75%);
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        
+    <h1><span class="back" onclick="history.back()"></span>BTS TIMELINE - INFORMATION PAGE</h1>
+    </header>
+
+    <div class="card">
+        <h3>Timezone</h3>
+        <p>All date and time is archived in Korea's timezone (KST)</p>
+    </div>
+
+    <div class="card">
+        <h3>Links</h3>
+        <p>BTS Timeline only includes official links. Some links are broken but still included for archival purposes</p>
+    </div>
+
+    <div class="card">
+        <h3>Broadcasted Live Events</h3>
+        <p>Music shows, award shows and other broadcasted live events are currently only archived with the time and date of airing, not when the recording took place</p>
+    </div>
+
+    <div class="card checklist">
+        <h3>WORK IN PROGRESS</h3>
+        <ul>
+            <li>Instagram posts</li>
+            <li>Facebook</li>
+        </ul>
+
+
+    </div>
+</body>
+</html>
