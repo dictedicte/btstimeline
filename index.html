@@ -11,9 +11,9 @@
 </head>
 <body>
 
-
+<h1><a>BTS TIMELINE</a></h1>
 <header>
-<div class="max-width">
+    <div class="max-width">
     
     <div class="year"><h2>2026</h2>
     <div class="overlay">
@@ -36,56 +36,68 @@
     </div>
     </div>
     </div>
-        
-    <div class="searchbar">
-        <input type="text" id="search" placeholder="Search..." autocomplete="off">
-        <button type="button" id="clearSearch">×</button>
+       
+    
 
-        <div class="suggestions-overlay">
-            <div class="suggestions" id="suggestions"></div>
-        </div>
-        <div id="suggestionData" style="display:none;">
+<div class="searchbar">
+    <div class="search-inputs" id="searchInputs"></div>
+    <button type="button" id="addSearch"></button>
 
-            <div class="suggestion-data">
-                <img src="images/icons/tv.png">
-                <span class="eng">Run BTS! 2.0</span>
-                <span class="kor">달려라 방탄 2.0</span>
-            </div>
-            <div class="suggestion-data">
-                <img src="images/icons/tv.png">
-                <span>BTS: THE RETURN</span>
-            </div>
-
-            <div class="suggestion-data">
-                <img src="images/icons/tv.png">
-                <span>APPLE MUSIC INTERVIEW WITH ZANE LOWE</span>
-            </div>
-            <div class="suggestion-data">
-                <img src="images/icons/tv.png">
-                <span>ROLLING STONE COVER STORY</span>
-            </div>
-            <div class="suggestion-data">
-                <img src="images/icons/tv.png">
-                <span>FIRST WE FEAST 'HOT ONES'</span>
-            </div>
-            
-            <div class="suggestion-data">
-                <img class="youtube" src="images/icons/social-media/youtube.png">
-                <span>[BANGTAN BOMB]</span>
-            </div>
-
-            <div class="suggestion-data">
-                <img class="youtube" src="images/icons/social-media/youtube.png">
-                <span>[EPISODE]</span>
-            </div>
-            
-            <div class="suggestion-data">
-                <img class="youtube" src="images/icons/social-media/youtube.png">
-                <span>[DANCE PRACTICE]</span>
-            </div>
-
-        </div>
+    <div class="suggestions-overlay">
+        <div class="suggestions" id="suggestions"></div>
     </div>
+
+    <div id="suggestionData" style="display:none;">
+
+        <div class="suggestion-data eng">
+            <img src="images/icons/tv.png">
+            <span class="eng">Run BTS! 2.0</span>
+            <span class="kor">달려라 방탄 2.0</span>
+        </div>
+
+        <div class="suggestion-data">
+            <img src="images/icons/tv.png">
+            <span>BTS: THE RETURN</span>
+        </div>
+
+        <div class="suggestion-data">
+            <img src="images/icons/tv.png">
+            <span>APPLE MUSIC INTERVIEW WITH ZANE LOWE</span>
+        </div>
+
+        <div class="suggestion-data">
+            <img src="images/icons/tv.png">
+            <span>ROLLING STONE COVER STORY</span>
+        </div>
+
+        <div class="suggestion-data">
+            <img src="images/icons/tv.png">
+            <span>FIRST WE FEAST 'HOT ONES'</span>
+        </div>
+
+        <div class="suggestion-data">
+            <img class="youtube" src="images/icons/social-media/youtube.png">
+            <span>[BANGTAN BOMB]</span>
+        </div>
+
+        <div class="suggestion-data">
+            <img class="youtube" src="images/icons/social-media/youtube.png">
+            <span>[EPISODE]</span>
+        </div>
+
+        <div class="suggestion-data">
+            <img class="youtube" src="images/icons/social-media/youtube.png">
+            <span>[DANCE PRACTICE]</span>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
 
     <div class="settings">
     <div class="overlay">
@@ -131,6 +143,7 @@
             <label for="notice">Notices<input class="category-checkbox" type="checkbox" checked="" id="notice"></label>
             <label for="bu">BANGTAN UNIVERSE (BU)<input class="category-checkbox" type="checkbox" checked="" id="bu"></label>
             <label for="misc">Miscellaneous<input class="category-checkbox" type="checkbox" checked="" id="misc"></label>
+            <label for="uncategorized">Uncategorized<input class="category-checkbox" type="checkbox" checked="" id="uncategorized"></label>
 
         </div>
 
@@ -154,7 +167,7 @@
             <label for="duration-60-plus">60+ min.<input type="checkbox" id="duration-60-plus" checked></label>
         </div>
 
-        <div class="section filter-member">
+        <!-- <div class="section filter-member">
             <h2>MEMBER</h2>
             <button class="toggle-all" id="toggleMemberAll" data-filter-group="duration">Deselect all</button>
             <label for="member-unspecified">Unspecified<input type="checkbox" id="member-unspecified" checked></label>
@@ -165,7 +178,7 @@
             <label for="member-jimin">Jimin<input type="checkbox" id="member-jimin" checked></label>
             <label for="member-v">V<input type="checkbox" id="member-v" checked></label>
             <label for="member-jungkook">Jung Kook<input type="checkbox" id="member-jungkook" checked></label>
-        </div>
+        </div> -->
 
         <div class="section settings2">
             <h2>LANGUAGE PRIORITY</h2>
@@ -173,16 +186,18 @@
             <label for="korean"><input name="language" type="radio" id="korean">한국어</label>
 
             <h2>THEME</h2>
-            <label for="theme-light"><input name="theme" type="radio" id="theme-light" checked>Light</label>
-            <label for="theme-dark"><input name="theme" type="radio" id="theme-dark">Dark</label>
+            <label for="theme-light"><input name="theme" type="radio" id="theme-light" checked>Light Purple</label>
+            <label for="theme-dark"><input name="theme" type="radio" id="theme-dark">Dark Purple</label>
             <label for="theme-skoolluvaffair"><input name="theme" type="radio" id="theme-skoolluvaffair">Skool Luv Affair</label>
+            <label for="theme-hyyhpt1"><input name="theme" type="radio" id="theme-hyyhpt1">HYYH pt.1</label>
+            <label for="theme-hyyhpt2"><input name="theme" type="radio" id="theme-hyyhpt2">HYYH pt.2</label>
         </div>
 
     </div>
     </div>
     </div>
 
-    <a class="infopage" href="info.html" target="_parent"></a>
+    <!-- <a class="infopage" href="info.html" target="_parent"></a> -->
 </div>
 </header>
 
@@ -211,6 +226,21 @@
 <h3 class="time">
 <span>??:??</span>
 </h3>
+<div class="entry-overlay uncategorized">
+<article class="entry">
+<div class="entry-main">
+<span class="icon"></span>
+<div class="entry-text">
+<h4>WEVERSE NOTICE</h4>
+<div class="entry-bottom">
+<p class="kor">[공지] 방탄소년단 정규 5집 발매 및 월드투어 개최 안내</p>
+<p class="eng">[NOTICE] BTS The 5th Album Release and World Tour Announcement</p>
+</div>
+</div>
+<a class="link" href="https://weverse.io/bts/notice/32916"></a>
+</div>
+</article>
+</div>
 <div class="entry-overlay weverse notice">
 <article class="entry">
 <div class="entry-main">

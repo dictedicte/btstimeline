@@ -1,4 +1,7 @@
-// ---SHOW DATE HEADER ON SCROLL---
+
+/* ==================================================
+   SHOW DATE HEADER ON SCROLL
+================================================== */
 
 const element = document.querySelector("header");
 const showAfter = 3;
@@ -12,360 +15,424 @@ window.addEventListener("scroll", () => {
 });
 
 
-// ---LAZY LOAD ICON---
+/* ==================================================
+   LAZY LOAD
+================================================== */
 
-const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("loaded");
-            obs.unobserve(entry.target);
-        }
+function observeElements(selector, observerName) {
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("loaded");
+                obs.unobserve(entry.target);
+            }
+        });
     });
-});
 
-document.querySelectorAll(".icon").forEach(el => {
-    observer.observe(el);
-});
-
-
-// ---LAZY LOAD LINK---
-
-const observer2 = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("loaded");
-            obs.unobserve(entry.target);
-        }
+    document.querySelectorAll(selector).forEach(el => {
+        observer.observe(el);
     });
-});
 
-document.querySelectorAll(".link").forEach(el => {
-    observer2.observe(el);
-});
+    return observer;
+}
 
-
-// ---LAZY LOAD LINKS---
-
-const observer3 = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("loaded");
-            obs.unobserve(entry.target);
-        }
-    });
-});
-
-document.querySelectorAll(".links").forEach(el => {
-    observer3.observe(el);
-});
+const observer = observeElements(".icon");
+const observer2 = observeElements(".link");
+const observer3 = observeElements(".links");
+const observer4 = observeElements(".entry-overlay");
+const observer5 = observeElements(".date");
+const observer6 = observeElements(".time");
 
 
-// ---LAZY LOAD ENTRY---
+/* ==================================================
+   HOVER EFFECT / CLICK EFFECT
+================================================== */
 
-const observer4 = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("loaded");
-            obs.unobserve(entry.target);
-        }
-    });
-});
-
-document.querySelectorAll(".entry-overlay").forEach(el => {
-    observer4.observe(el);
-});
-
-
-// ---LAZY LOAD DATE---
-
-const observer5 = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("loaded");
-            obs.unobserve(entry.target);
-        }
-    });
-});
-
-document.querySelectorAll(".date").forEach(el => {
-    observer5.observe(el);
-});
-
-
-// ---LAZY LOAD TIME---
-
-const observer6 = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("loaded");
-            obs.unobserve(entry.target);
-        }
-    });
-});
-
-document.querySelectorAll(".time").forEach(el => {
-    observer6.observe(el);
-});
-
-
-// ==================================================
-// HOVER EFFECT FIT MOBILE TOO
-// ==================================================
-
-const items = document.querySelectorAll('.entry');
+const items = document.querySelectorAll(".entry");
 
 items.forEach(item => {
 
-    // CLICK behavior (persistent)
-    item.addEventListener('click', function(e) {
+    item.addEventListener("click", function(e) {
         e.stopPropagation();
 
-        // Remove active + clicked from others
         items.forEach(i => {
             if (i !== this) {
-                i.classList.remove('active', 'clicked');
+                i.classList.remove("active", "clicked");
             }
         });
 
-        // Mark this as clicked
-        this.classList.add('active', 'clicked');
+        this.classList.add("active", "clicked");
     });
 
+    item.addEventListener("mouseenter", function() {
 
-    // HOVER IN (temporary)
-    item.addEventListener('mouseenter', function() {
-
-        // Only apply hover if it's not already clicked
-        if (!this.classList.contains('clicked')) {
+        if (!this.classList.contains("clicked")) {
 
             items.forEach(i => {
-                if (!i.classList.contains('clicked')) {
-                    i.classList.remove('active');
+                if (!i.classList.contains("clicked")) {
+                    i.classList.remove("active");
                 }
             });
 
-            this.classList.add('active');
+            this.classList.add("active");
         }
+
     });
 
+    item.addEventListener("mouseleave", function() {
 
-    // HOVER OUT (remove if not clicked)
-    item.addEventListener('mouseleave', function() {
-
-        if (!this.classList.contains('clicked')) {
-            this.classList.remove('active');
+        if (!this.classList.contains("clicked")) {
+            this.classList.remove("active");
         }
 
     });
 
 });
 
-
-// CLICK OUTSIDE → RESET EVERYTHING
-
-document.addEventListener('click', () => {
+document.addEventListener("click", () => {
 
     items.forEach(item => {
-        item.classList.remove('active', 'clicked');
+        item.classList.remove("active", "clicked");
     });
 
 });
 
 
-// ==================================================
-// SEARCHBAR
-// ==================================================
+/* ==================================================
+   MULTI SEARCH
+================================================== */
 
-const searchBar = document.getElementById('search');
-const suggestionsBox = document.getElementById('suggestions');
-const clearSearch = document.getElementById('clearSearch');
+const searchBar = document.querySelector(".searchbar");
+const searchInputs = document.getElementById("searchInputs");
+const addSearchButton = document.getElementById("addSearch");
+const suggestionsBox = document.getElementById("suggestions");
 
-// Get suggestions from HTML
-const suggestions = document.querySelectorAll('.suggestion-data');
+const suggestions = document.querySelectorAll(".suggestion-data");
 
-// Search storage key
-const searchStorageKey = 'timelineSearch';
+const searchStorageKey = "timelineSearch";
 
+// The input currently being used for suggestions
+let activeSearchInput = null;
+
+// Input sizing limits
+const minSearchWidth = 15;
+const maxSearchWidth = 300;
+
+
+/* --------------------------------------------------
+   RESIZE INPUT TO FIT ITS TEXT
+-------------------------------------------------- */
+
+const searchCanvas = document.createElement("canvas");
+const searchContext = searchCanvas.getContext("2d");
+
+function resizeSearchInput(input) {
+
+    const styles = getComputedStyle(input);
+
+    searchContext.font = styles.font;
+
+    const textWidth = searchContext.measureText(
+        input.value || ""
+    ).width;
+
+    const padding =
+        parseFloat(styles.paddingLeft) +
+        parseFloat(styles.paddingRight);
+
+    const borders =
+        parseFloat(styles.borderLeftWidth) +
+        parseFloat(styles.borderRightWidth);
+
+    const width = Math.min(
+        maxSearchWidth,
+        Math.max(
+            minSearchWidth,
+            Math.ceil(textWidth + padding + borders + 4)
+        )
+    );
+
+    input.style.width = width + "px";
+
+}
+
+
+/* --------------------------------------------------
+   GET ALL SEARCH INPUTS
+-------------------------------------------------- */
+
+function getSearchInputs() {
+
+    return [
+        ...searchInputs.querySelectorAll(".search-input")
+    ];
+
+}
+
+
+/* --------------------------------------------------
+   SAVE SEARCHES
+-------------------------------------------------- */
+
+function saveSearches() {
+
+    const searches = getSearchInputs().map(input => {
+        return input.value;
+    });
+
+    sessionStorage.setItem(
+        searchStorageKey,
+        JSON.stringify(searches)
+    );
+
+}
+
+
+/* --------------------------------------------------
+   CREATE A SEARCH INPUT
+-------------------------------------------------- */
+
+function createSearchInput(value = "") {
+
+    const searchGroup = document.createElement("div");
+    searchGroup.className = "search-group";
+
+    const input = document.createElement("input");
+
+    input.type = "text";
+    input.className = "search-input";
+    // input.placeholder = "Search...";
+    input.autocomplete = "off";
+    input.value = value;
+
+    const closeButton = document.createElement("button");
+
+    closeButton.type = "button";
+    closeButton.className = "close-search";
+    closeButton.textContent = "×";
+    closeButton.setAttribute("aria-label", "Remove search");
+
+    // WHEN TYPING
+    input.addEventListener("input", () => {
+
+        resizeSearchInput(input);
+
+        showSuggestions(input.value);
+
+        filterItems();
+
+        saveSearches();
+
+    });
+
+    // WHEN FOCUSING THE INPUT
+    input.addEventListener("focus", () => {
+
+        activeSearchInput = input;
+
+        showSuggestions(input.value);
+
+    });
+
+    // REMOVE THIS SEARCH
+    closeButton.addEventListener("click", () => {
+
+        searchGroup.remove();
+
+        if (activeSearchInput === input) {
+            activeSearchInput = null;
+        }
+
+        suggestionsBox.style.display = "none";
+
+        filterItems();
+
+        saveSearches();
+
+    });
+
+    searchGroup.appendChild(input);
+    searchGroup.appendChild(closeButton);
+
+    searchInputs.appendChild(searchGroup);
+
+    resizeSearchInput(input);
+
+    return input;
+
+}
+
+
+/* --------------------------------------------------
+   ADD SEARCH BUTTON
+-------------------------------------------------- */
+
+addSearchButton.addEventListener("click", () => {
+
+    const input = createSearchInput();
+
+    saveSearches();
+
+    input.focus();
+
+});
+
+
+/* --------------------------------------------------
+   FILTER TIMELINE ENTRIES
+-------------------------------------------------- */
 
 function filterItems() {
 
-    const input = searchBar.value.toLowerCase();
-    const itemsy = document.querySelectorAll(".entry-overlay");
+    const searches = getSearchInputs()
+        .map(input => input.value.trim().toLowerCase())
+        .filter(value => value !== "");
 
-    itemsy.forEach(item => {
+    const items = document.querySelectorAll(".entry-overlay");
 
-        // Search ALL p and h4 elements,
+    items.forEach(item => {
+
+        // Search all p and h4 elements,
         // including elements with display:none
-        const searchableText = [...item.querySelectorAll("p, h4")]
+        const searchableText = [
+            ...item.querySelectorAll("p, h4")
+        ]
             .map(element => element.textContent.toLowerCase())
             .join(" ");
 
-        item.style.display =
-            searchableText.includes(input) ? "" : "none";
+        // An entry must match at least one search.
+        // No non-empty searches means show all entries.
+        const matchesSearch =
+            searches.length === 0 ||
+            searches.some(search =>
+                searchableText.includes(search)
+            );
+
+        item.style.display = matchesSearch ? "" : "none";
+
     });
 
     updateWrappers();
+
 }
 
 
-function updateClearButton() {
+/* --------------------------------------------------
+   SHOW SUGGESTIONS
+-------------------------------------------------- */
 
-    clearSearch.style.display =
-        searchBar.value ? 'block' : 'none';
-}
+function showSuggestions(filter = "") {
 
-
-// CLEAR SEARCH
-
-clearSearch.addEventListener('click', () => {
-
-    searchBar.value = '';
-
-    suggestionsBox.style.display = 'none';
-
-    filterItems();
-    updateClearButton();
-
-    // Save empty search
-    sessionStorage.setItem(
-        searchStorageKey,
-        ''
-    );
-
-    searchBar.focus();
-
-});
-
-
-// SHOW SUGGESTIONS
-
-function showSuggestions(filter = '') {
-
-    suggestionsBox.innerHTML = '';
+    suggestionsBox.innerHTML = "";
 
     suggestions.forEach(suggestion => {
 
         const text =
-            suggestion.querySelector('span').textContent;
+            suggestion.querySelector("span").textContent;
 
         if (
-            filter === '' ||
+            filter === "" ||
             text.toLowerCase().includes(filter.toLowerCase())
         ) {
 
-            // Clone the HTML suggestion
             const item = suggestion.cloneNode(true);
 
-            item.classList.add('suggestion-item');
+            item.classList.add("suggestion-item");
 
-            item.addEventListener('click', () => {
+            item.addEventListener("click", () => {
 
-                searchBar.value = text;
-                suggestionsBox.style.display = 'none';
+                const input = activeSearchInput;
+
+                if (!input || !input.isConnected) {
+                    return;
+                }
+
+                input.value = text;
+
+                resizeSearchInput(input);
+
+                suggestionsBox.style.display = "none";
 
                 filterItems();
-                updateClearButton();
 
-                // Save selected suggestion as search
-                sessionStorage.setItem(
-                    searchStorageKey,
-                    searchBar.value
-                );
+                saveSearches();
+
+                input.focus();
 
             });
 
             suggestionsBox.appendChild(item);
+
         }
+
     });
 
-
     suggestionsBox.style.display =
-        suggestionsBox.children.length ? 'block' : 'none';
+        suggestionsBox.children.length ? "block" : "none";
+
 }
 
 
-// WHEN TYPING
+/* --------------------------------------------------
+   TRACK ACTIVE SEARCH INPUT
+-------------------------------------------------- */
 
-searchBar.addEventListener('input', () => {
+searchInputs.addEventListener("focusin", event => {
 
-    showSuggestions(searchBar.value);
-    filterItems();
-    updateClearButton();
-
-    // Save search text
-    sessionStorage.setItem(
-        searchStorageKey,
-        searchBar.value
-    );
-
-});
-
-
-// WHEN CLICKING SEARCH BAR
-
-searchBar.addEventListener('focus', () => {
-
-    showSuggestions(searchBar.value);
-
-});
-
-
-// CLICK OUTSIDE
-
-document.addEventListener('click', (e) => {
-
-    if (!document.querySelector('.searchbar').contains(e.target)) {
-        suggestionsBox.style.display = 'none';
+    if (event.target.classList.contains("search-input")) {
+        activeSearchInput = event.target;
     }
 
 });
 
 
-updateClearButton();
+/* --------------------------------------------------
+   CLICK OUTSIDE SEARCHBAR
+-------------------------------------------------- */
 
+document.addEventListener("click", event => {
 
-// ==================================================
-// FLIP ORDER
-// ==================================================
-
-const timeline = document.querySelector('.timeline');
-
-const dateGroups =
-    document.querySelectorAll('.date-group');
-
-
-// --------------------------------------------------
-// STORE ORIGINAL DATE ORDER
-// --------------------------------------------------
-
-Array.from(timeline.children).forEach((child, i) => {
-
-    child.dataset.index = i;
+    if (!searchBar.contains(event.target)) {
+        suggestionsBox.style.display = "none";
+    }
 
 });
 
 
-// --------------------------------------------------
-// STORE ORIGINAL TIME + ENTRY ORDER
-// --------------------------------------------------
+/* ==================================================
+   FLIP ORDER
+================================================== */
+
+const timeline = document.querySelector(".timeline");
+
+const dateGroups =
+    document.querySelectorAll(".date-group");
+
+
+/* --------------------------------------------------
+   STORE ORIGINAL DATE ORDER
+-------------------------------------------------- */
+
+Array.from(timeline.children).forEach((child, i) => {
+    child.dataset.index = i;
+});
+
+
+/* --------------------------------------------------
+   STORE ORIGINAL TIME + ENTRY ORDER
+-------------------------------------------------- */
 
 dateGroups.forEach(dateGroup => {
 
     const timeGroups =
-        dateGroup.querySelectorAll(
-            ':scope > .time-group'
-        );
+        dateGroup.querySelectorAll(":scope > .time-group");
 
     timeGroups.forEach((timeGroup, i) => {
 
         timeGroup.dataset.index = i;
 
-
-        // Store original entry order
         Array.from(
-            timeGroup.querySelectorAll(
-                ':scope > .entry-overlay'
-            )
+            timeGroup.querySelectorAll(":scope > .entry-overlay")
         ).forEach((entry, j) => {
 
             entry.dataset.index = j;
@@ -377,219 +444,155 @@ dateGroups.forEach(dateGroup => {
 });
 
 
-// --------------------------------------------------
-// FUNCTION TO UPDATE ORDER
-// --------------------------------------------------
+/* --------------------------------------------------
+   UPDATE ORDER
+-------------------------------------------------- */
 
 function updateOrder(reverse, animate = true) {
 
-    // ==================================================
     // ORDER DATE GROUPS
-    // ==================================================
 
-    const dateChildren =
-        Array.from(timeline.children);
+    const dateChildren = Array.from(timeline.children);
 
     const orderedDates = reverse
         ? [...dateChildren].reverse()
         : [...dateChildren].sort((a, b) =>
-            Number(a.dataset.index) -
-            Number(b.dataset.index)
+            Number(a.dataset.index) - Number(b.dataset.index)
         );
 
 
-    // ==================================================
     // ORDER TIME GROUPS
-    // ==================================================
 
     const orderedTimeGroups = new Map();
 
     dateGroups.forEach(dateGroup => {
 
-        const timeGroups =
-            Array.from(
-                dateGroup.querySelectorAll(
-                    ':scope > .time-group'
-                )
-            );
+        const timeGroups = Array.from(
+            dateGroup.querySelectorAll(":scope > .time-group")
+        );
 
-        // Separate the unspecified-time group
-        const specifiedTimeGroups =
-            timeGroups.filter(
-                timeGroup =>
-                    !timeGroup.classList.contains(
-                        'time-unspecified'
-                    )
-            );
+        const specifiedTimeGroups = timeGroups.filter(
+            timeGroup =>
+                !timeGroup.classList.contains("time-unspecified")
+        );
 
-        const unspecifiedTimeGroup =
-            timeGroups.find(
-                timeGroup =>
-                    timeGroup.classList.contains(
-                        'time-unspecified'
-                    )
-            );
+        const unspecifiedTimeGroup = timeGroups.find(
+            timeGroup =>
+                timeGroup.classList.contains("time-unspecified")
+        );
 
-        // Reverse/sort only specified times
         const orderedSpecifiedTimes = reverse
             ? [...specifiedTimeGroups].reverse()
             : [...specifiedTimeGroups].sort((a, b) =>
-                Number(a.dataset.index) -
-                Number(b.dataset.index)
+                Number(a.dataset.index) - Number(b.dataset.index)
             );
 
-        // Always put unspecified time last
         if (unspecifiedTimeGroup) {
-            orderedSpecifiedTimes.push(
-                unspecifiedTimeGroup
-            );
+            orderedSpecifiedTimes.push(unspecifiedTimeGroup);
         }
 
-        orderedTimeGroups.set(
-            dateGroup,
-            orderedSpecifiedTimes
-        );
+        orderedTimeGroups.set(dateGroup, orderedSpecifiedTimes);
 
     });
 
 
-    // ==================================================
     // ORDER ENTRIES
-    // ==================================================
 
     const orderedEntries = new Map();
 
     dateGroups.forEach(dateGroup => {
 
         const timeGroups =
-            dateGroup.querySelectorAll(
-                ':scope > .time-group'
-            );
+            dateGroup.querySelectorAll(":scope > .time-group");
 
         timeGroups.forEach(timeGroup => {
 
-            const entries =
-                Array.from(
-                    timeGroup.querySelectorAll(
-                        ':scope > .entry-overlay'
-                    )
-                );
+            const entries = Array.from(
+                timeGroup.querySelectorAll(":scope > .entry-overlay")
+            );
 
-            // Keep unspecified-time entries in their
-            // original order.
             const ordered =
-                timeGroup.classList.contains(
-                    'time-unspecified'
-                )
+                timeGroup.classList.contains("time-unspecified")
                     ? [...entries]
                     : reverse
                         ? [...entries].reverse()
                         : [...entries].sort((a, b) =>
-                            Number(a.dataset.index) -
-                            Number(b.dataset.index)
+                            Number(a.dataset.index) - Number(b.dataset.index)
                         );
 
-            orderedEntries.set(
-                timeGroup,
-                ordered
-            );
+            orderedEntries.set(timeGroup, ordered);
 
         });
 
     });
 
 
-    // ==================================================
     // ANIMATION
-    // ==================================================
 
     if (animate) {
 
-        timeline.classList.add('flipping');
+        timeline.classList.add("flipping");
 
         dateGroups.forEach(dateGroup => {
 
-            dateGroup.classList.add('flipping');
+            dateGroup.classList.add("flipping");
 
             dateGroup
-                .querySelectorAll(
-                    ':scope > .time-group'
-                )
+                .querySelectorAll(":scope > .time-group")
                 .forEach(timeGroup => {
 
-                    timeGroup.classList.add('flipping');
+                    timeGroup.classList.add("flipping");
 
                     timeGroup
-                        .querySelectorAll(
-                            ':scope > .entry-overlay'
-                        )
+                        .querySelectorAll(":scope > .entry-overlay")
                         .forEach(entry => {
-
-                            entry.classList.remove('visible');
-
+                            entry.classList.remove("visible");
                         });
 
                 });
 
         });
 
-
         setTimeout(() => {
 
-            // Reorder date groups
             orderedDates.forEach(dateGroup => {
                 timeline.appendChild(dateGroup);
             });
 
+            orderedTimeGroups.forEach((timeGroups, dateGroup) => {
 
-            // Reorder time groups
-            orderedTimeGroups.forEach(
-                (timeGroups, dateGroup) => {
+                timeGroups.forEach(timeGroup => {
+                    dateGroup.appendChild(timeGroup);
+                });
 
-                    timeGroups.forEach(timeGroup => {
-                        dateGroup.appendChild(timeGroup);
-                    });
+            });
 
-                }
-            );
+            orderedEntries.forEach((entries, timeGroup) => {
 
+                entries.forEach(entry => {
+                    timeGroup.appendChild(entry);
+                });
 
-            // Reorder entries
-            orderedEntries.forEach(
-                (entries, timeGroup) => {
-
-                    entries.forEach(entry => {
-                        timeGroup.appendChild(entry);
-                    });
-
-                }
-            );
-
+            });
 
             requestAnimationFrame(() => {
 
-                timeline.classList.remove('flipping');
+                timeline.classList.remove("flipping");
 
                 dateGroups.forEach(dateGroup => {
 
-                    dateGroup.classList.remove('flipping');
+                    dateGroup.classList.remove("flipping");
 
                     dateGroup
-                        .querySelectorAll(
-                            ':scope > .time-group'
-                        )
+                        .querySelectorAll(":scope > .time-group")
                         .forEach(timeGroup => {
 
-                            timeGroup.classList.remove('flipping');
+                            timeGroup.classList.remove("flipping");
 
                             timeGroup
-                                .querySelectorAll(
-                                    ':scope > .entry-overlay'
-                                )
+                                .querySelectorAll(":scope > .entry-overlay")
                                 .forEach(entry => {
-
-                                    entry.classList.add('visible');
-
+                                    entry.classList.add("visible");
                                 });
 
                         });
@@ -600,105 +603,84 @@ function updateOrder(reverse, animate = true) {
 
         }, 1);
 
-
     } else {
 
-        // Reorder date groups
         orderedDates.forEach(dateGroup => {
             timeline.appendChild(dateGroup);
         });
 
+        orderedTimeGroups.forEach((timeGroups, dateGroup) => {
 
-        // Reorder time groups
-        orderedTimeGroups.forEach(
-            (timeGroups, dateGroup) => {
+            timeGroups.forEach(timeGroup => {
+                dateGroup.appendChild(timeGroup);
+            });
 
-                timeGroups.forEach(timeGroup => {
-                    dateGroup.appendChild(timeGroup);
-                });
+        });
 
-            }
-        );
+        orderedEntries.forEach((entries, timeGroup) => {
 
+            entries.forEach(entry => {
+                timeGroup.appendChild(entry);
+            });
 
-        // Reorder entries
-        orderedEntries.forEach(
-            (entries, timeGroup) => {
-
-                entries.forEach(entry => {
-                    timeGroup.appendChild(entry);
-                });
-
-            }
-        );
+        });
 
     }
 
 }
 
 
-// --------------------------------------------------
-// ORDER RADIO BUTTONS
-// --------------------------------------------------
+/* --------------------------------------------------
+   ORDER RADIO BUTTONS
+-------------------------------------------------- */
 
-document.getElementById('oldestfirst')
-    .addEventListener('change', e => {
+document.getElementById("oldestfirst")
+    .addEventListener("change", e => {
 
         if (e.target.checked) {
-
             updateOrder(false);
             saveRadioSettings();
-
         }
 
     });
 
-
-document.getElementById('newestfirst')
-    .addEventListener('change', e => {
+document.getElementById("newestfirst")
+    .addEventListener("change", e => {
 
         if (e.target.checked) {
-
             updateOrder(true);
             saveRadioSettings();
-
         }
 
     });
 
 
-// ==================================================
-// FILTER
-// ==================================================
+/* ==================================================
+   FILTER
+================================================== */
 
 const filterCheckboxes = document.querySelectorAll(
-    '.category-checkbox, ' +
-    '.filter-mediatype input[type="checkbox"], ' +
-    '.filter-duration input[type="checkbox"]'
+    ".category-checkbox, " +
+    ".filter-mediatype input[type='checkbox'], " +
+    ".filter-duration input[type='checkbox']"
 );
 
-const storageKey = 'timelineCheckboxStates';
+const storageKey = "timelineCheckboxStates";
 
 
-// --------------------------------------------------
-// PARSE MEDIA DURATION
-// --------------------------------------------------
+/* --------------------------------------------------
+   PARSE MEDIA DURATION
+-------------------------------------------------- */
 
 function parseDuration(text) {
 
     text = text.trim();
 
-    // Must contain :
-    // This prevents counters such as "3"
-    // from being interpreted as durations.
-
-    if (!text.includes(':')) {
+    if (!text.includes(":")) {
         return null;
     }
 
-    const parts = text.split(':');
-
-    // Only allow MM:SS or HH:MM:SS
+    const parts = text.split(":");
 
     if (parts.length !== 2 && parts.length !== 3) {
         return null;
@@ -706,39 +688,26 @@ function parseDuration(text) {
 
     const numbers = parts.map(Number);
 
-    // Make sure every part is actually a number
-
     if (numbers.some(number => !Number.isFinite(number))) {
         return null;
     }
 
     let seconds;
 
-    // MM:SS
-
     if (parts.length === 2) {
 
         const minutes = numbers[0];
         const secs = numbers[1];
 
-        seconds =
-            minutes * 60 +
-            secs;
+        seconds = minutes * 60 + secs;
 
-    }
-
-    // HH:MM:SS
-
-    else {
+    } else {
 
         const hours = numbers[0];
         const minutes = numbers[1];
         const secs = numbers[2];
 
-        seconds =
-            hours * 3600 +
-            minutes * 60 +
-            secs;
+        seconds = hours * 3600 + minutes * 60 + secs;
 
     }
 
@@ -747,318 +716,197 @@ function parseDuration(text) {
 }
 
 
-// --------------------------------------------------
-// CHECK WHETHER A DURATION MATCHES
-// --------------------------------------------------
+/* --------------------------------------------------
+   CHECK DURATION
+-------------------------------------------------- */
 
 function durationMatches(seconds, checkedDurations) {
 
-    // ----------------------------------------------
-    // UNSPECIFIED
-    // ----------------------------------------------
-
     if (seconds === null) {
-
-        return checkedDurations.includes(
-            'duration-unspecified'
-        );
-
+        return checkedDurations.includes("duration-unspecified");
     }
 
-
-    // ----------------------------------------------
-    // 0-10 MINUTES
-    // ----------------------------------------------
-
     if (
-        checkedDurations.includes('duration-0-10') &&
+        checkedDurations.includes("duration-0-10") &&
         seconds <= 10 * 60
     ) {
-
         return true;
-
     }
 
-
-    // ----------------------------------------------
-    // 10-30 MINUTES
-    // ----------------------------------------------
-
     if (
-        checkedDurations.includes('duration-10-30') &&
+        checkedDurations.includes("duration-10-30") &&
         seconds > 10 * 60 &&
         seconds <= 30 * 60
     ) {
-
         return true;
-
     }
 
-
-    // ----------------------------------------------
-    // 30-60 MINUTES
-    // ----------------------------------------------
-
     if (
-        checkedDurations.includes('duration-30-60') &&
+        checkedDurations.includes("duration-30-60") &&
         seconds > 30 * 60 &&
         seconds <= 60 * 60
     ) {
-
         return true;
-
     }
-
-
-    // ----------------------------------------------
-    // MORE THAN 60 MINUTES
-    // ----------------------------------------------
 
     if (
-        checkedDurations.includes('duration-60-plus') &&
+        checkedDurations.includes("duration-60-plus") &&
         seconds > 60 * 60
     ) {
-
         return true;
-
     }
-
 
     return false;
 
 }
 
 
-// --------------------------------------------------
-// CHECK WHETHER VIDEO/AUDIO HAS MATCHING DURATION
-// --------------------------------------------------
+/* --------------------------------------------------
+   CHECK MEDIA DURATION
+-------------------------------------------------- */
 
-function mediaHasMatchingDuration(
-    mediaElements,
-    checkedDurations
-) {
+function mediaHasMatchingDuration(mediaElements, checkedDurations) {
 
     return [...mediaElements].some(mediaElement => {
 
-        const seconds =
-            parseDuration(
-                mediaElement.textContent
-            );
+        const seconds = parseDuration(mediaElement.textContent);
 
-        return durationMatches(
-            seconds,
-            checkedDurations
-        );
+        return durationMatches(seconds, checkedDurations);
 
     });
 
 }
 
 
-// --------------------------------------------------
-// UPDATE VISIBILITY
-// --------------------------------------------------
+/* --------------------------------------------------
+   UPDATE VISIBILITY
+-------------------------------------------------- */
 
 function updateVisibility() {
 
-    // ----------------------------------------------
-    // GET CHECKED CATEGORY CHECKBOXES
-    // ----------------------------------------------
+    const checkedCategories = [
+        ...document.querySelectorAll(".category-checkbox")
+    ]
+        .filter(checkbox => checkbox.checked)
+        .map(checkbox => checkbox.id);
 
-    const checkedCategories =
-        [...document.querySelectorAll(
-            '.category-checkbox'
-        )]
-            .filter(checkbox => checkbox.checked)
-            .map(checkbox => checkbox.id);
+    const checkedMedia = [
+        ...document.querySelectorAll(
+            ".filter-mediatype input[type='checkbox']"
+        )
+    ]
+        .filter(checkbox => checkbox.checked)
+        .map(checkbox => checkbox.id);
 
-
-    // ----------------------------------------------
-    // GET CHECKED MEDIA CHECKBOXES
-    // ----------------------------------------------
-
-    const checkedMedia =
-        [...document.querySelectorAll(
-            '.filter-mediatype input[type="checkbox"]'
-        )]
-            .filter(checkbox => checkbox.checked)
-            .map(checkbox => checkbox.id);
-
-
-    // ----------------------------------------------
-    // GET CHECKED DURATION CHECKBOXES
-    // ----------------------------------------------
-
-    const checkedDurations =
-        [...document.querySelectorAll(
-            '.filter-duration input[type="checkbox"]'
-        )]
-            .filter(checkbox => checkbox.checked)
-            .map(checkbox => checkbox.id);
+    const checkedDurations = [
+        ...document.querySelectorAll(
+            ".filter-duration input[type='checkbox']"
+        )
+    ]
+        .filter(checkbox => checkbox.checked)
+        .map(checkbox => checkbox.id);
 
 
-    // ----------------------------------------------
-    // CHECK EVERY ITEM
-    // ----------------------------------------------
-
-    document.querySelectorAll(
-        '.entry-overlay'
-    ).forEach(item => {
+    document.querySelectorAll(".entry-overlay").forEach(item => {
 
         // CATEGORY FILTER
-        const categoryMatch =
-            checkedCategories.some(category =>
-                item.classList.contains(category)
-            );
+
+        const categoryMatch = checkedCategories.some(category =>
+            item.classList.contains(category)
+        );
 
 
         // FIND MEDIA
-        const videoElements =
-            item.querySelectorAll('.media-video');
 
-        const imageElements =
-            item.querySelectorAll('.media-image');
+        const videoElements = item.querySelectorAll(".media-video");
+        const imageElements = item.querySelectorAll(".media-image");
+        const audioElements = item.querySelectorAll(".media-audio");
 
-        const audioElements =
-            item.querySelectorAll('.media-audio');
+        const hasVideo = videoElements.length > 0;
+        const hasImage = imageElements.length > 0;
+        const hasAudio = audioElements.length > 0;
 
-
-        const hasVideo =
-            videoElements.length > 0;
-
-        const hasImage =
-            imageElements.length > 0;
-
-        const hasAudio =
-            audioElements.length > 0;
+        const mediaNone = !hasVideo && !hasImage && !hasAudio;
 
 
-        // NO MEDIA
-        const mediaNone =
-            !hasVideo &&
-            !hasImage &&
-            !hasAudio;
+        // DURATION
 
-
-        // DURATION MATCHES
         const videoDurationMatch =
             hasVideo &&
-            mediaHasMatchingDuration(
-                videoElements,
-                checkedDurations
-            );
+            mediaHasMatchingDuration(videoElements, checkedDurations);
 
         const audioDurationMatch =
             hasAudio &&
-            mediaHasMatchingDuration(
-                audioElements,
-                checkedDurations
-            );
+            mediaHasMatchingDuration(audioElements, checkedDurations);
 
 
         // MEDIA FILTER
-        /*
-            Images are NOT affected by duration.
-
-            Videos/audio DO need a matching duration.
-
-            No-media is also not affected by duration.
-        */
 
         const imageMatch =
-            checkedMedia.includes('media-image') &&
-            hasImage;
+            checkedMedia.includes("media-image") && hasImage;
 
         const videoMatch =
-            checkedMedia.includes('media-video') &&
-            videoDurationMatch;
+            checkedMedia.includes("media-video") && videoDurationMatch;
 
         const audioMatch =
-            checkedMedia.includes('media-audio') &&
-            audioDurationMatch;
+            checkedMedia.includes("media-audio") && audioDurationMatch;
 
         const noneMatch =
-            checkedMedia.includes('media-none') &&
-            mediaNone;
-
+            checkedMedia.includes("media-none") && mediaNone;
 
         const mediaMatch =
-            imageMatch ||
-            videoMatch ||
-            audioMatch ||
-            noneMatch;
+            imageMatch || videoMatch || audioMatch || noneMatch;
 
 
-        // MUST PASS CATEGORY + MEDIA FILTERS
+        // COMBINE CATEGORY + MEDIA FILTERS
+
         item.classList.toggle(
-            'hidden',
+            "hidden",
             !(categoryMatch && mediaMatch)
         );
 
     });
-
 
     updateWrappers();
 
 }
 
 
-// --------------------------------------------------
-// SAVE CHECKBOX STATES
-// --------------------------------------------------
+/* --------------------------------------------------
+   SAVE CHECKBOX STATES
+-------------------------------------------------- */
 
 function saveCheckboxStates() {
 
-    // Get states already saved by other pages
     const states =
-        JSON.parse(
-            sessionStorage.getItem(storageKey)
-        ) || {};
+        JSON.parse(sessionStorage.getItem(storageKey)) || {};
 
-
-    // Only update checkboxes that exist
-    // on the current page
     filterCheckboxes.forEach(checkbox => {
-
-        states[checkbox.id] =
-            checkbox.checked;
-
+        states[checkbox.id] = checkbox.checked;
     });
 
-
-    sessionStorage.setItem(
-        storageKey,
-        JSON.stringify(states)
-    );
+    sessionStorage.setItem(storageKey, JSON.stringify(states));
 
 }
 
 
-// --------------------------------------------------
-// RESTORE CHECKBOX STATES
-// --------------------------------------------------
+/* --------------------------------------------------
+   RESTORE CHECKBOX STATES
+-------------------------------------------------- */
 
 function restoreCheckboxStates() {
 
     const savedStates =
-        JSON.parse(
-            sessionStorage.getItem(storageKey)
-        );
+        JSON.parse(sessionStorage.getItem(storageKey));
 
     if (!savedStates) {
         return;
     }
 
-
     filterCheckboxes.forEach(checkbox => {
 
-        if (
-            savedStates[checkbox.id] !== undefined
-        ) {
-
-            checkbox.checked =
-                savedStates[checkbox.id];
-
+        if (savedStates[checkbox.id] !== undefined) {
+            checkbox.checked = savedStates[checkbox.id];
         }
 
     });
@@ -1066,17 +914,16 @@ function restoreCheckboxStates() {
 }
 
 
-// --------------------------------------------------
-// CHECKBOX CHANGE EVENTS
-// --------------------------------------------------
+/* --------------------------------------------------
+   CHECKBOX CHANGE EVENTS
+-------------------------------------------------- */
 
 filterCheckboxes.forEach(checkbox => {
 
-    checkbox.addEventListener('change', () => {
+    checkbox.addEventListener("change", () => {
 
         updateVisibility();
         saveCheckboxStates();
-
         updateAllToggleButtons();
 
     });
@@ -1084,122 +931,77 @@ filterCheckboxes.forEach(checkbox => {
 });
 
 
-// ==================================================
-// TOGGLE ALL FILTER BUTTONS
-// ==================================================
+/* ==================================================
+   TOGGLE ALL FILTER BUTTONS
+================================================== */
 
-const toggleAllButtons =
-    document.querySelectorAll('.toggle-all');
+const toggleAllButtons = document.querySelectorAll(".toggle-all");
 
-
-// --------------------------------------------------
-// GET CHECKBOXES FOR A FILTER GROUP
-// --------------------------------------------------
 
 function getFilterGroupCheckboxes(group) {
 
-    if (group === 'categories') {
-
-        return document.querySelectorAll(
-            '.category-checkbox'
-        );
-
+    if (group === "categories") {
+        return document.querySelectorAll(".category-checkbox");
     }
 
-
-    if (group === 'media') {
-
+    if (group === "media") {
         return document.querySelectorAll(
-            '.filter-mediatype input[type="checkbox"]'
+            ".filter-mediatype input[type='checkbox']"
         );
-
     }
 
-
-    if (group === 'duration') {
-
+    if (group === "duration") {
         return document.querySelectorAll(
-            '.filter-duration input[type="checkbox"]'
+            ".filter-duration input[type='checkbox']"
         );
-
     }
-
 
     return [];
 
 }
 
 
-// --------------------------------------------------
-// UPDATE ONE TOGGLE BUTTON
-// --------------------------------------------------
-
 function updateToggleButton(button) {
 
-    const group =
-        button.dataset.filterGroup;
+    const group = button.dataset.filterGroup;
 
-    const checkboxes =
-        getFilterGroupCheckboxes(group);
+    const checkboxes = getFilterGroupCheckboxes(group);
 
+    const allChecked = [...checkboxes].every(
+        checkbox => checkbox.checked
+    );
 
-    const allChecked =
-        [...checkboxes].every(
-            checkbox => checkbox.checked
-        );
-
-
-    button.textContent =
-        allChecked
-            ? 'Deselect all'
-            : 'Select all';
+    button.textContent = allChecked
+        ? "Deselect all"
+        : "Select all";
 
 }
 
 
-// --------------------------------------------------
-// UPDATE ALL TOGGLE BUTTONS
-// --------------------------------------------------
-
 function updateAllToggleButtons() {
 
     toggleAllButtons.forEach(button => {
-
         updateToggleButton(button);
-
     });
 
 }
 
 
-// --------------------------------------------------
-// TOGGLE ALL CLICK EVENTS
-// --------------------------------------------------
-
 toggleAllButtons.forEach(button => {
 
-    button.addEventListener('click', () => {
+    button.addEventListener("click", () => {
 
-        const group =
-            button.dataset.filterGroup;
+        const group = button.dataset.filterGroup;
 
-        const checkboxes =
-            getFilterGroupCheckboxes(group);
+        const checkboxes = getFilterGroupCheckboxes(group);
 
-
-        const allChecked =
-            [...checkboxes].every(
-                checkbox => checkbox.checked
-            );
-
+        const allChecked = [...checkboxes].every(
+            checkbox => checkbox.checked
+        );
 
         checkboxes.forEach(checkbox => {
-
-            checkbox.checked =
-                !allChecked;
-
+            checkbox.checked = !allChecked;
         });
-
 
         updateToggleButton(button);
 
@@ -1214,80 +1016,54 @@ toggleAllButtons.forEach(button => {
 });
 
 
-// ==================================================
-// SETTINGS STORAGE
-// ==================================================
-
-/*
-    SESSION:
-    - ORDER
-    - COMPACTABILITY
-
-    LOCAL:
-    - LANGUAGE
-    - THEME
-    - TIME
-*/
-
+/* ==================================================
+   SETTINGS STORAGE
+================================================== */
 
 const sessionRadioSettings = [
-    'order',
-    'compactability'
+    "order",
+    "compactability"
 ];
-
 
 const localRadioSettings = [
-    'language',
-    'theme',
-    'time'
+    "language",
+    "theme",
+    "time"
 ];
 
 
-// --------------------------------------------------
-// SAVE RADIO SETTINGS
-// --------------------------------------------------
+/* --------------------------------------------------
+   SAVE RADIO SETTINGS
+-------------------------------------------------- */
 
 function saveRadioSettings() {
 
-    // SESSION SETTINGS
-
     sessionRadioSettings.forEach(name => {
 
-        const selected =
-            document.querySelector(
-                `input[type="radio"][name="${name}"]:checked`
-            );
-
+        const selected = document.querySelector(
+            `input[type="radio"][name="${name}"]:checked`
+        );
 
         if (selected) {
-
             sessionStorage.setItem(
                 `timeline-${name}`,
                 selected.id
             );
-
         }
 
     });
 
-
-    // LOCAL SETTINGS
-
     localRadioSettings.forEach(name => {
 
-        const selected =
-            document.querySelector(
-                `input[type="radio"][name="${name}"]:checked`
-            );
-
+        const selected = document.querySelector(
+            `input[type="radio"][name="${name}"]:checked`
+        );
 
         if (selected) {
-
             localStorage.setItem(
                 `timeline-${name}`,
                 selected.id
             );
-
         }
 
     });
@@ -1295,27 +1071,21 @@ function saveRadioSettings() {
 }
 
 
-// --------------------------------------------------
-// RESTORE RADIO SETTINGS
-// --------------------------------------------------
+/* --------------------------------------------------
+   RESTORE RADIO SETTINGS
+-------------------------------------------------- */
 
 function restoreRadioSettings() {
 
-    // SESSION SETTINGS
-
     sessionRadioSettings.forEach(name => {
 
-        const savedId =
-            sessionStorage.getItem(
-                `timeline-${name}`
-            );
-
+        const savedId = sessionStorage.getItem(
+            `timeline-${name}`
+        );
 
         if (savedId) {
 
-            const radio =
-                document.getElementById(savedId);
-
+            const radio = document.getElementById(savedId);
 
             if (radio) {
                 radio.checked = true;
@@ -1325,22 +1095,15 @@ function restoreRadioSettings() {
 
     });
 
-
-    // LOCAL SETTINGS
-
     localRadioSettings.forEach(name => {
 
-        const savedId =
-            localStorage.getItem(
-                `timeline-${name}`
-            );
-
+        const savedId = localStorage.getItem(
+            `timeline-${name}`
+        );
 
         if (savedId) {
 
-            const radio =
-                document.getElementById(savedId);
-
+            const radio = document.getElementById(savedId);
 
             if (radio) {
                 radio.checked = true;
@@ -1353,9 +1116,9 @@ function restoreRadioSettings() {
 }
 
 
-// --------------------------------------------------
-// RADIO CHANGE EVENTS
-// --------------------------------------------------
+/* --------------------------------------------------
+   RADIO CHANGE EVENTS
+-------------------------------------------------- */
 
 document.querySelectorAll(
     'input[type="radio"][name="order"], ' +
@@ -1365,142 +1128,131 @@ document.querySelectorAll(
     'input[type="radio"][name="time"]'
 ).forEach(radio => {
 
-    radio.addEventListener('change', () => {
-
+    radio.addEventListener("change", () => {
         saveRadioSettings();
-
     });
 
 });
 
 
-// ==================================================
-// UPDATE WRAPPERS WITH "EMPTY RESULTS"
-// ==================================================
+/* ==================================================
+   UPDATE WRAPPERS WITH EMPTY RESULTS
+================================================== */
 
 function updateWrappers() {
 
-    const dateGroups =
-        document.querySelectorAll('.date-group');
-
+    const dateGroups = document.querySelectorAll(".date-group");
 
     dateGroups.forEach(dateGroup => {
 
         const timeGroups =
-            dateGroup.querySelectorAll(
-                ':scope > .time-group'
-            );
-
+            dateGroup.querySelectorAll(":scope > .time-group");
 
         timeGroups.forEach(timeGroup => {
 
             const entries =
-                timeGroup.querySelectorAll(
-                    ':scope > .entry-overlay'
-                );
+                timeGroup.querySelectorAll(":scope > .entry-overlay");
 
+            const allHidden = [...entries].every(entry =>
+                entry.style.display === "none" ||
+                entry.classList.contains("hidden")
+            );
 
-            const allHidden =
-                [...entries].every(entry =>
-                    entry.style.display === 'none' ||
-                    entry.classList.contains('hidden')
-                );
-
-
-            timeGroup.style.display =
-                allHidden ? 'none' : '';
+            timeGroup.style.display = allHidden ? "none" : "";
 
         });
 
-
-        const allTimeGroupsHidden =
-            [...timeGroups].every(
-                timeGroup =>
-                    timeGroup.style.display === 'none'
-            );
-
+        const allTimeGroupsHidden = [...timeGroups].every(
+            timeGroup => timeGroup.style.display === "none"
+        );
 
         dateGroup.style.display =
-            allTimeGroupsHidden ? 'none' : '';
+            allTimeGroupsHidden ? "none" : "";
 
     });
 
+    const allDateGroupsHidden = [...dateGroups].every(
+        dateGroup => dateGroup.style.display === "none"
+    );
 
-    const allDateGroupsHidden =
-        [...dateGroups].every(
-            dateGroup =>
-                dateGroup.style.display === 'none'
-        );
-
-
-    document.getElementById(
-        'empty-results'
-    ).style.display =
-        allDateGroupsHidden ? '' : 'none';
+    document.getElementById("empty-results").style.display =
+        allDateGroupsHidden ? "" : "none";
 
 }
 
 
-// ==================================================
-// INITIAL PAGE SETUP
-// ==================================================
+/* ==================================================
+   INITIAL PAGE SETUP
+================================================== */
 
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener("DOMContentLoaded", () => {
 
     // RESTORE SAVED RADIO SETTINGS
+
     restoreRadioSettings();
 
 
     // RESTORE SAVED CHECKBOX SETTINGS
+
     restoreCheckboxStates();
 
 
-    // RESTORE SAVED SEARCH
-    const savedSearch =
-        sessionStorage.getItem(
-            searchStorageKey
-        );
+    // RESTORE SAVED SEARCHES
 
+    const savedSearches =
+        sessionStorage.getItem(searchStorageKey);
 
-    if (savedSearch !== null) {
+    if (savedSearches !== null) {
 
-        searchBar.value =
-            savedSearch;
+        let searches;
+
+        try {
+
+            searches = JSON.parse(savedSearches);
+
+            // Support old saved single-search strings
+            if (!Array.isArray(searches)) {
+                searches = [savedSearches];
+            }
+
+        } catch (error) {
+
+            searches = [savedSearches];
+
+        }
+
+        searchInputs.innerHTML = "";
+
+        searches.forEach(search => {
+            createSearchInput(search);
+        });
 
     }
 
 
     // APPLY ORDER
-    const newestfirst =
-        document.getElementById(
-            'newestfirst'
-        );
 
+    const newestfirst = document.getElementById("newestfirst");
 
     if (newestfirst.checked) {
-
         updateOrder(true, false);
-
     } else {
-
         updateOrder(false, false);
-
     }
 
 
     // APPLY SEARCH
-    if (searchBar.value) {
 
-        filterItems();
-
-    }
+    filterItems();
 
 
     // APPLY FILTERS
+
     updateVisibility();
 
 
-    // UPDATE ALL TOGGLE BUTTONS
+    // UPDATE TOGGLE BUTTONS
+
     updateAllToggleButtons();
 
 });
