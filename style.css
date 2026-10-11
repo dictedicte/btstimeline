@@ -769,7 +769,7 @@ header .max-width{
     min-height: 30px; */
     min-height: 36px;
     height: fit-content;
-    height: 36px;
+    /* height: 36px; */
     flex-grow: 1;
     padding-right: 0;
     /* padding: 6px 0; */
@@ -801,7 +801,7 @@ header .max-width{
     justify-content: end;
     gap: 6px;
     height: fit-content;
-    height: 36px;
+    /* height: 36px; */
     flex-wrap: wrap;
     z-index: 10;
     pointer-events: none;
