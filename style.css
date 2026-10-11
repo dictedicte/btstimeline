@@ -308,17 +308,18 @@ header .max-width{
 .year{
     height: 36px;
     width: 72px;
-    width: 78px;
+    width: 105px;
     color: var(--year);
     display: flex;
     justify-content: left;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     right: 0;
     /* margin-right: -3px; */
     position: relative;
     /* border-radius: 15px; */
     box-sizing: border-box;
+    padding-left: 15px;
     z-index: 990;
     margin-right: 6px;
     margin-right: 3px;
@@ -341,25 +342,26 @@ header .max-width{
     text-align: center;
 }
 
-/* .year::after{
+.year::after{
     content: "";
-    position: relative;
-    left: 0;
+    position: absolute;
+    right: 0;
     background-image: url(images/calendar_today_24dp_FFFFFF_FILL0_wght600_GRAD0_opsz24.svg);
     background-image: url(images/arrow_drop_down_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg);
-    width: 30px;
-    height: 30px;
+    width: 36px;
+    height: 36px;
     flex-shrink: 0;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 100%;
-} */
+    background-size: 78%;
+    margin-right: 1.5px;
+}
 
 /*YEAR OVERLAY FOR HOVER*/
 .year .overlay{
     max-height: 300px;
     width: 100%;
-    width: 75px;
+    width: 105px;
     position: absolute;
     top: 0px;
     display: none;
@@ -779,9 +781,12 @@ header .max-width{
     background-color: transparent;
     width: 36px;
 }
-.searchbar:has(input#search:hover){
+/* .searchbar:has(input#search:hover){
     background-color: var(--search-bar-bg-hvr);
-}
+} */
+ .searchbar:hover:after{
+    background-color: var(--search-bar-bg-hvr);
+ }
 
 #addSearch{
     height: 100%;
@@ -796,6 +801,7 @@ header .max-width{
 }
 .search-inputs{
     width: fit-content;
+    max-width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: end;
@@ -1250,7 +1256,6 @@ main::after{
     letter-spacing: 0.6px;
     box-sizing: border-box;
     padding: 0px 15px;
-    padding-left: 30px;
     padding-left: 30px;
     color: var(--date);
     /*SCROLL SKIP STICKY WITH ONE ENTRY:*/
