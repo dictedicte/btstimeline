@@ -19,6 +19,10 @@
     <div class="overlay">
     <div class="box">
         <a id="selectedYear" target="_parent" href="index.html">2026</a>
+        <button class="months">
+            <a target="_parent" href="index.html#january">January</a>
+            <a target="_parent" href="index.html#february">February</a>
+        </button>
         <a target="_parent" href="years/2025.html">2025</a>
         <a target="_parent" href="years/2024.html">2024</a>
         <a target="_parent" href="years/2023.html">2023</a>
@@ -36,103 +40,80 @@
     </div>
     </div>
     </div>
-       
-    
 
-<div class="searchbar">
-    <div class="search-inputs" id="searchInputs"></div>
-    <button type="button" id="addSearch"></button>
+    <div class="searchbar">
+        <div class="search-inputs" id="searchInputs"></div>
+        <button type="button" id="addSearch"></button>
 
-    <div class="suggestions-overlay">
-        <div class="suggestions" id="suggestions"></div>
+        <div class="suggestions-overlay">
+            <div class="suggestions" id="suggestions"></div>
+        </div>
+
+        <div id="suggestionData" style="display:none;">
+
+            <div class="suggestion-data eng">
+                <img src="images/icons/tv.png">
+                <span>Run BTS! 2.0</span>
+            </div>
+
+            <div class="suggestion-data kor">
+                <img src="images/icons/tv.png">
+                <span>달려라 방탄 2.0</span>
+            </div>
+            <div class="suggestion-data">
+                <img src="images/icons/tv.png">
+                <span>BTS: THE RETURN</span>
+            </div>
+
+            <div class="suggestion-data">
+                <img src="images/icons/tv.png">
+                <span>APPLE MUSIC INTERVIEW WITH ZANE LOWE</span>
+            </div>
+
+            <div class="suggestion-data">
+                <img src="images/icons/tv.png">
+                <span>ROLLING STONE COVER STORY</span>
+            </div>
+
+            <div class="suggestion-data">
+                <img src="images/icons/tv.png">
+                <span>FIRST WE FEAST 'HOT ONES'</span>
+            </div>
+
+            <div class="suggestion-data">
+                <img class="youtube" src="images/icons/social-media/youtube.png">
+                <span>[BANGTAN BOMB]</span>
+            </div>
+
+            <div class="suggestion-data">
+                <img class="youtube" src="images/icons/social-media/youtube.png">
+                <span>[EPISODE]</span>
+            </div>
+
+            <div class="suggestion-data">
+                <img class="youtube" src="images/icons/social-media/youtube.png">
+                <span>[DANCE PRACTICE]</span>
+            </div>
+
+        </div>
+
     </div>
 
-    <div id="suggestionData" style="display:none;">
-
-        <div class="suggestion-data eng">
-            <img src="images/icons/tv.png">
-            <span>Run BTS! 2.0</span>
-        </div>
-
-        <div class="suggestion-data kor">
-            <img src="images/icons/tv.png">
-            <span>달려라 방탄 2.0</span>
-        </div>
-        <div class="suggestion-data">
-            <img src="images/icons/tv.png">
-            <span>BTS: THE RETURN</span>
-        </div>
-
-        <div class="suggestion-data">
-            <img src="images/icons/tv.png">
-            <span>APPLE MUSIC INTERVIEW WITH ZANE LOWE</span>
-        </div>
-
-        <div class="suggestion-data">
-            <img src="images/icons/tv.png">
-            <span>ROLLING STONE COVER STORY</span>
-        </div>
-
-        <div class="suggestion-data">
-            <img src="images/icons/tv.png">
-            <span>FIRST WE FEAST 'HOT ONES'</span>
-        </div>
-
-        <div class="suggestion-data">
-            <img class="youtube" src="images/icons/social-media/youtube.png">
-            <span>[BANGTAN BOMB]</span>
-        </div>
-
-        <div class="suggestion-data">
-            <img class="youtube" src="images/icons/social-media/youtube.png">
-            <span>[EPISODE]</span>
-        </div>
-
-        <div class="suggestion-data">
-            <img class="youtube" src="images/icons/social-media/youtube.png">
-            <span>[DANCE PRACTICE]</span>
-        </div>
-
-    </div>
-
-</div>
-
-
-
-
-
-
-    <div class="settings">
+    <div class="filters">
     <div class="overlay">
     <div class="box">
-
-        <div class="section settings1">
-            <h2>ORDER</h2>
-            <label class="newestfirst"><input type="radio" name="order" id="newestfirst" checked>Newest First</label>
-            <label class="oldestfirst"><input type="radio" name="order" id="oldestfirst">Oldest First</label>
-
-            <h2>DISPLAY MODE</h2>
-            <label class="compact"><input type="radio" name="compactability" id="compact" checked>Compact</label>
-            <label class="expanded"><input type="radio" name="compactability" id="expanded">Expanded</label>
-            
-            <h2>TIME (KST)</h2>
-            <label><input type="radio" name="time" id="hidetime" checked>Hide</label>
-            <label><input type="radio" name="time" id="time24hour">24-Hour</label>
-            <label><input type="radio" name="time" id="time12hour">12-Hour</label>
-
-        </div>
 
         <div class="section filter-categories">
             <h2>CATEGORIES</h2>
             <button class="toggle-all" id="toggleAll" data-filter-group="categories">Deselect all</button>
         
-            <label for="music">Discography<input class="category-checkbox" type="checkbox" checked="" id="music"></label>
-            <label for="filmography">Filmography<input class="category-checkbox" type="checkbox" checked="" id="filmography"></label>
-            <label for="event">Concerts & Live Events<input class="category-checkbox" type="checkbox" checked="" id="event"></label>
+            <label for="music">Official Discography<input class="category-checkbox" type="checkbox" checked="" id="music"></label>
             <label for="officialvideo">Official Videos<input class="category-checkbox" type="checkbox" checked="" id="officialvideo"></label>
             <label for="officialphoto">Official Photos<input class="category-checkbox" type="checkbox" checked="" id="officialphoto"></label>
-            <label for="live">Livestreams<input class="category-checkbox" type="checkbox" checked="" id="live"></label>
+            <label for="event">Concerts & Events<input class="category-checkbox" type="checkbox" checked="" id="event"></label>
+            <label for="filmography">Filmography<input class="category-checkbox" type="checkbox" checked="" id="filmography"></label>
             <label for="dvd">DVD/blu-ray/Digital Code<input class="category-checkbox" type="checkbox" checked="" id="dvd"></label>
+            <label for="live">Livestreams<input class="category-checkbox" type="checkbox" checked="" id="live"></label>
         
             <label for="youtube">YouTube<input class="category-checkbox" type="checkbox" checked="" id="youtube"></label>
             <label for="weverse">Weverse<input class="category-checkbox" type="checkbox" checked="" id="weverse"></label>
@@ -154,14 +135,15 @@
             <h2>MEDIA TYPE</h2>
             <button class="toggle-all" id="toggleMediaAll" data-filter-group="media">Deselect all</button>
 
-            <label for="media-video">Videos<input type="checkbox" checked id="media-video"></label>
-            <label for="media-image">Images<input type="checkbox" checked id="media-image"></label>
-            <label for="media-audio">Audio<input type="checkbox" checked id="media-audio"></label>
-            <label for="media-none">No Media<input type="checkbox" checked id="media-none"></label>
+            <label for="media-video">Video<input type="checkbox" id="media-video" checked></label>
+            <label for="media-image">Image<input type="checkbox" id="media-image" checked></label>
+            <label for="media-music">Music<input type="checkbox" id="media-music" checked></label>
+            <label for="media-audio">Audio<input type="checkbox" id="media-audio" checked></label>
+            <label for="media-none">No Media<input type="checkbox" id="media-none" checked></label>
         </div>
 
         <div class="section filter-duration">
-            <h2>VIDEO/AUDIO DURATION</h2>
+            <h2>DURATION</h2>
             <button class="toggle-all" id="toggleDurationAll" data-filter-group="duration">Deselect all</button>
             <label for="duration-unspecified">Unspecified<input type="checkbox" id="duration-unspecified" checked></label>
             <label for="duration-0-10">0-10 min.<input type="checkbox" id="duration-0-10" checked></label>
@@ -183,6 +165,35 @@
             <label for="member-jungkook">Jung Kook<input type="checkbox" id="member-jungkook" checked></label>
         </div> -->
 
+    </div>
+    </div>
+    </div>
+
+    
+    <div class="settings">
+    <div class="overlay">
+    <div class="box">
+
+        <div class="section settings1">
+            <h2>ORDER</h2>
+            <label class="newestfirst"><input type="radio" name="order" id="newestfirst" checked>Newest First</label>
+            <label class="oldestfirst"><input type="radio" name="order" id="oldestfirst">Oldest First</label>
+
+            <h2>DISPLAY MODE</h2>
+            <label class="compact"><input type="radio" name="compactability" id="compact" checked>Compact</label>
+            <label class="expanded"><input type="radio" name="compactability" id="expanded">Expanded</label>
+            
+            <h2>TIME (KST)</h2>
+            <label><input type="radio" name="time" id="hidetime" checked>Hide</label>
+            <label><input type="radio" name="time" id="time24hour">24-Hour</label>
+            <label><input type="radio" name="time" id="time12hour">12-Hour</label>
+            
+            <h2>MULTI SEARCH RESULTS</h2>
+            <label><input type="radio" name="multisearch" id="multisearchOR" checked>Match At Least One Search (OR)</label>
+            <label><input type="radio" name="multisearch" id="multisearchAND">Match All Searches (AND)</label>
+
+        </div>
+
         <div class="section settings2">
             <h2>LANGUAGE PRIORITY</h2>
             <label for="english"><input name="language" type="radio" id="english" checked>English</label>
@@ -200,7 +211,6 @@
     </div>
     </div>
 
-    <!-- <a class="infopage" href="info.html" target="_parent"></a> -->
 </div>
 </header>
 
@@ -433,7 +443,10 @@
 </div>
 <span class="links">
 <div class="link-list"><ul>
-<li><a href="https://www.youtube.com/watch?v=y1D_OrBDHuk">YouTube</a></li>
+<li><a href="https://www.youtube.com/watch?v=y1D_OrBDHuk">
+    <span class="link-title">YouTube</span>
+    <span class="link-subtitle">월.와.핸 진의 양갈래 사진 비하인드? MARIE CAKE with JIN🎂(Eng sub)</span>
+</a></li>
 </ul>
 </div>
 </span>
@@ -1051,6 +1064,7 @@ Just keep going. No feeling is final.</p>
 </article>
 </div>
 </div></div>
+            <span style="height: 0;" id="february"></span>
 <div class="date-group">
 <h2 class="date"><time datetime="2026-02-05">
 <span class="month">January</span>
@@ -1674,8 +1688,12 @@ Discover the spring campaign on CalvinKlein.com</p>
 </div>
 <span class="links">
 <div class="link-list"><ul>
-<li><a href="https://www.youtube.com/watch?v=PKoaxkX4wGw">YouTube</a></li>
-<li><a href="https://journey.gq.com/video/watch/actually-us-bts">GQ</a></li>
+<li><a href="https://www.youtube.com/watch?v=PKoaxkX4wGw">
+    
+    <span class="link-title">YouTube</span>
+    <span class="link-subtitle">BTS (방탄소년단) Reply To Fans Online</span>
+</a></li>
+<li><a href="https://journey.gq.com/video/watch/actually-us-bts"><span class="link-title">GQ</span></a></li>
 </ul>
 </div>
 </span>
@@ -2263,6 +2281,9 @@ Discover the spring campaign on CalvinKlein.com</p>
 <div class="entry-text">
 <h4>5TH FULL-LENGHT ALBUM</h4>
 <div class="entry-bottom">
+<div class="entry-details">
+<span class="detail media-music-album"><span>15 tracks</span></span>
+</div>
 <p>ARIRANG</p>
 </div>
 </div>
@@ -2879,6 +2900,9 @@ Discover the spring campaign on CalvinKlein.com</p>
 <div class="entry-text">
 <h4>INSTRUMENTAL VERSION</h4>
 <div class="entry-bottom">
+<div class="entry-details">
+<span class="detail media-music-album"><span>2 tracks</span></span>
+</div>
 <p>SWIM (Instrumental)</p>
 </div>
 </div>
@@ -3430,6 +3454,9 @@ Discover the spring campaign on CalvinKlein.com</p>
 <div class="entry-text">
 <h4>REMIX ALBUM</h4>
 <div class="entry-bottom">
+<div class="entry-details">
+<span class="detail media-music-album"><span>9 tracks</span></span>
+</div>
 <p>KEEP SWIMMING</p>
 </div>
 </div>
@@ -4865,6 +4892,9 @@ A bold fusion of a trailblazer and a music icon.</p>
 <div class="entry-text">
 <h4>DELUXE VINYL EDITION OF 5TH FULL-LENGHT ALBUM [INCLUDING HIDDEN TRACK]</h4>
 <div class="entry-bottom">
+<div class="entry-details">
+<span class="detail media-music-album"><span>1 new track</span></span>
+</div>
 <p>ARIRANG</p>
 </div>
 </div>
@@ -5788,6 +5818,9 @@ and have the best time. I’m counting on you🔥🔥
 <div class="entry-text">
 <h4>REMIX</h4>
 <div class="entry-bottom">
+<div class="entry-details">
+<span class="detail media-music-album"><span>3 tracks</span></span>
+</div>
 <p>SWIM (Underwater Remix)</p>
 </div>
 </div>
@@ -6512,6 +6545,9 @@ and have the best time. I’m counting on you🔥🔥
 <div class="entry-text">
 <h4>REMIX</h4>
 <div class="entry-bottom">
+<div class="entry-details">
+<span class="detail media-music-album"><span>3 tracks</span></span>
+</div>
 <p>SWIM (Spring Waves Remix)</p>
 </div>
 </div>
